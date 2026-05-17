@@ -40,17 +40,23 @@ export function HeroSection() {
               <span className="text-[color:var(--color-teal-700)]">performance hospitalière</span>
             </motion.h1>
 
-            <motion.p
+            <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.12 }}
-              className="mt-7 max-w-2xl text-pretty text-lg md:text-[19px] leading-relaxed text-[color:var(--color-muted-strong)]"
+              className="mt-7 max-w-2xl space-y-5 text-pretty text-lg md:text-[19px] leading-relaxed text-[color:var(--color-muted-strong)]"
             >
-              K'BIO structure des missions d'audit biomédical, de programmes GMAO multisites et
-              d'études architecture hospitalière — pour ministères de santé, bailleurs (UNICEF, FSE, banques
-              de développement) et opérateurs privés. Nous donnons aux directions techniques des bases
-              chiffrées, normatives et opposables lors des audits et des investissements.
-            </motion.p>
+              <p>
+                K'BIO structure des missions d'audit biomédical, des programmes d'équipement multisites et
+                des études d'architecture hospitalière pour les acteurs publics, les bailleurs et les
+                opérateurs privés de santé.
+              </p>
+              <p className="text-[15.5px] leading-relaxed text-[color:var(--color-muted)] md:text-[17px]">
+                Nous transformons les constats techniques en données fiables, chiffrées et opposables
+                pour éclairer les décisions, sécuriser les investissements et renforcer la continuité des
+                soins.
+              </p>
+            </motion.div>
 
             <motion.div
               initial={{ opacity: 0, y: 16 }}
