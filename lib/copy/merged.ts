@@ -16,7 +16,7 @@ const heroStatsEn = [
     value: "25",
     suffix: "+",
     label: "Completed assignments",
-    hint: "PSA audits, biomedical studies, donor support",
+    hint: "Biomedical engineering & Hospital architecture",
   },
   {
     value: "15 000",
