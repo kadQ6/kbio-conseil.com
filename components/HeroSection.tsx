@@ -34,12 +34,10 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.05 }}
-              className="display mt-6 text-balance text-5xl md:text-6xl lg:text-[68px] leading-[1.02]"
+              className="display mt-6 text-balance text-4xl sm:text-5xl md:text-[52px] lg:text-[58px] leading-[1.05]"
             >
-              L'expertise biomédicale
-              <span className="block">
-                au service de la <span className="text-[color:var(--color-teal-700)]">continuité des soins</span>
-              </span>
+              Transformer la gestion biomédicale en levier de{" "}
+              <span className="text-[color:var(--color-teal-700)]">performance hospitalière</span>
             </motion.h1>
 
             <motion.p
