@@ -20,8 +20,8 @@ const heroStatsEn = [
   },
   {
     value: "15 000",
-    label: "Devices mapped or under follow‑up",
-    hint: "across CMMS multisite programmes",
+    label: "Installed or monitored medical devices",
+    hint: "Multisite programme",
   },
   { value: "12", suffix: "+", label: "Countries & territories", hint: "Eastern Africa & SSA" },
   {
