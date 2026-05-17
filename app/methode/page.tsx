@@ -12,7 +12,7 @@ import { images } from "@/lib/images";
 import { ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Méthode K'BIO Conseil",
+  title: "Méthode K'BIO",
   description:
     "Notre méthode en cinq étapes structurées : diagnostic, inventaire, analyse des risques, plan d'action priorisé, suivi et reporting. Une démarche traçable et reproductible.",
   path: "/methode",

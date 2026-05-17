@@ -1,5 +1,5 @@
 /**
- * Single source for K'BIO Conseil site content.
+ * Single source for K'BIO site content.
  */
 
 import type { LucideIcon } from "lucide-react";
@@ -22,9 +22,9 @@ import {
 } from "lucide-react";
 
 export const site = {
-  name: "K'BIO Conseil",
+  name: "K'BIO",
   longName: "Ingénierie biomédicale & architecture hospitalière",
-  parent: "K'BIO Conseil",
+  parent: "K'BIO",
   baseline: "Génie biomédical et ingénierie hospitalière terrain.",
   url: "https://kbio-conseil.com",
   locale: "fr-FR",
@@ -42,10 +42,8 @@ export const navigation = [
   { label: "Accueil", href: "/" },
   { label: "À propos", href: "/a-propos" },
   { label: "Expertises", href: "/expertises" },
-  { label: "Offres & contrats", href: "/offres" },
   { label: "Méthode", href: "/methode" },
   { label: "Nos projets", href: "/projets" },
-  { label: "Plateformes & PSA", href: "/plateformes" },
   { label: "Contact", href: "/contact" },
 ] as const;
 
@@ -199,66 +197,6 @@ export const expertises: Expertise[] = [
   },
 ];
 
-export type Offer = {
-  slug: string;
-  name: string;
-  tagline: string;
-  duration: string;
-  highlight?: string;
-  features: string[];
-  ctaLabel: string;
-  ctaHref: string;
-};
-
-export const offers: Offer[] = [
-  {
-    slug: "audit-simple",
-    name: "Audit stratégique",
-    tagline: "État des lieux chiffré du parc et des risques critiques.",
-    duration: "Mission ciblée",
-    features: [
-      "Atelier direction & périmètre",
-      "Échantillonnage visites ou audit complet selon sizing",
-      "Rapport priorisé urgences/clinique",
-      "Synthèse investissement indicative",
-      "Option restitution bailleur",
-    ],
-    ctaLabel: "Demander un entretien",
-    ctaHref: "/contact?offre=audit-simple",
-  },
-  {
-    slug: "audit-curatif",
-    name: "Audit + relance corrective",
-    tagline: "Diagnostiquer et débloquer immobilisations majeures factuellement.",
-    duration: "Wave terrain étendue",
-    highlight: "Demandé PSA & renouvellement parc",
-    features: [
-      "Cartographie + focus pannes critiques",
-      "Plans action court terme avec coûts pièces",
-      "Rapport médiation direction / fournisseur",
-      "Mise à jour registre équipements",
-    ],
-    ctaLabel: "Planifier une mission",
-    ctaHref: "/contact?offre=audit-curatif",
-  },
-  {
-    slug: "contrat-3-ans",
-    name: "Accompagnement triennal",
-    tagline: "Cadence d'expertise, mise à niveau méthodes & reporting consolidé bailleur.",
-    duration: "36 mois (avenant)",
-    features: [
-      "Feuilles de route annuelles",
-      "Révisions PMC & rapports réguliers",
-      "Astreinte conseil niveau stratégique",
-      "Exports Excel standardisés",
-      "Pont vers microsite PSA projet si pertinent",
-      "Réunions COPIL trimestrielles",
-    ],
-    ctaLabel: "Étudier un cadre",
-    ctaHref: "/contact?offre=contrat-3-ans",
-  },
-];
-
 export type ServiceModel = {
   title: string;
   description: string;
@@ -405,25 +343,6 @@ export const sectors: Sector[] = [
   { title: "Laboratoires", description: "Automates chaîne valeur biologique urgences.", icon: Cpu },
 ];
 
-export type PortalFeature = {
-  title: string;
-  description: string;
-};
-
-export const portalFeatures: PortalFeature[] = [
-  {
-    title: "Microsites mission PSA",
-    description: "Espace projet dédié (ex. Rwanda) diffusion contrôlée tableaux disponibilités consolidés bailleur.",
-  },
-  { title: "Centralisation livrables", description: "Rapports audits GMAO fiches synthèses versions nommées [ENTITE]-KBIO conventions." },
-  { title: "Suivi KPI multi-sites", description: "Agrégation indicateurs téléchargement audits internes." },
-  { title: "Piste anomalies", description: "Historique anomalies majeures fermées ou escaladées avec preuves." },
-  {
-    title: "Exports standardisés",
-    description: "Excel PDF packés conformément exigences programmatiques externes.",
-  },
-];
-
 export type Reference = {
   type: string;
   description: string;
@@ -531,11 +450,7 @@ export const footerColumns: ReadonlyArray<{
   },
   {
     title: "Services",
-    links: [
-      { label: "Expertises", href: "/expertises" },
-      { label: "Offres & contrats", href: "/offres" },
-      { label: "Plateformes & PSA", href: "/plateformes" },
-    ],
+    links: [{ label: "Expertises", href: "/expertises" }],
   },
   {
     title: "Ressources",

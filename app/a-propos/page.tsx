@@ -12,11 +12,11 @@ import { images } from "@/lib/images";
 import { site } from "@/lib/site-data";
 
 export const metadata: Metadata = buildMetadata({
-  title: "À propos — K'BIO Conseil",
+  title: "À propos — K'BIO",
   description:
-    "K'BIO Conseil accompagne directions techniques & bailleurs : ingénierie biomédicale, architecture hospitalière PSA, missions terrain Afrique & Europe.",
+    "K'BIO accompagne directions techniques & bailleurs : ingénierie biomédicale, architecture hospitalière PSA, missions terrain Afrique & Europe.",
   path: "/a-propos",
-  keywords: ["K'BIO Conseil ingénierie biomédicale", "architecture hospitalière Afrique"],
+  keywords: ["K'BIO ingénierie biomédicale", "architecture hospitalière Afrique"],
 });
 
 const values = [
@@ -70,7 +70,7 @@ export default function AboutPage() {
       <PageHero
         eyebrow="À propos"
         title="Un cabinet français & corne Afrique au service du plateau technique critique."
-        description="K'BIO Conseil relie expertise biomédicale terrain, structuration données GMAO et ingénierie hospitalière (blocs, fluides médicaux) pour offrir des livrables réalistes devant investissements & bailleurs."
+        description="K'BIO relie expertise biomédicale terrain, structuration données GMAO et ingénierie hospitalière (blocs, fluides médicaux) pour offrir des livrables réalistes devant investissements & bailleurs."
         crumbs={[{ label: "Accueil", href: "/" }, { label: "À propos" }]}
         image={images.about.src}
         imageAlt={images.about.alt}
@@ -182,7 +182,7 @@ export default function AboutPage() {
                 Un ancrage local, une exigence internationale.
               </h2>
               <p className="mt-5 max-w-md text-[15.5px] text-white/75 leading-relaxed">
-                K'BIO Conseil enchaîne missions France (réseaux hospitaliers APS) et grands périmètres
+                K'BIO enchaîne missions France (réseaux hospitaliers APS) et grands périmètres
                 région Afrique où les parcs sont dispersés multiples sites et formats Excel historiques imparfaits.
               </p>
             </div>

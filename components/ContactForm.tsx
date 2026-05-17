@@ -36,7 +36,7 @@ export function ContactForm() {
           Merci, votre message est bien reçu.
         </h3>
         <p className="mt-3 text-[15px] text-[color:var(--color-muted-strong)]">
-          L'équipe K'BIO Conseil revient vers vous sous 48 heures ouvrées.
+          L'équipe K'BIO revient vers vous sous 48 heures ouvrées.
         </p>
       </div>
     );

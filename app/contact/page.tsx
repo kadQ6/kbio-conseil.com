@@ -11,7 +11,7 @@ import { images } from "@/lib/images";
 export const metadata: Metadata = buildMetadata({
   title: "Contact",
   description:
-    "Contacter K'BIO Conseil — audit PSA biomédical, programmes GMAO multisites, assistance AO & architecture bloc. Réponse indicative sous ~48 h ouvrées.",
+    "Contacter K'BIO — audit PSA biomédical, programmes GMAO multisites, assistance AO & architecture bloc. Réponse indicative sous ~48 h ouvrées.",
   path: "/contact",
 });
 

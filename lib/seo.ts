@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { site } from "./site-data";
 
 const DEFAULT_DESCRIPTION =
-  "K'BIO Conseil — ingénierie biomédicale & architecture hospitalière. Audits PSA, programmes GMAO multisites, accompagnement bailleurs UNICEF/FSE/AO, bloc opératoire & fluides médicaux. Paris · Djibouti · Afrique subsaharienne.";
+  "K'BIO — ingénierie biomédicale & architecture hospitalière. Audits PSA, programmes GMAO multisites, accompagnement bailleurs UNICEF/FSE/AO, bloc opératoire & fluides médicaux. Paris · Djibouti · Afrique subsaharienne.";
 
 const DEFAULT_KEYWORDS = [
   "ingénierie biomédicale international",
@@ -11,7 +11,7 @@ const DEFAULT_KEYWORDS = [
   "architecture hospitalière bloc opératoire",
   "fluides médicaux NF EN ISO",
   "appels d'offres biomédical",
-  "K'BIO Conseil",
+  "K'BIO",
 ];
 
 export type PageMetaInput = {

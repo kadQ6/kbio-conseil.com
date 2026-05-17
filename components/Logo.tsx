@@ -1,36 +1,41 @@
+import Image from "next/image";
 import Link from "next/link";
 
 type Variant = "default" | "light";
 
+/** Logo Kbio livré sous `public/images/logo/kbio-logo.png` (`unoptimized` : pas de blocage optimiseur PNG). */
+const LOGO_SRC = "/images/logo/kbio-logo.png";
+
 export function Logo({ variant = "default" }: { variant?: Variant }) {
-  const inkColor = variant === "light" ? "#FFFFFF" : "var(--color-ink)";
-  const subColor = variant === "light" ? "rgba(255,255,255,0.72)" : "var(--color-muted)";
+  const onDarkFooter = variant === "light";
+
+  const mark = (
+    <span className="relative block h-9 w-[100px] sm:h-10 sm:w-[112px]">
+      <Image
+        src={LOGO_SRC}
+        alt="K'BIO"
+        fill
+        unoptimized
+        priority={!onDarkFooter}
+        sizes="112px"
+        className="object-contain object-left"
+      />
+    </span>
+  );
 
   return (
-    <Link href="/" aria-label="K'BIO Conseil — Accueil" className="group inline-flex items-center gap-3">
-      <span
-        aria-hidden
-        className="grid h-10 w-10 place-items-center rounded-xl bg-[color:var(--color-ink)] text-white shadow-[var(--shadow-soft)] transition-transform group-hover:-translate-y-0.5"
-      >
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden>
-          <path
-            d="M5 12h3l2-5 4 10 2-5h3"
-            stroke="var(--color-teal)"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      </span>
-      <span className="flex flex-col leading-tight">
-        <span className="text-[10px] uppercase tracking-[0.2em]" style={{ color: subColor }}>
-          Génie biomédical
+    <Link
+      href="/"
+      aria-label="K'BIO — Accueil"
+      className="group inline-flex items-center transition-transform duration-300 hover:-translate-y-0.5"
+    >
+      {onDarkFooter ? (
+        <span className="inline-flex rounded-2xl bg-white px-2.5 py-1 shadow-[var(--shadow-soft)] ring-1 ring-black/5">
+          {mark}
         </span>
-        <span className="font-semibold text-[17px]" style={{ color: inkColor, letterSpacing: "-0.02em" }}>
-          K'BIO<span className="text-[color:var(--color-teal)]"> </span>
-          Conseil
-        </span>
-      </span>
+      ) : (
+        mark
+      )}
     </Link>
   );
 }

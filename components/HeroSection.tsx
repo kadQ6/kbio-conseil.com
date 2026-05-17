@@ -48,7 +48,7 @@ export function HeroSection() {
               transition={{ duration: 0.6, delay: 0.12 }}
               className="mt-7 max-w-2xl text-pretty text-lg md:text-[19px] leading-relaxed text-[color:var(--color-muted-strong)]"
             >
-              K'BIO Conseil structure des missions d'audit biomédical, de programmes GMAO multisites et
+              K'BIO structure des missions d'audit biomédical, de programmes GMAO multisites et
               d'études architecture hospitalière — pour ministères de santé, bailleurs (UNICEF, FSE, banques
               de développement) et opérateurs privés. Nous donnons aux directions techniques des bases
               chiffrées, normatives et opposables lors des audits et des investissements.
@@ -64,8 +64,8 @@ export function HeroSection() {
                 Demander un audit
                 <ArrowRight className="h-4 w-4" />
               </ButtonLink>
-              <ButtonLink href="/offres" variant="ghost" size="lg">
-                Découvrir nos offres
+              <ButtonLink href="/expertises" variant="ghost" size="lg">
+                Découvrir nos expertises
               </ButtonLink>
             </motion.div>
 
@@ -93,6 +93,24 @@ export function HeroSection() {
   );
 }
 
+/** Illustration dashboard — répartition des projets actifs par filière */
+const ACTIVE_PROJECT_SPLIT = {
+  biomedical: 8,
+  architecture: 5,
+} as const;
+
+const ACTIVE_PROJECTS_TOTAL =
+  ACTIVE_PROJECT_SPLIT.biomedical + ACTIVE_PROJECT_SPLIT.architecture;
+
+/** Illustration — pays où des projets sont actifs (liste éditable) */
+const HERO_PROJECT_COUNTRIES = [
+  "Djibouti",
+  "France",
+  "Gabon",
+  "Rwanda",
+  "Somalie",
+] as const;
+
 function HeroVisual() {
   return (
     <motion.div
@@ -106,34 +124,35 @@ function HeroVisual() {
           <div className="flex items-center gap-2">
             <span className="h-2.5 w-2.5 rounded-full bg-[color:var(--color-success)]" />
             <span className="text-[11px] uppercase tracking-[0.18em] text-[color:var(--color-muted)]">
-              Tableau de bord parc
+              Tableau de bord projets
             </span>
           </div>
-          <span className="num-tabular text-[11px] text-[color:var(--color-muted)]">K'BIO · PSA</span>
+          <span className="num-tabular text-[11px] text-[color:var(--color-muted)]">K'BIO · Live</span>
         </div>
 
         <div className="mt-5 grid grid-cols-2 gap-3">
-          <MiniKpi label="Disponibilité" value="98 %" tone="success" />
-          <MiniKpi label="Pannes critiques" value="2" tone="warning" />
-          <MiniKpi label="MTBF moyen" value="412 j" tone="default" />
-          <MiniKpi label="Tickets ouverts" value="14" tone="default" />
+          <MiniKpi label="Projets actifs" value={String(ACTIVE_PROJECTS_TOTAL)} tone="default" />
+          <MiniKpi label="Avancement moyen" value="72 %" tone="success" />
+          <MiniKpi label="Points vigilance" value="3" tone="warning" />
+          <MiniKpi label="Jalons sous 45 j" value="5" tone="default" />
         </div>
 
-        <div className="mt-5 rounded-2xl bg-[color:var(--color-soft)] p-4">
-          <div className="flex items-center justify-between">
-            <span className="text-[11px] uppercase tracking-[0.18em] text-[color:var(--color-muted)]">
-              Disponibilité 12 mois
-            </span>
-            <span className="num-tabular text-[11px] text-[color:var(--color-muted-strong)]">+3.4 pts</span>
-          </div>
-          <SparkChart />
-        </div>
+        <HeroProjectsChart />
 
-        <ul className="mt-4 space-y-2 text-[13px] text-[color:var(--color-muted-strong)]">
-          <Row site="Bloc opératoire" status="success" label="Conforme" />
-          <Row site="Imagerie médicale" status="warning" label="Plan d'action" />
-          <Row site="Laboratoire" status="success" label="Conforme" />
-        </ul>
+        <div className="mt-5 border-t border-[color:var(--color-line)] pt-4">
+          <p className="text-[10px] uppercase tracking-[0.18em] text-[color:var(--color-muted)]">
+            Pays avec projets en cours
+          </p>
+          <ul className="mt-3 flex flex-wrap gap-2">
+            {HERO_PROJECT_COUNTRIES.map((country) => (
+              <li key={country}>
+                <span className="inline-flex rounded-full border border-[color:var(--color-line)] bg-[color:var(--color-soft)] px-2.5 py-1 text-[12px] font-medium text-[color:var(--color-muted-strong)]">
+                  {country}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
 
       <div
@@ -141,10 +160,10 @@ function HeroVisual() {
         className="absolute -bottom-6 -left-6 hidden rounded-2xl border border-[color:var(--color-line)] bg-white p-4 shadow-[var(--shadow-elev)] sm:block"
       >
         <p className="text-[10px] uppercase tracking-[0.2em] text-[color:var(--color-muted)]">
-          Audit en cours
+          Livrables en rédaction
         </p>
         <p className="mt-1 num-tabular text-2xl font-semibold text-[color:var(--color-ink)]">
-          420<span className="text-base text-[color:var(--color-muted)]"> équipements</span>
+          14<span className="text-base text-[color:var(--color-muted)]"> dossiers</span>
         </p>
       </div>
     </motion.div>
@@ -174,49 +193,72 @@ function MiniKpi({
   );
 }
 
-function SparkChart() {
-  return (
-    <svg viewBox="0 0 200 60" className="mt-3 h-14 w-full">
-      <defs>
-        <linearGradient id="g" x1="0" x2="0" y1="0" y2="1">
-          <stop offset="0%" stopColor="var(--color-teal)" stopOpacity="0.45" />
-          <stop offset="100%" stopColor="var(--color-teal)" stopOpacity="0" />
-        </linearGradient>
-      </defs>
-      <path
-        d="M0,40 L20,38 L40,32 L60,30 L80,28 L100,22 L120,24 L140,16 L160,18 L180,12 L200,10 L200,60 L0,60 Z"
-        fill="url(#g)"
-      />
-      <path
-        d="M0,40 L20,38 L40,32 L60,30 L80,28 L100,22 L120,24 L140,16 L160,18 L180,12 L200,10"
-        fill="none"
-        stroke="var(--color-teal-700)"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
+function HeroProjectsChart() {
+  const total = ACTIVE_PROJECTS_TOTAL;
+  const pctBiomedical =
+    total > 0 ? Math.round((ACTIVE_PROJECT_SPLIT.biomedical / total) * 100) : 0;
+  const pctArchitecture = total > 0 ? 100 - pctBiomedical : 0;
 
-function Row({
-  site,
-  label,
-  status,
-}: {
-  site: string;
-  label: string;
-  status: "success" | "warning";
-}) {
-  const dot =
-    status === "success" ? "bg-[color:var(--color-success)]" : "bg-[color:var(--color-warning)]";
   return (
-    <li className="flex items-center justify-between rounded-lg px-2 py-1.5">
-      <span className="flex items-center gap-2">
-        <span className={`h-1.5 w-1.5 rounded-full ${dot}`} />
-        {site}
-      </span>
-      <span className="text-[12px] text-[color:var(--color-muted)]">{label}</span>
-    </li>
+    <div
+      className="mt-5 rounded-2xl bg-[color:var(--color-soft)] p-4"
+      role="img"
+      aria-label={`${total} projets en cours : ${ACTIVE_PROJECT_SPLIT.biomedical} ingénierie biomédicale, ${ACTIVE_PROJECT_SPLIT.architecture} architecture hospitalière`}
+    >
+      <div className="flex items-center justify-between gap-2">
+        <span className="text-[11px] uppercase tracking-[0.18em] text-[color:var(--color-muted)]">
+          Projets en cours
+        </span>
+        <span className="num-tabular text-[11px] font-semibold text-[color:var(--color-muted-strong)]">
+          {total} <span className="font-normal text-[color:var(--color-muted)]">actifs</span>
+        </span>
+      </div>
+
+      <div
+        className="mt-3 flex h-3 w-full overflow-hidden rounded-full bg-white ring-1 ring-[color:var(--color-line)]"
+        aria-hidden
+      >
+        <motion.span
+          initial={{ width: 0 }}
+          animate={{ width: `${pctBiomedical}%` }}
+          transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
+          className="h-full bg-[color:var(--color-teal-700)]"
+          style={{ minWidth: total ? "4px" : undefined }}
+        />
+        <motion.span
+          initial={{ width: 0 }}
+          animate={{ width: `${pctArchitecture}%` }}
+          transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1], delay: 0.28 }}
+          className="h-full bg-[color:var(--color-ink)]"
+          style={{ minWidth: total ? "4px" : undefined }}
+        />
+      </div>
+
+      <ul className="mt-3 space-y-2">
+        <li className="flex items-center justify-between gap-2 text-[13px] text-[color:var(--color-muted-strong)]">
+          <span className="flex min-w-0 items-center gap-2">
+            <span
+              aria-hidden
+              className="h-2 w-2 shrink-0 rounded-full bg-[color:var(--color-teal-700)]"
+            />
+            <span className="truncate leading-snug">Ingénierie biomédicale</span>
+          </span>
+          <span className="num-tabular shrink-0 text-[12px] text-[color:var(--color-muted)]">
+            {ACTIVE_PROJECT_SPLIT.biomedical}{" "}
+            <span className="tabular-nums">({pctBiomedical}%)</span>
+          </span>
+        </li>
+        <li className="flex items-center justify-between gap-2 text-[13px] text-[color:var(--color-muted-strong)]">
+          <span className="flex min-w-0 items-center gap-2">
+            <span aria-hidden className="h-2 w-2 shrink-0 rounded-full bg-[color:var(--color-ink)]" />
+            <span className="truncate leading-snug">Architecture hospitalière</span>
+          </span>
+          <span className="num-tabular shrink-0 text-[12px] text-[color:var(--color-muted)]">
+            {ACTIVE_PROJECT_SPLIT.architecture}{" "}
+            <span className="tabular-nums">({pctArchitecture}%)</span>
+          </span>
+        </li>
+      </ul>
+    </div>
   );
 }

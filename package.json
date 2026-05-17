@@ -2,11 +2,11 @@
   "name": "kbio-conseil-com",
   "version": "0.1.0",
   "private": true,
-  "description": "Site vitrine K'BIO Conseil — ingénierie biomédicale & architecture hospitalière",
+  "description": "Site vitrine K'BIO — ingénierie biomédicale & architecture hospitalière",
   "scripts": {
-    "dev": "next dev --turbopack -p 3090",
+    "dev": "next dev --turbopack -p 3090 --hostname 127.0.0.1",
     "build": "next build --turbopack",
-    "start": "next start -p 3090",
+    "start": "next start -p 3090 --hostname 127.0.0.1",
     "lint": "next lint"
   },
   "dependencies": {

@@ -23,7 +23,7 @@ const referenceVisuals = [
 export const metadata: Metadata = buildMetadata({
   title: "Nos projets",
   description:
-    "Références représentatives : programmes PSA Rwanda, missions UNICEF/Somalie, CHUD Djibouti, BERTIN, France & Gabon — livrables K'BIO Conseil pour bailleurs et directions techniques.",
+    "Références représentatives : programmes PSA Rwanda, missions UNICEF/Somalie, CHUD Djibouti, BERTIN, France & Gabon — livrables K'BIO pour bailleurs et directions techniques.",
   path: "/projets",
 });
 

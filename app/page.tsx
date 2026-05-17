@@ -1,4 +1,4 @@
-import { ArrowRight, ShieldCheck } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { HeroSection } from "@/components/HeroSection";
 import { Container } from "@/components/Container";
 import { SectionHeading } from "@/components/SectionHeading";
@@ -6,7 +6,6 @@ import { StatsGrid } from "@/components/StatsGrid";
 import { ServiceCard } from "@/components/ServiceCard";
 import { MethodTimeline } from "@/components/MethodTimeline";
 import { ReferenceCard } from "@/components/ReferenceCard";
-import { ClientPortalPreview } from "@/components/ClientPortalPreview";
 import { CTASection } from "@/components/CTASection";
 import { ImageFeature } from "@/components/ImageFeature";
 import { LogoWall } from "@/components/LogoWall";
@@ -34,7 +33,7 @@ export default function HomePage() {
             </div>
             <div className="lg:col-span-7">
               <p className="text-lg leading-relaxed text-[color:var(--color-muted-strong)] text-pretty">
-                K'BIO Conseil soutient ministères de santé, directions techniques hospitalières et
+                K'BIO soutient ministères de santé, directions techniques hospitalières et
                 bailleurs sur des périmètres multisites : mise en disponibilité, audit PSA,
                 fichiers Excel GMAO industrialisés, assistance architecture bloc & fluides médicaux.
               </p>
@@ -115,7 +114,7 @@ export default function HomePage() {
       <section className="relative bg-[color:var(--color-soft)]">
         <Container className="py-24 md:py-32">
           <ImageFeature
-            eyebrow="Pourquoi K'BIO Conseil"
+            eyebrow="Pourquoi K'BIO"
             title="Rigueur consulting & sens du plateau technique."
             reverse
             image={images.equipmentClose.src}
@@ -216,52 +215,14 @@ export default function HomePage() {
         </Container>
       </section>
 
-      {/* Plateformes / PSA */}
-      <section className="relative bg-[color:var(--color-soft)]">
-        <Container className="py-24 md:py-32">
-          <div className="grid grid-cols-1 gap-14 lg:grid-cols-12 lg:gap-10 items-center">
-            <div className="lg:col-span-5">
-              <SectionHeading
-                eyebrow="Plateformes & PSA"
-                title="Suivi projet, KPI consolidés, micro-diffusion sous contrôle."
-                description="Pour certaines missions (ex. programme PSA Rwanda), nous pouvons proposer espaces projet dédiés — rapports téléchargeables selon vos règles de partage bailleur/ministère."
-              >
-                <ul className="mt-8 space-y-2.5">
-                  {[
-                    "Livrables PDF/Excel conventions K'BIO",
-                    "Agrégation multi-site pour tableau situation",
-                    "Historique anomalies majeures tracées",
-                    "Option microsite psa.* selon périmètre",
-                  ].map((t) => (
-                    <li key={t} className="flex items-start gap-2.5 text-[14.5px] text-[color:var(--color-muted-strong)]">
-                      <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-[color:var(--color-teal-700)]" />
-                      {t}
-                    </li>
-                  ))}
-                </ul>
-                <div className="mt-8">
-                  <ButtonLink href="/plateformes" variant="primary" size="md">
-                    Découvrir plateformes
-                    <ArrowRight className="h-4 w-4" />
-                  </ButtonLink>
-                </div>
-              </SectionHeading>
-            </div>
-            <div className="lg:col-span-7">
-              <ClientPortalPreview />
-            </div>
-          </div>
-        </Container>
-      </section>
-
       <CTASection
         eyebrow="Premier échange"
         title="Structurer vos données équipements & votre stratégie investissement?"
         description="Une visio de pré-cadrage avec un consultant K'BIO permet d'estimer volumétrie, délais indicative et niveau livrables sans engagement."
         primaryHref="/contact"
         primaryLabel="Planifier un échange confidentiel"
-        secondaryHref="/offres"
-        secondaryLabel="Voir nos offres"
+        secondaryHref="/expertises"
+        secondaryLabel="Voir les expertises"
       />
     </>
   );
