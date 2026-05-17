@@ -71,7 +71,7 @@ export function Header() {
 
         <div className="hidden lg:flex items-center gap-3">
           <ButtonLink href="/contact" variant="secondary" size="md">
-            Demander un audit
+            Demander un RDV
             <ArrowUpRight className="h-4 w-4" />
           </ButtonLink>
         </div>
@@ -117,7 +117,7 @@ export function Header() {
               })}
               <div className="mt-4">
                 <ButtonLink href="/contact" variant="secondary" size="lg" className="w-full">
-                  Demander un audit
+                  Demander un RDV
                 </ButtonLink>
               </div>
             </nav>

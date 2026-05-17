@@ -26,7 +26,7 @@ export function HeroSection() {
             >
               <Sparkles className="h-3.5 w-3.5 text-[color:var(--color-teal)]" />
               <span className="text-xs font-medium text-[color:var(--color-muted-strong)]">
-                Île-de-France · Djibouti · Afrique subsaharienne
+                France - Afrique - Moyen Orient
               </span>
             </motion.div>
 
@@ -61,7 +61,7 @@ export function HeroSection() {
               className="mt-10 flex flex-col gap-3 sm:flex-row"
             >
               <ButtonLink href="/contact" variant="secondary" size="lg">
-                Demander un audit
+                Demander un RDV
                 <ArrowRight className="h-4 w-4" />
               </ButtonLink>
               <ButtonLink href="/expertises" variant="ghost" size="lg">

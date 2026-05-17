@@ -1,0 +1,10 @@
+---
+description: Après toute modification du site vitrine, pousser sur GitHub pour déploiement Vercel automatique vers kbio-conseil.com
+alwaysApply: true
+---
+
+# Déploiement continu — kbio-conseil.com
+
+- Quand tu **modifies** le code ou le contenu de ce projet (pages, composants, `public/`, textes, tout ce qui doit apparaître en prod), complète systématiquement la boucle : **`git status` → `git add` des fichiers concernés → `git commit`** (message court, en français ou anglais comme le repo) **`→ git push origin main`**, sauf si l’utilisateur **demande explicitement** de ne pas committer ou de ne pas pousser.
+- Le site **production** est servi depuis **GitHub (`main`) → Vercel** ; tant que ça ne remonte pas sur le remote, **`kbio-conseil.com` ne sera pas à jour**.
+- Ne jamais **force-push** sur `main`. Ne pas commiter de secrets (`.env`, clés).
