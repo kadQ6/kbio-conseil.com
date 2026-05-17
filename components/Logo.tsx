@@ -6,7 +6,15 @@ type Variant = "default" | "light";
 /** Logo Kbio livré sous `public/images/logo/kbio-logo.png` (`unoptimized` : pas de blocage optimiseur PNG). */
 const LOGO_SRC = "/images/logo/kbio-logo.png";
 
-export function Logo({ variant = "default" }: { variant?: Variant }) {
+export function Logo({
+  variant = "default",
+  href = "/",
+  ariaLabel = "K'BIO — Accueil",
+}: {
+  variant?: Variant;
+  href?: string;
+  ariaLabel?: string;
+}) {
   const onDarkFooter = variant === "light";
 
   const mark = (
@@ -25,8 +33,8 @@ export function Logo({ variant = "default" }: { variant?: Variant }) {
 
   return (
     <Link
-      href="/"
-      aria-label="K'BIO — Accueil"
+      href={href}
+      aria-label={ariaLabel}
       className="group inline-flex items-center transition-transform duration-300 hover:-translate-y-0.5"
     >
       {onDarkFooter ? (

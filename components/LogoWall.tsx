@@ -13,10 +13,12 @@ const partners: { name: string; mark: "plus" | "pulse" | "ring" | "hex" | "wave"
 ];
 
 export function LogoWall({
+  eyebrow = "Confiance",
   title = "Ils nous font confiance",
   subtitle = "Exemples de programme : bailleurs institutionnels, ministères de santé, opérateurs privés multisites.",
   disclaimer = "Logos d'illustration — à remplacer par les références réelles.",
 }: {
+  eyebrow?: string;
   title?: string;
   subtitle?: string;
   disclaimer?: string;
@@ -26,7 +28,7 @@ export function LogoWall({
       <Container className="py-16 md:py-20">
         <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="eyebrow">Confiance</p>
+            <p className="eyebrow">{eyebrow}</p>
             <h2 className="mt-3 text-2xl md:text-3xl font-semibold tracking-tight text-[color:var(--color-ink)]">
               {title}
             </h2>

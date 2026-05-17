@@ -6,10 +6,12 @@ export function ReferenceCard({
   reference,
   image,
   imageAlt,
+  maskedBadge = "Mission anonymisée",
 }: {
   reference: Reference;
   image?: string;
   imageAlt?: string;
+  maskedBadge?: string;
 }) {
   return (
     <article className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-[color:var(--color-line)] bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-[var(--shadow-elev)]">
@@ -32,7 +34,7 @@ export function ReferenceCard({
           />
           <div className="absolute bottom-3 left-3 inline-flex items-center gap-1.5 rounded-full bg-white/95 px-2.5 py-1 text-[11px] font-medium text-[color:var(--color-ink)] backdrop-blur">
             <Building2 className="h-3 w-3 text-[color:var(--color-teal-700)]" />
-            Mission anonymisée
+            {maskedBadge}
           </div>
         </div>
       )}
@@ -46,7 +48,7 @@ export function ReferenceCard({
             >
               <Building2 className="h-4 w-4" />
             </span>
-            <p className="eyebrow">Mission anonymisée</p>
+            <p className="eyebrow">{maskedBadge}</p>
           </div>
         )}
 

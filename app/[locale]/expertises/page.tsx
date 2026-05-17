@@ -6,24 +6,53 @@ import { CTASection } from "@/components/CTASection";
 import { AnimatedReveal } from "@/components/AnimatedReveal";
 import { ButtonLink } from "@/components/Button";
 import { buildMetadata } from "@/lib/seo";
-import { expertises } from "@/lib/site-data";
+import { getExpertises } from "@/lib/copy/merged";
 import { images } from "@/lib/images";
+import { localizeHref } from "@/lib/i18n/paths";
+import { normalizeLocale } from "@/lib/i18n/config";
 
-export const metadata: Metadata = buildMetadata({
-  title: "Expertises biomédicales",
-  description:
-    "Expertises biomédicales et hospitalières — audit PSA, GMAO, AO, bloc opératoire & fluides médicaux.",
-  path: "/expertises",
-});
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const locale = normalizeLocale((await params).locale);
+  return buildMetadata({
+    title: locale === "en" ? "Biomedical expertise" : "Expertises biomédicales",
+    description:
+      locale === "en"
+        ? "Biomedical readiness, CMMS modernization, tenders, perioperative architectures & regulated medical fluids."
+        : "Expertises biomédicales et hospitalières — audit PSA, GMAO, AO, bloc opératoire & fluides médicaux.",
+    path: "/expertises",
+    locale,
+  });
+}
 
-export default function ExpertisesPage() {
+export default async function ExpertisesPage({ params }: { params: Promise<{ locale: string }> }) {
+  const locale = normalizeLocale((await params).locale);
+  const expertises = getExpertises(locale);
+  const homeHref = localizeHref(locale, "/");
+  const contactHref = localizeHref(locale, "/contact");
+  const methodeHref = localizeHref(locale, "/methode");
+
+  const homeCrumb = locale === "en" ? "Home" : "Accueil";
+  const heroEyebrow = locale === "en" ? "Expertise" : "Expertises";
+
   return (
     <>
       <PageHero
-        eyebrow="Expertises"
-        title="Onze domaines pour fiabiliser parc, investissements & infrastructures critiques."
-        description="Chaque expertise peut être mobilisée seule ou combinée audit + architecture fluides selon périmètres projet. Expression des besoins cadrée avant kick-off ministère/partenaires."
-        crumbs={[{ label: "Accueil", href: "/" }, { label: "Expertises" }]}
+        eyebrow={heroEyebrow}
+        title={
+          locale === "en"
+            ? "Eleven practice areas to stabilize fleets, capex dossiers & critical infrastructures."
+            : "Onze domaines pour fiabiliser parc, investissements & infrastructures critiques."
+        }
+        description={
+          locale === "en"
+            ? "Each competency can operate standalone or as audit + perioperative fluids bundles. Needs are scripted before Ministries or partners kick programmes off."
+            : "Chaque expertise peut être mobilisée seule ou combinée audit + architecture fluides selon périmètres projet. Expression des besoins cadrée avant kick-off ministère/partenaires."
+        }
+        crumbs={[{ label: homeCrumb, href: homeHref }, { label: heroEyebrow }]}
         image={images.techField.src}
         imageAlt={images.techField.alt}
       />
@@ -67,12 +96,12 @@ export default function ExpertisesPage() {
 
                   <div className="mt-7 pt-5 border-t border-[color:var(--color-line)]">
                     <ButtonLink
-                      href={`/contact?expertise=${e.slug}`}
+                      href={localizeHref(locale, `/contact?expertise=${e.slug}`)}
                       variant="ghost"
                       size="md"
                       className="w-full justify-between"
                     >
-                      Discuter de cette expertise
+                      {locale === "en" ? "Discuss this expertise" : "Discuter de cette expertise"}
                       <ArrowUpRight className="h-4 w-4" />
                     </ButtonLink>
                   </div>
@@ -84,13 +113,21 @@ export default function ExpertisesPage() {
       </section>
 
       <CTASection
-        eyebrow="Mission cadrée"
-        title="Construisons ensemble la mission qui correspond à votre parc."
-        description="Nos expertises se combinent pour répondre à vos contraintes opérationnelles, budgétaires et calendaires."
-        primaryHref="/contact"
-        primaryLabel="Définir ma mission"
-        secondaryHref="/methode"
-        secondaryLabel="Voir la méthode"
+        eyebrow={locale === "en" ? "Structured mandate" : "Mission cadrée"}
+        title={
+          locale === "en"
+            ? "Shape the engagement that mirrors your biomedical portfolio."
+            : "Construisons ensemble la mission qui correspond à votre parc."
+        }
+        description={
+          locale === "en"
+            ? "Our clusters combine fluidly across operational, financial and timetable constraints."
+            : "Nos expertises se combinent pour répondre à vos contraintes opérationnelles, budgétaires et calendaires."
+        }
+        primaryHref={contactHref}
+        primaryLabel={locale === "en" ? "Define my mandate" : "Définir ma mission"}
+        secondaryHref={methodeHref}
+        secondaryLabel={locale === "en" ? "See methodology" : "Voir la méthode"}
       />
     </>
   );

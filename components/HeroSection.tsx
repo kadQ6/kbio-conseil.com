@@ -2,10 +2,43 @@
 
 import { ArrowRight, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
+import type { HeroCopyStrings } from "@/lib/copy/home";
 import { ButtonLink } from "./Button";
 import { Container } from "./Container";
 
-export function HeroSection() {
+/** Illustration — répartition des projets actifs par filière */
+const ACTIVE_PROJECT_SPLIT = {
+  biomedical: 8,
+  architecture: 5,
+} as const;
+
+const ACTIVE_PROJECTS_TOTAL =
+  ACTIVE_PROJECT_SPLIT.biomedical + ACTIVE_PROJECT_SPLIT.architecture;
+
+const HERO_PROJECT_COUNTRIES = [
+  "Djibouti",
+  "France",
+  "Gabon",
+  "Rwanda",
+  "Somalie",
+] as const;
+
+function chartAria(copy: HeroCopyStrings) {
+  return copy.chartAria
+    .replace("{total}", String(ACTIVE_PROJECTS_TOTAL))
+    .replace("{bio}", String(ACTIVE_PROJECT_SPLIT.biomedical))
+    .replace("{archi}", String(ACTIVE_PROJECT_SPLIT.architecture));
+}
+
+export function HeroSection({
+  hero,
+  contactHref,
+  expertisesHref,
+}: {
+  hero: HeroCopyStrings;
+  contactHref: string;
+  expertisesHref: string;
+}) {
   return (
     <section className="relative overflow-hidden">
       <div aria-hidden className="absolute inset-0 -z-10 bg-radial-fade" />
@@ -25,9 +58,7 @@ export function HeroSection() {
               className="inline-flex items-center gap-2 rounded-full border border-[color:var(--color-line)] bg-white/70 px-3 py-1.5 backdrop-blur"
             >
               <Sparkles className="h-3.5 w-3.5 text-[color:var(--color-teal)]" />
-              <span className="text-xs font-medium text-[color:var(--color-muted-strong)]">
-                France - Afrique - Moyen Orient
-              </span>
+              <span className="text-xs font-medium text-[color:var(--color-muted-strong)]">{hero.badge}</span>
             </motion.div>
 
             <motion.h1
@@ -36,8 +67,8 @@ export function HeroSection() {
               transition={{ duration: 0.6, delay: 0.05 }}
               className="display mt-6 text-balance text-4xl sm:text-5xl md:text-[52px] lg:text-[58px] leading-[1.05]"
             >
-              Transformer la gestion biomédicale en levier de{" "}
-              <span className="text-[color:var(--color-teal-700)]">performance hospitalière</span>
+              {hero.titleLead}{" "}
+              <span className="text-[color:var(--color-teal-700)]">{hero.titleAccent}</span>
             </motion.h1>
 
             <motion.div
@@ -47,10 +78,10 @@ export function HeroSection() {
               className="mt-7 flex max-w-2xl flex-col gap-5"
             >
               <p className="m-0 font-sans font-normal text-pretty text-lg leading-relaxed text-[color:var(--color-muted-strong)] md:text-[19px]">
-                K'BIO structure des missions d'audit biomédical, des programmes d'équipement multisites et des études d'architecture hospitalière pour les acteurs publics, les bailleurs et les opérateurs privés de santé.
+                {hero.intro[0]}
               </p>
               <p className="m-0 font-sans font-normal text-pretty text-lg leading-relaxed text-[color:var(--color-muted-strong)] md:text-[19px]">
-                Nous transformons les constats techniques en données fiables, chiffrées et opposables pour éclairer les décisions, sécuriser les investissements et renforcer la continuité des soins.
+                {hero.intro[1]}
               </p>
             </motion.div>
 
@@ -60,12 +91,12 @@ export function HeroSection() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="mt-10 flex flex-col gap-3 sm:flex-row"
             >
-              <ButtonLink href="/contact" variant="secondary" size="lg">
-                Demander un RDV
+              <ButtonLink href={contactHref} variant="secondary" size="lg">
+                {hero.ctaPrimary}
                 <ArrowRight className="h-4 w-4" />
               </ButtonLink>
-              <ButtonLink href="/expertises" variant="ghost" size="lg">
-                Découvrir nos expertises
+              <ButtonLink href={expertisesHref} variant="ghost" size="lg">
+                {hero.ctaSecondary}
               </ButtonLink>
             </motion.div>
 
@@ -77,15 +108,15 @@ export function HeroSection() {
             >
               <span className="inline-flex items-center gap-2">
                 <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--color-success)]" />
-                Conformité IEC 60601 / 62353
+                {hero.footIEC}
               </span>
               <span className="hidden h-3 w-px bg-[color:var(--color-line-strong)] sm:block" />
-              <span className="hidden sm:inline">Méthodologie alignée OMS</span>
+              <span className="hidden sm:inline">{hero.footWHO}</span>
             </motion.div>
           </div>
 
           <div className="lg:col-span-5">
-            <HeroVisual />
+            <HeroVisual hero={hero} />
           </div>
         </div>
       </Container>
@@ -93,25 +124,7 @@ export function HeroSection() {
   );
 }
 
-/** Illustration dashboard — répartition des projets actifs par filière */
-const ACTIVE_PROJECT_SPLIT = {
-  biomedical: 8,
-  architecture: 5,
-} as const;
-
-const ACTIVE_PROJECTS_TOTAL =
-  ACTIVE_PROJECT_SPLIT.biomedical + ACTIVE_PROJECT_SPLIT.architecture;
-
-/** Illustration — pays où des projets sont actifs (liste éditable) */
-const HERO_PROJECT_COUNTRIES = [
-  "Djibouti",
-  "France",
-  "Gabon",
-  "Rwanda",
-  "Somalie",
-] as const;
-
-function HeroVisual() {
+function HeroVisual({ hero }: { hero: HeroCopyStrings }) {
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.96 }}
@@ -124,24 +137,24 @@ function HeroVisual() {
           <div className="flex items-center gap-2">
             <span className="h-2.5 w-2.5 rounded-full bg-[color:var(--color-success)]" />
             <span className="text-[11px] uppercase tracking-[0.18em] text-[color:var(--color-muted)]">
-              Tableau de bord projets
+              {hero.visualEyebrow}
             </span>
           </div>
-          <span className="num-tabular text-[11px] text-[color:var(--color-muted)]">K'BIO · Live</span>
+          <span className="num-tabular text-[11px] text-[color:var(--color-muted)]">{hero.visualLive}</span>
         </div>
 
         <div className="mt-5 grid grid-cols-2 gap-3">
-          <MiniKpi label="Projets actifs" value={String(ACTIVE_PROJECTS_TOTAL)} tone="default" />
-          <MiniKpi label="Avancement moyen" value="72 %" tone="success" />
-          <MiniKpi label="Points vigilance" value="3" tone="warning" />
-          <MiniKpi label="Jalons sous 45 j" value="5" tone="default" />
+          <MiniKpi label={hero.kpiActiveProjects} value={String(ACTIVE_PROJECTS_TOTAL)} tone="default" />
+          <MiniKpi label={hero.kpiAvgProgress} value="72 %" tone="success" />
+          <MiniKpi label={hero.kpiWatchpoints} value="3" tone="warning" />
+          <MiniKpi label={hero.kpiMilestones} value="5" tone="default" />
         </div>
 
-        <HeroProjectsChart />
+        <HeroProjectsChart hero={hero} />
 
         <div className="mt-5 border-t border-[color:var(--color-line)] pt-4">
           <p className="text-[10px] uppercase tracking-[0.18em] text-[color:var(--color-muted)]">
-            Pays avec projets en cours
+            {hero.countriesEyebrow}
           </p>
           <ul className="mt-3 flex flex-wrap gap-2">
             {HERO_PROJECT_COUNTRIES.map((country) => (
@@ -159,11 +172,10 @@ function HeroVisual() {
         aria-hidden
         className="absolute -bottom-6 -left-6 hidden rounded-2xl border border-[color:var(--color-line)] bg-white p-4 shadow-[var(--shadow-elev)] sm:block"
       >
-        <p className="text-[10px] uppercase tracking-[0.2em] text-[color:var(--color-muted)]">
-          Livrables en rédaction
-        </p>
+        <p className="text-[10px] uppercase tracking-[0.2em] text-[color:var(--color-muted)]">{hero.sideCardEyebrow}</p>
         <p className="mt-1 num-tabular text-2xl font-semibold text-[color:var(--color-ink)]">
-          14<span className="text-base text-[color:var(--color-muted)]"> dossiers</span>
+          {hero.sideCardMetric}
+          <span className="text-base text-[color:var(--color-muted)]">{hero.sideCardUnit}</span>
         </p>
       </div>
     </motion.div>
@@ -183,8 +195,8 @@ function MiniKpi({
     tone === "success"
       ? "text-[color:var(--color-success)]"
       : tone === "warning"
-      ? "text-[color:var(--color-warning)]"
-      : "text-[color:var(--color-ink)]";
+        ? "text-[color:var(--color-warning)]"
+        : "text-[color:var(--color-ink)]";
   return (
     <div className="rounded-xl border border-[color:var(--color-line)] bg-white p-3">
       <p className="text-[10px] uppercase tracking-[0.18em] text-[color:var(--color-muted)]">{label}</p>
@@ -193,7 +205,7 @@ function MiniKpi({
   );
 }
 
-function HeroProjectsChart() {
+function HeroProjectsChart({ hero }: { hero: HeroCopyStrings }) {
   const total = ACTIVE_PROJECTS_TOTAL;
   const pctBiomedical =
     total > 0 ? Math.round((ACTIVE_PROJECT_SPLIT.biomedical / total) * 100) : 0;
@@ -203,14 +215,15 @@ function HeroProjectsChart() {
     <div
       className="mt-5 rounded-2xl bg-[color:var(--color-soft)] p-4"
       role="img"
-      aria-label={`${total} projets en cours : ${ACTIVE_PROJECT_SPLIT.biomedical} ingénierie biomédicale, ${ACTIVE_PROJECT_SPLIT.architecture} architecture hospitalière`}
+      aria-label={chartAria(hero)}
     >
       <div className="flex items-center justify-between gap-2">
         <span className="text-[11px] uppercase tracking-[0.18em] text-[color:var(--color-muted)]">
-          Projets en cours
+          {hero.chartEyebrow}
         </span>
         <span className="num-tabular text-[11px] font-semibold text-[color:var(--color-muted-strong)]">
-          {total} <span className="font-normal text-[color:var(--color-muted)]">actifs</span>
+          {total}{" "}
+          <span className="font-normal text-[color:var(--color-muted)]">{hero.chartSubtitle}</span>
         </span>
       </div>
 
@@ -234,6 +247,12 @@ function HeroProjectsChart() {
         />
       </div>
 
+      <div className="mt-3">
+        <p className="text-[10px] font-medium uppercase tracking-[0.12em] text-[color:var(--color-muted)]">
+          {hero.chartTitle}
+        </p>
+      </div>
+
       <ul className="mt-3 space-y-2">
         <li className="flex items-center justify-between gap-2 text-[13px] text-[color:var(--color-muted-strong)]">
           <span className="flex min-w-0 items-center gap-2">
@@ -241,7 +260,7 @@ function HeroProjectsChart() {
               aria-hidden
               className="h-2 w-2 shrink-0 rounded-full bg-[color:var(--color-teal-700)]"
             />
-            <span className="truncate leading-snug">Ingénierie biomédicale</span>
+            <span className="truncate leading-snug">{hero.rowBio}</span>
           </span>
           <span className="num-tabular shrink-0 text-[12px] text-[color:var(--color-muted)]">
             {ACTIVE_PROJECT_SPLIT.biomedical}{" "}
@@ -251,7 +270,7 @@ function HeroProjectsChart() {
         <li className="flex items-center justify-between gap-2 text-[13px] text-[color:var(--color-muted-strong)]">
           <span className="flex min-w-0 items-center gap-2">
             <span aria-hidden className="h-2 w-2 shrink-0 rounded-full bg-[color:var(--color-ink)]" />
-            <span className="truncate leading-snug">Architecture hospitalière</span>
+            <span className="truncate leading-snug">{hero.rowArchi}</span>
           </span>
           <span className="num-tabular shrink-0 text-[12px] text-[color:var(--color-muted)]">
             {ACTIVE_PROJECT_SPLIT.architecture}{" "}

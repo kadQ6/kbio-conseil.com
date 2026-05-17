@@ -8,9 +8,12 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       { source: "/references", destination: "/projets", permanent: true },
+      { source: "/en/references", destination: "/en/projets", permanent: true },
       { source: "/portail-client", destination: "/contact", permanent: true },
       { source: "/offres", destination: "/expertises", permanent: true },
+      { source: "/en/offres", destination: "/en/expertises", permanent: true },
       { source: "/plateformes", destination: "/contact", permanent: true },
+      { source: "/en/plateformes", destination: "/en/contact", permanent: true },
     ];
   },
   turbopack: {

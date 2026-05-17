@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { ArrowRight } from "lucide-react";
 import { HeroSection } from "@/components/HeroSection";
 import { Container } from "@/components/Container";
@@ -11,89 +12,114 @@ import { ImageFeature } from "@/components/ImageFeature";
 import { LogoWall } from "@/components/LogoWall";
 import { AnimatedReveal } from "@/components/AnimatedReveal";
 import { ButtonLink } from "@/components/Button";
-import { references, sectors, serviceModels, whyKbio } from "@/lib/site-data";
+import {
+  getHeroStats,
+  getMethodSteps,
+  getReferences,
+  getServiceModels,
+  getSectors,
+  getWhyKbio,
+} from "@/lib/copy/merged";
+import { getHeroCopy } from "@/lib/copy/home";
+import { homeSections } from "@/lib/copy/home-page";
+import { normalizeLocale } from "@/lib/i18n/config";
+import { localizeHref } from "@/lib/i18n/paths";
+import { buildMetadata } from "@/lib/seo";
+import { site } from "@/lib/site-data";
 import { images } from "@/lib/images";
 
 const referenceImages = [images.audit.src, images.imaging.src, images.laboratory.src];
 
-export default function HomePage() {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const locale = normalizeLocale((await params).locale);
+  return buildMetadata({
+    title: site.name,
+    path: "/",
+    locale,
+  });
+}
+
+export default async function HomePage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const locale = normalizeLocale((await params).locale);
+  const h = homeSections(locale);
+  const hero = getHeroCopy(locale);
+
+  const serviceModels = getServiceModels(locale);
+  const references = getReferences(locale);
+  const sectors = getSectors(locale);
+  const whyKbio = getWhyKbio(locale);
+  const methodSteps = getMethodSteps(locale);
+  const heroStats = getHeroStats(locale);
+
+  const contactHref = localizeHref(locale, "/contact");
+  const expertisesHref = localizeHref(locale, "/expertises");
+  const methodeHref = localizeHref(locale, "/methode");
+  const projetsHref = localizeHref(locale, "/projets");
+
   return (
     <>
-      <HeroSection />
+      <HeroSection hero={hero} contactHref={contactHref} expertisesHref={expertisesHref} />
 
-      {/* Introduction + chiffres clés */}
       <section className="relative">
         <Container className="py-20 md:py-28">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
             <div className="lg:col-span-5">
-              <p className="eyebrow">Le cabinet</p>
-              <h2 className="display mt-4 text-3xl md:text-[40px] leading-[1.05]">
-                Ingénierie biomédicale structurée, du terrain aux dossiers bailleurs.
-              </h2>
+              <p className="eyebrow">{h.introEyebrow}</p>
+              <h2 className="display mt-4 text-3xl md:text-[40px] leading-[1.05]">{h.introTitle}</h2>
             </div>
             <div className="lg:col-span-7">
               <p className="text-lg leading-relaxed text-[color:var(--color-muted-strong)] text-pretty">
-                K'BIO soutient ministères de santé, directions techniques hospitalières et
-                bailleurs sur des périmètres multisites : mise en disponibilité, audit PSA,
-                fichiers Excel GMAO industrialisés, assistance architecture bloc & fluides médicaux.
+                {h.introP1}
               </p>
-              <p className="mt-5 text-[15.5px] leading-relaxed text-[color:var(--color-muted)]">
-                Méthodes alignées OMS/IEC où utile, livrables versionnés, exports conformes audits
-                — sans sur-promettre des disponibilités impossibles sur le terrain réel des sites.
-              </p>
+              <p className="mt-5 text-[15.5px] leading-relaxed text-[color:var(--color-muted)]">{h.introP2}</p>
             </div>
           </div>
 
           <div className="mt-16">
             <AnimatedReveal>
-              <StatsGrid />
+              <StatsGrid stats={heroStats} locale={locale} />
             </AnimatedReveal>
           </div>
         </Container>
       </section>
 
-      {/* Image feature 1 — Sur le terrain */}
       <section className="relative bg-[color:var(--color-soft)]">
         <Container className="py-24 md:py-32">
           <ImageFeature
-            eyebrow="Sur le terrain"
-            title="Présence technique qui transforme l'état du parc en plan d'arbitrage."
+            eyebrow={h.fieldEyebrow}
+            title={h.fieldTitle}
             description={
               <>
-                <p>
-                  Déplacements sur sites critiques (blocs, dialyse, imagerie, laboratoires) comme
-                  appui à distance lorsque la mission est structurée en vagues locales. Visites
-                  documentées, nomenclatures homogènes, criticité fonctionnelle.
-                </p>
-                <p>
-                  Vous obtenez une base unique pour KPI consolidés ministère ou bailleur, et des
-                  chiffrages d'investissement comparables dans le temps.
-                </p>
+                <p>{h.fieldP1}</p>
+                <p>{h.fieldP2}</p>
               </>
             }
             image={images.audit.src}
             imageAlt={images.audit.alt}
-            stats={[
-              { value: "120+", label: "Audits PSA & missions livrées" },
-              { value: "> 3200 DM", label: "Ex. programme Rwanda PSA" },
-              { value: "UNICEF", label: "& bailleurs multiformats Excel" },
-            ]}
+            stats={h.fieldStats}
           >
-            <ButtonLink href="/methode" variant="ghost" size="md">
-              Voir la méthode
+            <ButtonLink href={methodeHref} variant="ghost" size="md">
+              {h.methodBtn}
               <ArrowRight className="h-4 w-4" />
             </ButtonLink>
           </ImageFeature>
         </Container>
       </section>
 
-      {/* Modèles de service */}
       <section className="relative">
         <Container className="py-24 md:py-28">
           <SectionHeading
-            eyebrow="Axes d'intervention"
-            title="Quatre modes d'accompagnement selon votre maturité data & risques."
-            description="Durée indicative : du sprint audit à plusieurs années COPIL stratégiques — périmètres contractualisés clairement."
+            eyebrow={h.servicesEyebrow}
+            title={h.servicesTitle}
+            description={h.servicesDesc}
           />
           <div className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4">
             {serviceModels.map((s, i) => (
@@ -102,7 +128,8 @@ export default function HomePage() {
                   title={s.title}
                   description={s.description}
                   Icon={s.icon}
-                  href="/expertises"
+                  href={expertisesHref}
+                  moreLabel={h.serviceMore}
                 />
               </AnimatedReveal>
             ))}
@@ -110,21 +137,15 @@ export default function HomePage() {
         </Container>
       </section>
 
-      {/* Image feature 2 — Pourquoi K'BIO */}
       <section className="relative bg-[color:var(--color-soft)]">
         <Container className="py-24 md:py-32">
           <ImageFeature
-            eyebrow="Pourquoi K'BIO"
-            title="Rigueur consulting & sens du plateau technique."
+            eyebrow={h.whyEyebrow}
+            title={h.whyTitle}
             reverse
             image={images.equipmentClose.src}
             imageAlt={images.equipmentClose.alt}
-            description={
-              <p>
-                Pas de généralités PowerPoint creuses : nous travaillons avec données terrain,
-                nomenclatures explicables et dossiers AO ou bailleurs vérifiables point par point.
-              </p>
-            }
+            description={<p>{h.whyLead}</p>}
           >
             <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               {whyKbio.slice(0, 4).map((w) => (
@@ -149,36 +170,31 @@ export default function HomePage() {
         </Container>
       </section>
 
-      {/* Méthode */}
       <section id="methode" className="relative">
         <Container className="py-24 md:py-32">
           <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-            <SectionHeading
-              eyebrow="Méthode"
-              title="Cinq étapes structurées, du cadrage à la capitalisation données."
-              description="Une démarche lisible équipes médicales, achats et bailleurs — avec fichiers vivants évolutifs."
-            />
-            <ButtonLink href="/methode" variant="ghost" size="md" className="self-start md:self-auto">
-              Méthode détaillée
+            <SectionHeading eyebrow={h.methodEyebrow} title={h.methodTitle} description={h.methodDesc} />
+            <ButtonLink href={methodeHref} variant="ghost" size="md" className="self-start md:self-auto">
+              {h.methodBtn}
               <ArrowRight className="h-4 w-4" />
             </ButtonLink>
           </div>
           <div className="mt-14">
-            <MethodTimeline />
+            <MethodTimeline steps={methodSteps} />
           </div>
         </Container>
       </section>
 
-      <LogoWall />
+      <LogoWall
+        title={h.logoWallTitle}
+        subtitle={h.logoWallSubtitle}
+        disclaimer={h.logoWallDisclaimer}
+        eyebrow={h.logoWallEyebrow}
+      />
 
-      {/* Références / secteurs */}
       <section className="relative">
         <Container className="py-24 md:py-32">
-          <SectionHeading
-            eyebrow="Secteurs accompagnés"
-            title="Une même exigence — contextes très différents."
-            description="Missions publique nationale, projet bailleur UNICEF/FSE ou clinique groupe privé européenne."
-          />
+          <SectionHeading eyebrow={h.sectorsEyebrow} title={h.sectorsTitle} description={h.sectorsDesc} />
           <div className="mt-14 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
             {sectors.map((s, i) => (
               <AnimatedReveal key={s.title} delay={i * 0.03}>
@@ -201,14 +217,15 @@ export default function HomePage() {
                 <ReferenceCard
                   reference={r}
                   image={referenceImages[i]}
-                  imageAlt={`Illustration — ${r.type}`}
+                  imageAlt={`${h.refAltPrefix} ${r.type}`}
+                  maskedBadge={h.refMaskedBadge}
                 />
               </AnimatedReveal>
             ))}
           </div>
           <div className="mt-10 text-center">
-            <ButtonLink href="/projets" variant="ghost" size="md">
-              Nos projets & missions types
+            <ButtonLink href={projetsHref} variant="ghost" size="md">
+              {h.projectsBtn}
               <ArrowRight className="h-4 w-4" />
             </ButtonLink>
           </div>
@@ -216,13 +233,13 @@ export default function HomePage() {
       </section>
 
       <CTASection
-        eyebrow="Premier échange"
-        title="Structurer vos données équipements & votre stratégie investissement?"
-        description="Une visio de pré-cadrage avec un consultant K'BIO permet d'estimer volumétrie, délais indicative et niveau livrables sans engagement."
-        primaryHref="/contact"
-        primaryLabel="Planifier un échange confidentiel"
-        secondaryHref="/expertises"
-        secondaryLabel="Voir les expertises"
+        eyebrow={h.ctaEyebrow}
+        title={h.ctaTitle}
+        description={h.ctaDesc}
+        primaryHref={contactHref}
+        primaryLabel={h.ctaPrimary}
+        secondaryHref={expertisesHref}
+        secondaryLabel={h.ctaSecondary}
       />
     </>
   );

@@ -10,14 +10,30 @@ import { AnimatedReveal } from "@/components/AnimatedReveal";
 import { buildMetadata } from "@/lib/seo";
 import { images } from "@/lib/images";
 import { site } from "@/lib/site-data";
+import { normalizeLocale } from "@/lib/i18n/config";
+import { localizeHref } from "@/lib/i18n/paths";
 
-export const metadata: Metadata = buildMetadata({
-  title: "À propos — K'BIO",
-  description:
-    "K'BIO accompagne directions techniques & bailleurs : ingénierie biomédicale, architecture hospitalière PSA, missions terrain Afrique & Europe.",
-  path: "/a-propos",
-  keywords: ["K'BIO ingénierie biomédicale", "architecture hospitalière Afrique"],
-});
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const locale = normalizeLocale((await params).locale);
+  return buildMetadata({
+    title: locale === "en" ? `About ${site.name}` : `À propos — ${site.name}`,
+    description:
+      locale === "en"
+        ? "K'BIO serves technical divisions & financiers combining biomedical PSA, perioperative architectures and reproducible spreadsheets across Africa & Europe."
+        : "K'BIO accompagne directions techniques & bailleurs : ingénierie biomédicale, architecture hospitalière PSA, missions terrain Afrique & Europe.",
+    path: "/a-propos",
+    locale,
+    keywords:
+      locale === "en"
+        ? ["biomedical consultancy", "hospital architecture Africa"]
+        : ["K'BIO ingénierie biomédicale", "architecture hospitalière Afrique"],
+  });
+}
+
 
 const values = [
   {
@@ -64,14 +80,29 @@ const positioning = [
   },
 ];
 
-export default function AboutPage() {
+export default async function AboutPage({ params }: { params: Promise<{ locale: string }> }) {
+  const locale = normalizeLocale((await params).locale);
+  const homeHref = localizeHref(locale, "/");
+  const contactHref = localizeHref(locale, "/contact");
+
   return (
     <>
       <PageHero
-        eyebrow="À propos"
-        title="Un cabinet français & corne Afrique au service du plateau technique critique."
-        description="K'BIO relie expertise biomédicale terrain, structuration données GMAO et ingénierie hospitalière (blocs, fluides médicaux) pour offrir des livrables réalistes devant investissements & bailleurs."
-        crumbs={[{ label: "Accueil", href: "/" }, { label: "À propos" }]}
+        eyebrow={locale === "en" ? "About" : "À propos"}
+        title={
+          locale === "en"
+            ? "A France–Horn of Africa biomedical practice for critically dependent wards."
+            : "Un cabinet français & corne Afrique au service du plateau technique critique."
+        }
+        description={
+          locale === "en"
+            ? "K'BIO bridges bedside biomedical realities, biomedical CMMS data industrialisation and regulated perioperative infrastructures with financier-realistic dossiers."
+            : "K'BIO relie expertise biomédicale terrain, structuration données GMAO et ingénierie hospitalière (blocs, fluides médicaux) pour offrir des livrables réalistes devant investissements & bailleurs."
+        }
+        crumbs={[
+          { label: locale === "en" ? "Home" : "Accueil", href: homeHref },
+          { label: locale === "en" ? "About" : "À propos" },
+        ]}
         image={images.about.src}
         imageAlt={images.about.alt}
       />
@@ -240,13 +271,28 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      <LogoWall />
+      <LogoWall
+        eyebrow={locale === "en" ? "Trust" : undefined}
+        title={locale === "en" ? "Who relies on our teams" : undefined}
+        subtitle={
+          locale === "en"
+            ? "Representative mandates: UNICEF corridors, Ministries, multisite donors."
+            : undefined
+        }
+        disclaimer={
+          locale === "en" ? "Illustrative placeholders—replace upon legal approvals." : undefined
+        }
+      />
 
       <CTASection
-        eyebrow="Travailler avec nous"
-        title="Proposer ensemble une mission PSA, AO ou étude architecture."
-        primaryHref="/contact"
-        primaryLabel="Nous contacter"
+        eyebrow={locale === "en" ? "Collaborate with us" : "Travailler avec nous"}
+        title={
+          locale === "en"
+            ? "Co-design a biomedical PSA dossier or perioperative roadmap."
+            : "Proposer ensemble une mission PSA, AO ou étude architecture."
+        }
+        primaryHref={contactHref}
+        primaryLabel={locale === "en" ? "Reach us" : "Nous contacter"}
       />
     </>
   );

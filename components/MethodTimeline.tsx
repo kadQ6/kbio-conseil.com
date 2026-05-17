@@ -1,12 +1,19 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { methodSteps } from "@/lib/site-data";
-
-export function MethodTimeline() {
+export function MethodTimeline({
+  steps,
+}: {
+  steps: {
+    number: string;
+    title: string;
+    description: string;
+    details: string[];
+  }[];
+}) {
   return (
     <ol className="relative grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-5">
-      {methodSteps.map((step, i) => (
+      {steps.map((step, i) => (
         <motion.li
           key={step.number}
           initial={{ opacity: 0, y: 16 }}

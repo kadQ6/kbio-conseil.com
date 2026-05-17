@@ -2,16 +2,23 @@
 
 import { motion, useInView, useMotionValue, useTransform, animate, useReducedMotion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import { heroStats } from "@/lib/site-data";
+import type { AppLocale } from "@/lib/i18n/config";
 
-export function StatsGrid() {
+type HeroStat = {
+  value: string;
+  suffix?: string;
+  label: string;
+  hint: string;
+};
+
+export function StatsGrid({ stats, locale }: { stats: readonly HeroStat[]; locale: AppLocale }) {
   return (
     <ul className="grid grid-cols-1 gap-px overflow-hidden rounded-3xl border border-[color:var(--color-line)] bg-[color:var(--color-line)] sm:grid-cols-2 lg:grid-cols-4">
-      {heroStats.map((s, i) => (
-        <li key={s.label} className="bg-white p-7 md:p-8">
+      {stats.map((s, i) => (
+        <li key={`${locale}-${s.label}`} className="bg-white p-7 md:p-8">
           <p className="eyebrow">{`0${i + 1}`}</p>
           <p className="mt-4 num-tabular text-4xl font-semibold text-[color:var(--color-ink)] md:text-5xl">
-            <Counter value={s.value} />
+            <Counter value={s.value} locale={locale} />
             {s.suffix && <span className="text-[color:var(--color-teal-700)]">{s.suffix}</span>}
           </p>
           <p className="mt-3 text-[15px] font-medium text-[color:var(--color-ink)]">{s.label}</p>
@@ -22,7 +29,7 @@ export function StatsGrid() {
   );
 }
 
-function Counter({ value }: { value: string }) {
+function Counter({ value, locale }: { value: string; locale: AppLocale }) {
   const reduce = useReducedMotion();
   const ref = useRef<HTMLSpanElement | null>(null);
   const inView = useInView(ref, { once: true, amount: 0.6 });
@@ -30,7 +37,7 @@ function Counter({ value }: { value: string }) {
   const isNumeric = !Number.isNaN(numeric);
   const [display, setDisplay] = useState(isNumeric ? "0" : value);
   const mv = useMotionValue(0);
-  const formatted = useTransform(mv, (v) => formatLikeOriginal(v, value));
+  const formatted = useTransform(mv, (v) => formatLikeOriginal(v, value, locale));
 
   useEffect(() => {
     if (!isNumeric) return;
@@ -57,11 +64,12 @@ function Counter({ value }: { value: string }) {
   );
 }
 
-function formatLikeOriginal(num: number, original: string): string {
+function formatLikeOriginal(num: number, original: string, locale: AppLocale): string {
   const hasSpace = /\s/.test(original);
   const rounded = Math.round(num);
+  const loc = locale === "en" ? "en-US" : "fr-FR";
   if (hasSpace) {
-    return rounded.toLocaleString("fr-FR").replace(/\u202f/g, " ");
+    return rounded.toLocaleString(loc).replace(/\u202f/g, " ");
   }
   return String(rounded);
 }

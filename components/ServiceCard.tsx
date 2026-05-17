@@ -8,6 +8,7 @@ export function ServiceCard({
   href,
   bullets,
   variant = "default",
+  moreLabel = "En savoir plus",
 }: {
   title: string;
   description: string;
@@ -15,6 +16,7 @@ export function ServiceCard({
   href?: string;
   bullets?: string[];
   variant?: "default" | "feature";
+  moreLabel?: string;
 }) {
   const isFeature = variant === "feature";
   const content = (
@@ -62,7 +64,7 @@ export function ServiceCard({
 
       {href && (
         <span className="mt-6 inline-flex items-center gap-1 text-sm font-medium text-[color:var(--color-ink)]">
-          En savoir plus
+          {moreLabel}
           <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
         </span>
       )}

@@ -5,14 +5,18 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { navigation } from "@/lib/site-data";
+import type { ChromeStrings } from "@/lib/copy/chrome";
+import type { AppLocale } from "@/lib/i18n/config";
+import { localizeHref, stripLocalePath } from "@/lib/i18n/paths";
 import { Logo } from "./Logo";
 import { ButtonLink } from "./Button";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 
-export function Header() {
+export function Header({ chrome, locale }: { chrome: ChromeStrings; locale: AppLocale }) {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const pathBase = pathname ? stripLocalePath(pathname) : "/";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -41,15 +45,21 @@ export function Header() {
       }`}
     >
       <div className="container-cimb flex h-[72px] items-center justify-between gap-6">
-        <Logo />
+        <Logo
+          href={localizeHref(locale, "/")}
+          ariaLabel={chrome.logoAriaHome}
+        />
 
         <nav aria-label="Navigation principale" className="hidden lg:flex items-center gap-1">
-          {navigation.map((item) => {
-            const active = pathname === item.href || (item.href !== "/" && pathname.startsWith(item.href));
+          {chrome.navigation.map((item) => {
+            const href = localizeHref(locale, item.href);
+            const active =
+              pathBase === item.href || (item.href !== "/" && pathBase.startsWith(item.href));
             return (
               <Link
                 key={item.href}
-                href={item.href}
+                href={href}
+                lang={locale}
                 className={`relative px-3.5 py-2 text-[13.5px] font-medium rounded-full transition-colors ${
                   active
                     ? "text-[color:var(--color-ink)]"
@@ -70,21 +80,25 @@ export function Header() {
         </nav>
 
         <div className="hidden lg:flex items-center gap-3">
-          <ButtonLink href="/contact" variant="secondary" size="md">
-            Demander un RDV
+          <LanguageSwitcher chrome={chrome} />
+          <ButtonLink href={localizeHref(locale, "/contact")} variant="secondary" size="md">
+            {chrome.headerCtaRdv}
             <ArrowUpRight className="h-4 w-4" />
           </ButtonLink>
         </div>
 
-        <button
-          aria-label={mobileOpen ? "Fermer le menu" : "Ouvrir le menu"}
-          aria-expanded={mobileOpen}
-          aria-controls="mobile-menu"
-          onClick={() => setMobileOpen((v) => !v)}
-          className="lg:hidden grid h-10 w-10 place-items-center rounded-full border border-[color:var(--color-line)] bg-white"
-        >
-          {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-        </button>
+        <div className="flex items-center gap-2 lg:hidden">
+          <LanguageSwitcher chrome={chrome} />
+          <button
+            aria-label={mobileOpen ? chrome.mobileMenuClose : chrome.mobileMenuOpen}
+            aria-expanded={mobileOpen}
+            aria-controls="mobile-menu"
+            onClick={() => setMobileOpen((v) => !v)}
+            className="grid h-10 w-10 place-items-center rounded-full border border-[color:var(--color-line)] bg-white"
+          >
+            {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
+        </div>
       </div>
 
       <AnimatePresence>
@@ -98,12 +112,13 @@ export function Header() {
             className="lg:hidden border-t border-[color:var(--color-line)] bg-white"
           >
             <nav aria-label="Navigation mobile" className="container-cimb py-6 flex flex-col gap-1">
-              {navigation.map((item) => {
-                const active = pathname === item.href;
+              {chrome.navigation.map((item) => {
+                const href = localizeHref(locale, item.href);
+                const active = pathBase === item.href;
                 return (
                   <Link
                     key={item.href}
-                    href={item.href}
+                    href={href}
                     className={`flex items-center justify-between rounded-xl px-4 py-3.5 text-base font-medium transition-colors ${
                       active
                         ? "bg-[color:var(--color-soft)] text-[color:var(--color-ink)]"
@@ -116,8 +131,8 @@ export function Header() {
                 );
               })}
               <div className="mt-4">
-                <ButtonLink href="/contact" variant="secondary" size="lg" className="w-full">
-                  Demander un RDV
+                <ButtonLink href={localizeHref(locale, "/contact")} variant="secondary" size="lg" className="w-full">
+                  {chrome.headerCtaRdv}
                 </ButtonLink>
               </div>
             </nav>

@@ -10,13 +10,28 @@ import { ButtonLink } from "@/components/Button";
 import { buildMetadata } from "@/lib/seo";
 import { images } from "@/lib/images";
 import { ArrowRight } from "lucide-react";
+import { normalizeLocale } from "@/lib/i18n/config";
+import { localizeHref } from "@/lib/i18n/paths";
+import { getMethodSteps } from "@/lib/copy/merged";
 
-export const metadata: Metadata = buildMetadata({
-  title: "Méthode K'BIO",
-  description:
-    "Notre méthode en cinq étapes structurées : diagnostic, inventaire, analyse des risques, plan d'action priorisé, suivi et reporting. Une démarche traçable et reproductible.",
-  path: "/methode",
-});
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const locale = normalizeLocale((await params).locale);
+  const titleFr = "Méthode K'BIO";
+  const titleEn = "K'BIO methodology";
+  return buildMetadata({
+    title: locale === "en" ? titleEn : titleFr,
+    description:
+      locale === "en"
+        ? "A five-phase, traceable workflow from programme framing through field consolidation and donor-aligned reporting."
+        : "Notre méthode en cinq étapes structurées : diagnostic, inventaire, analyse des risques, plan d'action priorisé, suivi et reporting. Une démarche traçable et reproductible.",
+    path: "/methode",
+    locale,
+  });
+}
 
 const detailedSteps = [
   {
@@ -71,14 +86,30 @@ const detailedSteps = [
   },
 ];
 
-export default function MethodPage() {
+export default async function MethodPage({ params }: { params: Promise<{ locale: string }> }) {
+  const locale = normalizeLocale((await params).locale);
+  const homeHref = localizeHref(locale, "/");
+  const contactHref = localizeHref(locale, "/contact");
+  const methodStepsLocale = getMethodSteps(locale);
+
+  const homeCrumb = locale === "en" ? "Home" : "Accueil";
+  const methCrumb = locale === "en" ? "Method" : "Méthode";
+
   return (
     <>
       <PageHero
-        eyebrow="Méthode"
-        title="Une démarche structurée, traçable et opposable."
-        description="Notre méthode est conçue pour produire des résultats reproductibles : du diagnostic initial au pilotage continu, chaque étape est formalisée et documentée."
-        crumbs={[{ label: "Accueil", href: "/" }, { label: "Méthode" }]}
+        eyebrow={methCrumb}
+        title={
+          locale === "en"
+            ? "Structured, traceable methodology from ward data to financier dossiers."
+            : "Une démarche structurée, traçable et opposable."
+        }
+        description={
+          locale === "en"
+            ? "Every sprint is scripted for reproducibility — from briefing through continuous steering with auditable artefacts."
+            : "Notre méthode est conçue pour produire des résultats reproductibles : du diagnostic initial au pilotage continu, chaque étape est formalisée et documentée."
+        }
+        crumbs={[{ label: homeCrumb, href: homeHref }, { label: methCrumb }]}
         image={images.blueprint.src}
         imageAlt={images.blueprint.alt}
       />
@@ -91,7 +122,7 @@ export default function MethodPage() {
             description="Adapté à votre contexte multi-sites, à vos contraintes calendaires et aux exigences de vos bailleurs."
           />
           <div className="mt-14">
-            <MethodTimeline />
+            <MethodTimeline steps={methodStepsLocale} />
           </div>
         </Container>
       </section>
@@ -160,7 +191,7 @@ export default function MethodPage() {
               { value: "100 %", label: "Traçabilité" },
             ]}
           >
-            <ButtonLink href="/contact" variant="primary" size="md">
+            <ButtonLink href={contactHref} variant="primary" size="md">
               Cadrer ma mission
               <ArrowRight className="h-4 w-4" />
             </ButtonLink>
@@ -205,7 +236,7 @@ export default function MethodPage() {
       <CTASection
         eyebrow="Cadrer une mission"
         title="Discutons du déroulé d'une mission adaptée à votre établissement."
-        primaryHref="/contact"
+        primaryHref={contactHref}
         primaryLabel="Cadrer ma mission"
       />
     </>

@@ -7,22 +7,62 @@ import { AnimatedReveal } from "@/components/AnimatedReveal";
 import { buildMetadata } from "@/lib/seo";
 import { site } from "@/lib/site-data";
 import { images } from "@/lib/images";
+import { normalizeLocale } from "@/lib/i18n/config";
+import { localizeHref } from "@/lib/i18n/paths";
 
-export const metadata: Metadata = buildMetadata({
-  title: "Contact",
-  description:
-    "Contacter K'BIO — audit PSA biomédical, programmes GMAO multisites, assistance AO & architecture bloc. Réponse indicative sous ~48 h ouvrées.",
-  path: "/contact",
-});
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const locale = normalizeLocale((await params).locale);
+  return buildMetadata({
+    title: "Contact",
+    description:
+      locale === "en"
+        ? "Contact K'BIO for biomedical PSA readiness, multisite biomedical CMMS, tender support & perioperative architectures. ~48-hour indicative reply cycle."
+        : "Contacter K'BIO — audit PSA biomédical, programmes GMAO multisites, assistance AO & architecture bloc. Réponse indicative sous ~48 h ouvrées.",
+    path: "/contact",
+    locale,
+  });
+}
 
-export default function ContactPage() {
+export default async function ContactPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const locale = normalizeLocale((await params).locale);
+  const homeHref = localizeHref(locale, "/");
+  const homeCrumb = locale === "en" ? "Home" : "Accueil";
+
+  const phoneLines =
+    locale === "en"
+      ? "Sunday–Thursday, 08:00–17:00 (Djibouti time)."
+      : "Du dimanche au jeudi, 8h–17h (heure de Djibouti).";
+  const replyLine = locale === "en" ? "Reply within ~2 business days." : "Réponse sous 48h ouvrées.";
+  const whatsappSecondary =
+    locale === "en" ? "For escalation-grade technical pings." : "Pour les urgences techniques.";
+  const mapCaption = locale === "en" ? "Djibouti — Horn of Africa" : "Djibouti — Corne de l'Afrique";
+
+  const waDigits = site.contact.whatsapp.replace(/\D/g, "");
+  const whatsappHref = waDigits ? `https://wa.me/${waDigits}` : undefined;
+
   return (
     <>
       <PageHero
         eyebrow="Contact"
-        title="Échangeons sur votre besoin biomédical."
-        description="Une personne projet K'BIO revient sous ~48 heures ouvrées. Joignez si possible périmètre équipements, pays, fenêtre temps & bailleur potentiel pour un premier niveau pertinent."
-        crumbs={[{ label: "Accueil", href: "/" }, { label: "Contact" }]}
+        title={
+          locale === "en"
+            ? "Let's scope your biomedical remit."
+            : "Échangeons sur votre besoin biomédical."
+        }
+        description={
+          locale === "en"
+            ? "A K'BIO project lead acknowledges qualified requests inside ~two business days. Share equipment scope, country, timelines and financier cues when possible."
+            : "Une personne projet K'BIO revient sous ~48 heures ouvrées. Joignez si possible périmètre équipements, pays, fenêtre temps & bailleur potentiel pour un premier niveau pertinent."
+        }
+        crumbs={[{ label: homeCrumb, href: homeHref }, { label: "Contact" }]}
         image={images.djiboutiCity.src}
         imageAlt={images.djiboutiCity.alt}
       />
@@ -33,30 +73,34 @@ export default function ContactPage() {
             <div className="lg:col-span-5">
               <AnimatedReveal>
                 <div className="flex flex-col gap-6">
-                  <ContactCard
-                    Icon={Phone}
-                    title="Téléphone"
-                    primary={site.contact.phone}
-                    secondary="Du dimanche au jeudi, 8h–17h (heure de Djibouti)."
-                    href={`tel:${site.contact.phone.replace(/\s+/g, "")}`}
-                  />
+                  {!site.contact.phone.includes("X") ? (
+                    <ContactCard
+                      Icon={Phone}
+                      title={locale === "en" ? "Phone" : "Téléphone"}
+                      primary={site.contact.phone}
+                      secondary={phoneLines}
+                      href={`tel:${site.contact.phone.replace(/\s+/g, "")}`}
+                    />
+                  ) : null}
                   <ContactCard
                     Icon={Mail}
                     title="Email"
                     primary={site.contact.email}
-                    secondary="Réponse sous 48h ouvrées."
+                    secondary={replyLine}
                     href={`mailto:${site.contact.email}`}
                   />
-                  <ContactCard
-                    Icon={MessageCircle}
-                    title="WhatsApp"
-                    primary={site.contact.whatsapp}
-                    secondary="Pour les urgences techniques."
-                    href={`https://wa.me/${site.contact.whatsapp.replace(/\D/g, "")}`}
-                  />
+                  {whatsappHref ? (
+                    <ContactCard
+                      Icon={MessageCircle}
+                      title="WhatsApp"
+                      primary={site.contact.whatsapp || "…"}
+                      secondary={whatsappSecondary}
+                      href={whatsappHref}
+                    />
+                  ) : null}
                   <ContactCard
                     Icon={MapPin}
-                    title="Adresse"
+                    title={locale === "en" ? "Address" : "Adresse"}
                     primary={site.contact.address}
                     secondary={`${site.contact.city}, ${site.contact.country}`}
                   />
@@ -65,7 +109,7 @@ export default function ContactPage() {
 
               <AnimatedReveal delay={0.1}>
                 <div className="mt-8 overflow-hidden rounded-3xl border border-[color:var(--color-line)] bg-white">
-                  <MapVisual />
+                  <MapVisual caption={mapCaption} />
                 </div>
               </AnimatedReveal>
             </div>
@@ -122,7 +166,7 @@ function ContactCard({
   );
 }
 
-function MapVisual() {
+function MapVisual({ caption }: { caption: string }) {
   return (
     <div className="relative h-56 w-full overflow-hidden bg-[color:var(--color-soft)]">
       <div aria-hidden className="absolute inset-0 bg-grid opacity-70" />
@@ -151,7 +195,7 @@ function MapVisual() {
         <circle cx="380" cy="110" r="11" fill="none" stroke="var(--color-teal-700)" strokeWidth="1.5" />
       </svg>
       <div className="absolute bottom-4 left-4 rounded-xl bg-white/90 px-3 py-2 text-[12px] text-[color:var(--color-ink)] backdrop-blur">
-        Djibouti — Corne de l'Afrique
+        {caption}
       </div>
     </div>
   );

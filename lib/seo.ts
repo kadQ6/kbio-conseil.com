@@ -1,10 +1,15 @@
 import type { Metadata } from "next";
+import type { AppLocale } from "@/lib/i18n/config";
+import { canonicalPathForLocale } from "@/lib/i18n/paths";
 import { site } from "./site-data";
 
-const DEFAULT_DESCRIPTION =
+const DEFAULT_DESCRIPTION_FR =
   "K'BIO — ingénierie biomédicale & architecture hospitalière. Audits PSA, programmes GMAO multisites, accompagnement bailleurs UNICEF/FSE/AO, bloc opératoire & fluides médicaux. Paris · Djibouti · Afrique subsaharienne.";
 
-const DEFAULT_KEYWORDS = [
+const DEFAULT_DESCRIPTION_EN =
+  "K'BIO — biomedical engineering & healthcare architecture. PSA readiness, multisite biomedical CMMS, donor-aligned deliverables UNICEF/FSE/tenders, operating suites & medical gas systems. Paris · Djibouti · Sub-Saharan Africa.";
+
+const DEFAULT_KEYWORDS_FR = [
   "ingénierie biomédicale international",
   "audit PSA équipements médicaux",
   "GMAO hospitalière Afrique",
@@ -14,40 +19,70 @@ const DEFAULT_KEYWORDS = [
   "K'BIO",
 ];
 
+const DEFAULT_KEYWORDS_EN = [
+  "biomedical engineering africa",
+  "hospital PSA audit",
+  "hospital CMMS programme",
+  "operating room engineering",
+  "medical gas ISO EN",
+  "hospital tenders",
+  "K'BIO",
+];
+
+const SITE_LINE_FR = `${site.name} — ${site.longName}`;
+const SITE_LINE_EN = `${site.name} — Biomedical engineering & healthcare architecture`;
+
 export type PageMetaInput = {
   title: string;
   description?: string;
+  /** Toujours sans préfixe /en (ex. /contact). */
   path?: string;
   keywords?: string[];
+  locale?: AppLocale;
 };
 
 export function buildMetadata({
   title,
-  description = DEFAULT_DESCRIPTION,
+  description,
   path = "/",
   keywords = [],
+  locale = "fr",
 }: PageMetaInput): Metadata {
-  const url = new URL(path, site.url).toString();
-  const fullTitle = title === site.name ? `${site.name} — ${site.longName}` : `${title} | ${site.name}`;
+  const resolvedDescription =
+    description ?? (locale === "en" ? DEFAULT_DESCRIPTION_EN : DEFAULT_DESCRIPTION_FR);
+
+  const pathNorm = path.startsWith("/") ? path : `/${path}`;
+  const canonicalPath = canonicalPathForLocale(locale, pathNorm);
+  const canonicalUrl = new URL(canonicalPath, site.url).toString();
+  const urlFr = new URL(canonicalPathForLocale("fr", pathNorm), site.url).toString();
+  const urlEn = new URL(canonicalPathForLocale("en", pathNorm), site.url).toString();
+
+  const siteLine = locale === "en" ? SITE_LINE_EN : SITE_LINE_FR;
+  const fullTitle = title === site.name ? siteLine : `${title} | ${site.name}`;
+  const baseKeywords = locale === "en" ? DEFAULT_KEYWORDS_EN : DEFAULT_KEYWORDS_FR;
+  const ogLocale = locale === "en" ? "en_US" : "fr_FR";
 
   return {
     title: fullTitle,
-    description,
-    keywords: Array.from(new Set([...DEFAULT_KEYWORDS, ...keywords])),
+    description: resolvedDescription,
+    keywords: Array.from(new Set([...baseKeywords, ...keywords])),
     metadataBase: new URL(site.url),
-    alternates: { canonical: url },
+    alternates: {
+      canonical: canonicalUrl,
+      languages: { "fr-FR": urlFr, "en-US": urlEn, "x-default": urlFr },
+    },
     openGraph: {
       title: fullTitle,
-      description,
-      url,
-      siteName: `${site.name} — ${site.longName}`,
-      locale: site.locale,
+      description: resolvedDescription,
+      url: canonicalUrl,
+      siteName: siteLine,
+      locale: ogLocale,
       type: "website",
     },
     twitter: {
       card: "summary_large_image",
       title: fullTitle,
-      description,
+      description: resolvedDescription,
     },
     robots: {
       index: true,
@@ -71,9 +106,9 @@ export function organizationJsonLd() {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: site.name,
-    legalName: `${site.name} — ${site.longName}`,
+    legalName: SITE_LINE_FR,
     url: site.url,
-    description: DEFAULT_DESCRIPTION,
+    description: DEFAULT_DESCRIPTION_FR,
     address: [
       {
         "@type": "PostalAddress",
@@ -104,9 +139,9 @@ export function professionalServiceJsonLd() {
   const svc = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
-    name: `${site.name} — ${site.longName}`,
+    name: SITE_LINE_FR,
     url: site.url,
-    description: DEFAULT_DESCRIPTION,
+    description: DEFAULT_DESCRIPTION_FR,
     address: {
       "@type": "PostalAddress",
       addressLocality: site.contact.city,
