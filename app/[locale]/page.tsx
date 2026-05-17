@@ -80,6 +80,7 @@ export default async function HomePage({
                 {h.introP1}
               </p>
               <p className="mt-5 text-[15.5px] leading-relaxed text-[color:var(--color-muted)]">{h.introP2}</p>
+              <p className="mt-5 text-[15.5px] leading-relaxed text-[color:var(--color-muted)]">{h.introP3}</p>
             </div>
           </div>
 

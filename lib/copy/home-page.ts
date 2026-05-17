@@ -5,6 +5,7 @@ type HomeSections = {
   introTitle: string;
   introP1: string;
   introP2: string;
+  introP3: string;
   fieldEyebrow: string;
   fieldTitle: string;
   fieldP1: string;
@@ -42,9 +43,11 @@ const FR: HomeSections = {
   introEyebrow: "Le cabinet",
   introTitle: "Ingénierie biomédicale structurée, du terrain aux dossiers bailleurs.",
   introP1:
-    "K'BIO soutient ministères de santé, directions techniques hospitalières et bailleurs sur des périmètres multisites : mise en disponibilité, audit PSA, fichiers Excel GMAO industrialisés, assistance architecture bloc & fluides médicaux.",
+    "K'BIO accompagne les acteurs de santé dans la conception, l'organisation et la sécurisation de leurs plateaux techniques hospitaliers.",
   introP2:
-    "Méthodes alignées OMS/IEC où utile, livrables versionnés, exports conformes audits — sans sur-promettre des disponibilités impossibles sur le terrain réel des sites.",
+    "À la croisée de l'ingénierie biomédicale, de l'architecture hospitalière, de la maintenance des équipements médicaux et de la structuration des projets de santé, K'BIO intervient auprès de ces clients pour transformer les besoins du terrain en décisions techniques fiables.",
+  introP3:
+    "Une expertise terrain, technique et stratégique, pour rendre les infrastructures de santé plus fiables, mieux organisées et durablement exploitables.",
   fieldEyebrow: "Sur le terrain",
   fieldTitle: "Présence technique qui transforme l'état du parc en plan d'arbitrage.",
   fieldP1:
@@ -95,9 +98,11 @@ const EN: HomeSections = {
   introTitle:
     "Structured biomedical engineering—from ward rounds to financier‑ready dossiers.",
   introP1:
-    "K'BIO backs Ministries of Health, biomedical engineering divisions and bilateral donors across multisite programmes: PSA readiness, audited spreadsheets, perioperative architectures & regulated medical fluids.",
+    "K'BIO guides healthcare stakeholders in designing, organising and safeguarding their hospital technical platforms.",
   introP2:
-    "WHO/IEC-aligned methods where meaningful, gated deliverables, audit-grade exports—and no fake uptime promises versus real‑world maintenance capacity.",
+    "Bridging biomedical engineering, hospital architecture, regulated equipment maintenance and health programme structuring, K'BIO stands alongside clients—turning field realities into dependable technical decisions.",
+  introP3:
+    "Field, engineering and strategic expertise to make healthcare infrastructure more reliable, better organised and sustainable to operate.",
   fieldEyebrow: "Ground presence",
   fieldTitle:
     "Field intelligence that translates fleet reality into defensible capex ladders.",
