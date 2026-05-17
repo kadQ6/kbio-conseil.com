@@ -41,7 +41,7 @@ type HomeSections = {
 
 const FR: HomeSections = {
   introEyebrow: "Le cabinet",
-  introTitle: "Ingénierie biomédicale structurée, du terrain aux dossiers bailleurs.",
+  introTitle: "Ingénierie biomédicale structurée",
   introP1:
     "K'BIO accompagne les acteurs de santé dans la conception, l'organisation et la sécurisation de leurs plateaux techniques hospitaliers.",
   introP2:
@@ -96,7 +96,7 @@ const FR: HomeSections = {
 const EN: HomeSections = {
   introEyebrow: "About us",
   introTitle:
-    "Structured biomedical engineering—from ward rounds to financier‑ready dossiers.",
+    "Structured biomedical engineering",
   introP1:
     "K'BIO guides healthcare stakeholders in designing, organising and safeguarding their hospital technical platforms.",
   introP2:
