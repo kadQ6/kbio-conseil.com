@@ -12,13 +12,13 @@ export function LanguageSwitcher({ chrome }: { chrome: ChromeStrings }) {
   const frHref = switchLocaleHref(pathname, "fr");
   const enHref = switchLocaleHref(pathname, "en");
 
-  const pill =
-    "inline-flex h-9 min-w-[4.75rem] items-center justify-center rounded-full px-3 text-[12px] font-bold tracking-[0.12em] transition-colors";
+  const segment =
+    "inline-flex size-[26px] items-center justify-center rounded-full text-[10px] font-semibold uppercase tracking-[0.06em] transition-[color,background-color,box-shadow] duration-200";
 
   return (
     <nav
       aria-label={chrome.langSwitcherNavAria}
-      className="inline-flex shrink-0 items-center gap-px rounded-full border border-[color:var(--color-line)] bg-[color:var(--color-soft)] p-0.5 shadow-sm"
+      className="inline-flex shrink-0 items-center gap-0 rounded-full border border-[color:var(--color-line)] bg-[color:var(--color-soft)] p-[3px]"
     >
       <Link
         href={frHref}
@@ -26,10 +26,10 @@ export function LanguageSwitcher({ chrome }: { chrome: ChromeStrings }) {
         lang="fr"
         aria-label={chrome.langAriaToFr}
         aria-current={locale === "fr" ? "page" : undefined}
-        className={`${pill} ${
+        className={`${segment} ${
           locale === "fr"
-            ? "bg-white text-[color:var(--color-ink)] shadow-sm ring-1 ring-[color:var(--color-line)]"
-            : "text-[color:var(--color-muted-strong)] hover:text-[color:var(--color-ink)]"
+            ? "bg-[color:var(--color-teal)] text-white shadow-[var(--shadow-ring)]"
+            : "text-[color:var(--color-muted-strong)] hover:bg-white/70 hover:text-[color:var(--color-ink)]"
         }`}
       >
         {chrome.langShortFr}
@@ -40,10 +40,10 @@ export function LanguageSwitcher({ chrome }: { chrome: ChromeStrings }) {
         lang="en"
         aria-label={chrome.langAriaToEn}
         aria-current={locale === "en" ? "page" : undefined}
-        className={`${pill} ${
+        className={`${segment} ${
           locale === "en"
-            ? "bg-white text-[color:var(--color-ink)] shadow-sm ring-1 ring-[color:var(--color-line)]"
-            : "text-[color:var(--color-muted-strong)] hover:text-[color:var(--color-ink)]"
+            ? "bg-[color:var(--color-teal)] text-white shadow-[var(--shadow-ring)]"
+            : "text-[color:var(--color-muted-strong)] hover:bg-white/70 hover:text-[color:var(--color-ink)]"
         }`}
       >
         {chrome.langShortEn}
