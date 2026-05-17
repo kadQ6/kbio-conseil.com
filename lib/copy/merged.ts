@@ -23,7 +23,7 @@ const heroStatsEn = [
     label: "Installed or monitored medical devices",
     hint: "Multisite programme",
   },
-  { value: "12", suffix: "+", label: "Countries & territories", hint: "Eastern Africa & SSA" },
+  { value: "12", suffix: "+", label: "Countries & territories", hint: "France, Africa & the Middle East" },
   {
     value: "48",
     suffix: " h",

@@ -62,7 +62,7 @@ export const heroStats: ReadonlyArray<{
     hint: "Ingénierie biomédicale & Architecture hospitalière",
   },
   { value: "15 000", label: "Équipements médicaux installés ou suivis", hint: "Programme multisite" },
-  { value: "12", suffix: "+", label: "Pays & territoires couverts", hint: "Est & Afrique subsaharienne" },
+  { value: "12", suffix: "+", label: "Pays & territoires couverts", hint: "France, Afrique et Moyen-Orient" },
   {
     value: "48",
     suffix: " h",
