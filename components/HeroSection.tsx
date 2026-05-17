@@ -47,14 +47,10 @@ export function HeroSection() {
               className="mt-7 max-w-2xl space-y-5 text-pretty text-lg md:text-[19px] leading-relaxed text-[color:var(--color-muted-strong)]"
             >
               <p>
-                K'BIO structure des missions d'audit biomédical, des programmes d'équipement multisites et
-                des études d'architecture hospitalière pour les acteurs publics, les bailleurs et les
-                opérateurs privés de santé.
+                K'BIO structure des missions d'audit biomédical, des programmes d'équipement multisites et des études d'architecture hospitalière pour les acteurs publics, les bailleurs et les opérateurs privés de santé.
               </p>
-              <p className="text-[15.5px] leading-relaxed text-[color:var(--color-muted)] md:text-[17px]">
-                Nous transformons les constats techniques en données fiables, chiffrées et opposables
-                pour éclairer les décisions, sécuriser les investissements et renforcer la continuité des
-                soins.
+              <p>
+                Nous transformons les constats techniques en données fiables, chiffrées et opposables pour éclairer les décisions, sécuriser les investissements et renforcer la continuité des soins.
               </p>
             </motion.div>
 
