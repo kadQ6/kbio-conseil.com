@@ -52,7 +52,7 @@ const FR: HomeSections = {
   fieldP2:
     "Vous obtenez une base unique pour KPI consolidés ministère ou bailleur, et des chiffrages d'investissement comparables dans le temps.",
   fieldStats: [
-    { value: "120+", label: "Audits PSA & missions livrées" },
+    { value: "25+", label: "Audits PSA & missions livrées" },
     { value: "> 3200 DM", label: "Ex. programme Rwanda PSA" },
     { value: "UNICEF", label: "& bailleurs multiformats Excel" },
   ],
@@ -106,7 +106,7 @@ const EN: HomeSections = {
   fieldP2:
     "Leadership obtains a consolidated backbone for Ministries or donor KPI dashboards with comparable capex ladders over time.",
   fieldStats: [
-    { value: "120+", label: "Biomedical PSA assignments delivered" },
+    { value: "25+", label: "Biomedical PSA assignments delivered" },
     { value: ">3200 regulated devices", label: "Rwanda PSA cohort" },
     { value: "UNICEF+", label: "Donor-tailored Excel dossiers" },
   ],

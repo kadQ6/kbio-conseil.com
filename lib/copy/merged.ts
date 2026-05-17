@@ -13,17 +13,17 @@ import {
 
 const heroStatsEn = [
   {
-    value: "120",
+    value: "25",
     suffix: "+",
     label: "Completed assignments",
     hint: "PSA audits, biomedical studies, donor support",
   },
   {
-    value: " 2000",
+    value: "15 000",
     label: "Devices mapped or under follow‑up",
     hint: "across CMMS multisite programmes",
   },
-  { value: "15", suffix: "+", label: "Countries & territories", hint: "Eastern Africa & SSA" },
+  { value: "12", suffix: "+", label: "Countries & territories", hint: "Eastern Africa & SSA" },
   {
     value: "48",
     suffix: " h",

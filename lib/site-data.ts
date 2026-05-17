@@ -56,13 +56,13 @@ export const heroStats: ReadonlyArray<{
   hint: string;
 }> = [
   {
-    value: "120",
+    value: "25",
     suffix: "+",
     label: "Missions livrées",
     hint: "audits PSA, études biomédicales, assistance bailleurs",
   },
-  { value: " 2000", label: "Équipements cartographiés ou suivis", hint: "dans des programmes GMAO multisites" },
-  { value: "15", suffix: "+", label: "Pays & territoires couverts", hint: "Est & Afrique subsaharienne" },
+  { value: "15 000", label: "Équipements cartographiés ou suivis", hint: "dans des programmes GMAO multisites" },
+  { value: "12", suffix: "+", label: "Pays & territoires couverts", hint: "Est & Afrique subsaharienne" },
   {
     value: "48",
     suffix: " h",
