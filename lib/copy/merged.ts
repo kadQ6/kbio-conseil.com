@@ -27,7 +27,7 @@ const heroStatsEn = [
   {
     value: "48",
     suffix: " h",
-    hint: "Target first response on qualified requests",
+    hint: "First reply on request",
     label: "Indicative reply time",
   },
 ] satisfies typeof heroStatsFr;

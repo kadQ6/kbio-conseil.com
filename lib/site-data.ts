@@ -67,7 +67,7 @@ export const heroStats: ReadonlyArray<{
     value: "48",
     suffix: " h",
     label: "Délai de réponse indicatif",
-    hint: "premier retour projet sur demande précise",
+    hint: "premier retour à la demande",
   },
 ];
 
