@@ -1,12 +1,18 @@
 "use client";
 
+import Image from "next/image";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 import type { HeroCopyStrings } from "@/lib/copy/home";
 import { ButtonLink } from "./Button";
 import { Container } from "./Container";
 
-/** Illustration — répartition des projets actifs par filière */
+const HERO_TRUST_IMAGE_SRC = [
+  "/images/hero/trust-audit.png",
+  "/images/hero/trust-field.png",
+  "/images/hero/trust-analytics.png",
+] as const;
+
 const ACTIVE_PROJECT_SPLIT = {
   biomedical: 8,
   architecture: 5,
@@ -104,14 +110,21 @@ export function HeroSection({
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.35 }}
-              className="mt-12 flex items-center gap-6 text-xs text-[color:var(--color-muted)]"
+              className="mt-12 flex flex-wrap items-center gap-6 sm:gap-10"
+              role="list"
             >
-              <span className="inline-flex items-center gap-2">
-                <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--color-success)]" />
-                {hero.footIEC}
-              </span>
-              <span className="hidden h-3 w-px bg-[color:var(--color-line-strong)] sm:block" />
-              <span className="hidden sm:inline">{hero.footWHO}</span>
+              {HERO_TRUST_IMAGE_SRC.map((src, i) => (
+                <div key={src} role="listitem" className="shrink-0">
+                  <Image
+                    src={src}
+                    alt={hero.trustImageAlts[i] ?? ""}
+                    width={200}
+                    height={200}
+                    sizes="(max-width: 640px) 28vw, 140px"
+                    className="h-14 w-auto max-h-[4.5rem] object-contain opacity-90 sm:h-[4.5rem] sm:max-h-[5rem]"
+                  />
+                </div>
+              ))}
             </motion.div>
           </div>
 
