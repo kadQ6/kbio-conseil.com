@@ -165,7 +165,7 @@ function HeroVisual({ hero }: { hero: HeroCopyStrings }) {
 
         <HeroProjectsChart hero={hero} />
 
-        <div className="mt-5 border-t border-[color:var(--color-line)] pt-4">
+        <div className="mt-5 border-t border-[color:var(--color-line)] pt-4 pb-1 sm:pb-2">
           <p className="text-[10px] uppercase tracking-[0.18em] text-[color:var(--color-muted)]">
             {hero.countriesEyebrow}
           </p>
@@ -183,12 +183,14 @@ function HeroVisual({ hero }: { hero: HeroCopyStrings }) {
 
       <div
         aria-hidden
-        className="absolute -bottom-6 -left-6 hidden rounded-2xl border border-[color:var(--color-line)] bg-white p-4 shadow-[var(--shadow-elev)] sm:block"
+        className="absolute -bottom-2 right-0 left-auto z-10 hidden max-w-[min(52%,11rem)] rounded-xl border border-[color:var(--color-line)] bg-white p-2 shadow-[var(--shadow-soft)] sm:block"
       >
-        <p className="text-[10px] uppercase tracking-[0.2em] text-[color:var(--color-muted)]">{hero.sideCardEyebrow}</p>
-        <p className="mt-1 num-tabular text-2xl font-semibold text-[color:var(--color-ink)]">
+        <p className="text-[9px] font-medium leading-tight tracking-normal normal-case text-[color:var(--color-muted-strong)]">
+          {hero.sideCardEyebrow}
+        </p>
+        <p className="mt-1 num-tabular text-lg font-semibold leading-none text-[color:var(--color-ink)]">
           {hero.sideCardMetric}
-          <span className="text-base text-[color:var(--color-muted)]">{hero.sideCardUnit}</span>
+          <span className="text-xs font-normal normal-nums text-[color:var(--color-muted)]">{hero.sideCardUnit}</span>
         </p>
       </div>
     </motion.div>

@@ -56,7 +56,7 @@ const heroFr = {
   rowBio: "Ingénierie biomédicale",
   rowArchi: "Architecture hospitalière",
   countriesEyebrow: "Pays avec projets en cours",
-  sideCardEyebrow: "Livrables en rédaction",
+  sideCardEyebrow: "Livrables en cours",
   sideCardMetric: "14",
   sideCardUnit: " dossiers",
 } satisfies HeroCopyStrings;
@@ -90,7 +90,7 @@ const heroEn = {
   rowBio: "Biomedical engineering",
   rowArchi: "Healthcare architecture",
   countriesEyebrow: "Countries with ongoing projects",
-  sideCardEyebrow: "Draft deliverables",
+  sideCardEyebrow: "Deliverables in progress",
   sideCardMetric: "14",
   sideCardUnit: " work packages",
 } satisfies HeroCopyStrings;
