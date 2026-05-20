@@ -165,33 +165,38 @@ function HeroVisual({ hero }: { hero: HeroCopyStrings }) {
 
         <HeroProjectsChart hero={hero} />
 
-        <div className="mt-5 border-t border-[color:var(--color-line)] pt-4 pb-1 sm:pb-2">
-          <p className="text-[10px] uppercase tracking-[0.18em] text-[color:var(--color-muted)]">
-            {hero.countriesEyebrow}
-          </p>
-          <ul className="mt-3 flex flex-wrap gap-2">
-            {HERO_PROJECT_COUNTRIES.map((country) => (
-              <li key={country}>
-                <span className="inline-flex rounded-full border border-[color:var(--color-line)] bg-[color:var(--color-soft)] px-2.5 py-1 text-[12px] font-medium text-[color:var(--color-muted-strong)]">
-                  {country}
-                </span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
+        <div className="mt-5 border-t border-[color:var(--color-line)] pt-4">
+          <div className="flex flex-col gap-5 md:flex-row md:items-start md:justify-between md:gap-6">
+            <div className="min-w-0 flex-1">
+              <p className="text-[10px] uppercase tracking-[0.18em] text-[color:var(--color-muted)]">
+                {hero.countriesEyebrow}
+              </p>
+              <ul className="mt-3 flex flex-wrap gap-2">
+                {HERO_PROJECT_COUNTRIES.map((country) => (
+                  <li key={country}>
+                    <span className="inline-flex rounded-full border border-[color:var(--color-line)] bg-[color:var(--color-soft)] px-2.5 py-1 text-[12px] font-medium text-[color:var(--color-muted-strong)]">
+                      {country}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-      <div
-        aria-hidden
-        className="absolute -bottom-2 right-0 left-auto z-10 hidden max-w-[min(52%,11rem)] rounded-xl border border-[color:var(--color-line)] bg-white p-2 shadow-[var(--shadow-soft)] sm:block"
-      >
-        <p className="text-[9px] font-medium leading-tight tracking-normal normal-case text-[color:var(--color-muted-strong)]">
-          {hero.sideCardEyebrow}
-        </p>
-        <p className="mt-1 num-tabular text-lg font-semibold leading-none text-[color:var(--color-ink)]">
-          {hero.sideCardMetric}
-          <span className="text-xs font-normal normal-nums text-[color:var(--color-muted)]">{hero.sideCardUnit}</span>
-        </p>
+            <div
+              className="shrink-0 rounded-xl border border-[color:var(--color-line-strong)] bg-white px-3 py-3 shadow-[0_1px_3px_rgba(0,63,114,0.06)] md:min-w-[8.75rem] md:px-3.5 md:text-right"
+              role="status"
+              aria-label={`${hero.sideCardEyebrow} — ${hero.sideCardMetric} ${hero.sideCardUnit.trim()}`}
+            >
+              <p className="text-[10px] font-medium leading-snug text-[color:var(--color-muted-strong)]">
+                {hero.sideCardEyebrow}
+              </p>
+              <p className="num-tabular mt-1.5 text-lg font-semibold tabular-nums leading-none text-[color:var(--color-ink)] md:mt-2 md:text-xl">
+                {hero.sideCardMetric}
+              </p>
+              <p className="mt-1 text-[11px] leading-tight text-[color:var(--color-muted)] md:text-xs">{hero.sideCardUnit.trim()}</p>
+            </div>
+          </div>
+        </div>
       </div>
     </motion.div>
   );
