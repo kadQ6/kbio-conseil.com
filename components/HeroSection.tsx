@@ -166,7 +166,7 @@ function HeroVisual({ hero }: { hero: HeroCopyStrings }) {
         <HeroProjectsChart hero={hero} />
 
         <div className="mt-5 border-t border-[color:var(--color-line)] pt-4">
-          <div className="flex flex-col gap-5 md:flex-row md:items-start md:justify-between md:gap-6">
+          <div className="flex flex-col gap-4 sm:gap-3 md:flex-row md:items-end md:justify-between md:gap-5">
             <div className="min-w-0 flex-1">
               <p className="text-[10px] uppercase tracking-[0.18em] text-[color:var(--color-muted)]">
                 {hero.countriesEyebrow}
@@ -183,17 +183,19 @@ function HeroVisual({ hero }: { hero: HeroCopyStrings }) {
             </div>
 
             <div
-              className="shrink-0 rounded-xl border border-[color:var(--color-line-strong)] bg-white px-3 py-3 shadow-[0_1px_3px_rgba(0,63,114,0.06)] md:min-w-[8.75rem] md:px-3.5 md:text-right"
+              className="shrink-0 self-start rounded-lg border border-[color:var(--color-line)] bg-[color:var(--color-soft)] px-2 py-1.5 md:self-end md:px-2.5 md:py-2 md:text-right"
               role="status"
               aria-label={`${hero.sideCardEyebrow} — ${hero.sideCardMetric} ${hero.sideCardUnit.trim()}`}
             >
-              <p className="text-[10px] font-medium leading-snug text-[color:var(--color-muted-strong)]">
+              <p className="text-[9px] font-medium leading-tight tracking-normal text-[color:var(--color-muted-strong)]">
                 {hero.sideCardEyebrow}
               </p>
-              <p className="num-tabular mt-1.5 text-lg font-semibold tabular-nums leading-none text-[color:var(--color-ink)] md:mt-2 md:text-xl">
+              <p className="num-tabular mt-0.5 text-base font-semibold tabular-nums leading-none text-[color:var(--color-ink)]">
                 {hero.sideCardMetric}
+                <span className="normal-nums pl-1 text-[10px] font-normal text-[color:var(--color-muted)]">
+                  {hero.sideCardUnit.trim()}
+                </span>
               </p>
-              <p className="mt-1 text-[11px] leading-tight text-[color:var(--color-muted)] md:text-xs">{hero.sideCardUnit.trim()}</p>
             </div>
           </div>
         </div>
