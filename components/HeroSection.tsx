@@ -110,7 +110,7 @@ export function HeroSection({
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.35 }}
-              className="mt-12 flex flex-wrap items-center gap-6 sm:gap-10"
+              className="mt-12 flex flex-wrap items-center gap-3 sm:gap-5"
               role="list"
             >
               {HERO_TRUST_IMAGE_SRC.map((src, i) => (
@@ -118,10 +118,10 @@ export function HeroSection({
                   <Image
                     src={src}
                     alt={hero.trustImageAlts[i] ?? ""}
-                    width={200}
-                    height={200}
-                    sizes="(max-width: 640px) 28vw, 140px"
-                    className="h-14 w-auto max-h-[4.5rem] object-contain opacity-90 sm:h-[4.5rem] sm:max-h-[5rem]"
+                    width={100}
+                    height={100}
+                    sizes="(max-width: 640px) 14vw, 70px"
+                    className="h-7 w-auto object-contain opacity-90 sm:h-[2.25rem]"
                   />
                 </div>
               ))}
