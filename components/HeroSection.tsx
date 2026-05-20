@@ -4,6 +4,7 @@ import Image from "next/image";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 import type { HeroCopyStrings } from "@/lib/copy/home";
+import type { AppLocale } from "@/lib/i18n/config";
 import { ButtonLink } from "./Button";
 import { Container } from "./Container";
 
@@ -21,13 +22,10 @@ const ACTIVE_PROJECT_SPLIT = {
 const ACTIVE_PROJECTS_TOTAL =
   ACTIVE_PROJECT_SPLIT.biomedical + ACTIVE_PROJECT_SPLIT.architecture;
 
-const HERO_PROJECT_COUNTRIES = [
-  "Djibouti",
-  "France",
-  "Gabon",
-  "Rwanda",
-  "Somalie",
-] as const;
+const HERO_PROJECT_COUNTRIES: Record<AppLocale, readonly string[]> = {
+  fr: ["Djibouti", "Ethiopie", "France", "Gabon", "RDC", "Rwanda", "Somalie"],
+  en: ["Djibouti", "Ethiopia", "France", "Gabon", "DRC", "Rwanda", "Somalia"],
+};
 
 function chartAria(copy: HeroCopyStrings) {
   return copy.chartAria
@@ -38,10 +36,12 @@ function chartAria(copy: HeroCopyStrings) {
 
 export function HeroSection({
   hero,
+  locale,
   contactHref,
   expertisesHref,
 }: {
   hero: HeroCopyStrings;
+  locale: AppLocale;
   contactHref: string;
   expertisesHref: string;
 }) {
@@ -129,7 +129,7 @@ export function HeroSection({
           </div>
 
           <div className="lg:col-span-5">
-            <HeroVisual hero={hero} />
+            <HeroVisual hero={hero} locale={locale} />
           </div>
         </div>
       </Container>
@@ -137,7 +137,7 @@ export function HeroSection({
   );
 }
 
-function HeroVisual({ hero }: { hero: HeroCopyStrings }) {
+function HeroVisual({ hero, locale }: { hero: HeroCopyStrings; locale: AppLocale }) {
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.96 }}
@@ -166,13 +166,13 @@ function HeroVisual({ hero }: { hero: HeroCopyStrings }) {
         <HeroProjectsChart hero={hero} />
 
         <div className="mt-5 border-t border-[color:var(--color-line)] pt-4">
-          <div className="flex flex-col gap-4 sm:gap-3 md:flex-row md:items-end md:justify-between md:gap-5">
-            <div className="min-w-0 flex-1">
+          <div className="grid grid-cols-1 gap-x-6 gap-y-4 sm:gap-y-3 md:grid-cols-[minmax(0,1fr)_auto] md:items-end">
+            <div className="min-w-0">
               <p className="text-[10px] uppercase tracking-[0.18em] text-[color:var(--color-muted)]">
                 {hero.countriesEyebrow}
               </p>
-              <ul className="mt-3 flex flex-wrap gap-2">
-                {HERO_PROJECT_COUNTRIES.map((country) => (
+              <ul className="mt-3 flex flex-wrap gap-x-2 gap-y-2">
+                {HERO_PROJECT_COUNTRIES[locale].map((country) => (
                   <li key={country}>
                     <span className="inline-flex rounded-full border border-[color:var(--color-line)] bg-[color:var(--color-soft)] px-2.5 py-1 text-[12px] font-medium text-[color:var(--color-muted-strong)]">
                       {country}
@@ -183,14 +183,14 @@ function HeroVisual({ hero }: { hero: HeroCopyStrings }) {
             </div>
 
             <div
-              className="shrink-0 self-start rounded-lg border border-[color:var(--color-line)] bg-[color:var(--color-soft)] px-2 py-1.5 md:self-end md:px-2.5 md:py-2 md:text-right"
+              className="rounded-lg border border-[color:var(--color-line)] bg-[color:var(--color-soft)] px-2.5 py-2 md:min-w-[5.75rem] md:max-w-[8rem] md:justify-self-end md:px-2.5 md:py-2 md:text-right"
               role="status"
               aria-label={`${hero.sideCardEyebrow} — ${hero.sideCardMetric} ${hero.sideCardUnit.trim()}`}
             >
               <p className="text-[9px] font-medium leading-tight tracking-normal text-[color:var(--color-muted-strong)]">
                 {hero.sideCardEyebrow}
               </p>
-              <p className="num-tabular mt-0.5 text-base font-semibold tabular-nums leading-none text-[color:var(--color-ink)]">
+              <p className="num-tabular mt-1 text-base font-semibold tabular-nums leading-none text-[color:var(--color-ink)]">
                 {hero.sideCardMetric}
                 <span className="normal-nums pl-1 text-[10px] font-normal text-[color:var(--color-muted)]">
                   {hero.sideCardUnit.trim()}

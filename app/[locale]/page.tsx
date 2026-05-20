@@ -66,7 +66,7 @@ export default async function HomePage({
 
   return (
     <>
-      <HeroSection hero={hero} contactHref={contactHref} expertisesHref={expertisesHref} />
+      <HeroSection hero={hero} locale={locale} contactHref={contactHref} expertisesHref={expertisesHref} />
 
       <section className="relative">
         <Container className="py-20 md:py-28">
