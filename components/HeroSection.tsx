@@ -165,16 +165,16 @@ function HeroVisual({ hero, locale }: { hero: HeroCopyStrings; locale: AppLocale
 
         <HeroProjectsChart hero={hero} />
 
-        <div className="mt-5 border-t border-[color:var(--color-line)] pt-4">
-          <div className="grid grid-cols-1 gap-x-6 gap-y-4 sm:gap-y-3 md:grid-cols-[minmax(0,1fr)_auto] md:items-end">
-            <div className="min-w-0">
+        <div className="mt-5 border-t border-[color:var(--color-line)] pt-5">
+          <div className="space-y-4">
+            <div>
               <p className="text-[10px] uppercase tracking-[0.18em] text-[color:var(--color-muted)]">
                 {hero.countriesEyebrow}
               </p>
-              <ul className="mt-3 flex flex-wrap gap-x-2 gap-y-2">
+              <ul className="mt-3 flex flex-wrap gap-2">
                 {HERO_PROJECT_COUNTRIES[locale].map((country) => (
                   <li key={country}>
-                    <span className="inline-flex rounded-full border border-[color:var(--color-line)] bg-[color:var(--color-soft)] px-2.5 py-1 text-[12px] font-medium text-[color:var(--color-muted-strong)]">
+                    <span className="inline-flex rounded-full border border-[color:var(--color-line)] bg-white px-2.5 py-1 text-[12px] font-medium text-[color:var(--color-muted-strong)] shadow-[0_1px_2px_rgba(0,63,114,0.04)]">
                       {country}
                     </span>
                   </li>
@@ -183,19 +183,19 @@ function HeroVisual({ hero, locale }: { hero: HeroCopyStrings; locale: AppLocale
             </div>
 
             <div
-              className="rounded-lg border border-[color:var(--color-line)] bg-[color:var(--color-soft)] px-2.5 py-2 md:min-w-[5.75rem] md:max-w-[8rem] md:justify-self-end md:px-2.5 md:py-2 md:text-right"
               role="status"
               aria-label={`${hero.sideCardEyebrow} — ${hero.sideCardMetric} ${hero.sideCardUnit.trim()}`}
+              className="flex flex-col gap-2 rounded-xl border border-[color:var(--color-line)] bg-[color:var(--color-soft)] px-3 py-3 sm:flex-row sm:items-center sm:justify-between sm:gap-6 sm:py-2.5 sm:pl-4 sm:pr-4"
             >
-              <p className="text-[9px] font-medium leading-tight tracking-normal text-[color:var(--color-muted-strong)]">
+              <span className="text-[11px] font-medium leading-snug text-[color:var(--color-muted-strong)]">
                 {hero.sideCardEyebrow}
-              </p>
-              <p className="num-tabular mt-1 text-base font-semibold tabular-nums leading-none text-[color:var(--color-ink)]">
-                {hero.sideCardMetric}
-                <span className="normal-nums pl-1 text-[10px] font-normal text-[color:var(--color-muted)]">
-                  {hero.sideCardUnit.trim()}
+              </span>
+              <div className="flex shrink-0 items-baseline gap-2 border-t border-[color:var(--color-line)] pt-2 sm:border-t-0 sm:pt-0">
+                <span className="num-tabular text-xl font-semibold tabular-nums leading-none text-[color:var(--color-ink)]">
+                  {hero.sideCardMetric}
                 </span>
-              </p>
+                <span className="text-[12px] leading-none text-[color:var(--color-muted)]">{hero.sideCardUnit.trim()}</span>
+              </div>
             </div>
           </div>
         </div>
