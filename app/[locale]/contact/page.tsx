@@ -101,7 +101,11 @@ export default async function ContactPage({
                   <ContactCard
                     Icon={MapPin}
                     title={locale === "en" ? "Address" : "Adresse"}
-                    primary={site.contact.address}
+                    primary={
+                      locale === "en"
+                        ? site.contact.regionsCoverage.en
+                        : site.contact.regionsCoverage.fr
+                    }
                     secondary={`${site.contact.city}, ${site.contact.country}`}
                   />
                 </div>

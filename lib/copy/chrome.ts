@@ -1,4 +1,4 @@
-import { footerColumns, navigation } from "@/lib/site-data";
+import { footerColumns, navigation, site } from "@/lib/site-data";
 import type { AppLocale } from "@/lib/i18n/config";
 
 export type FooterColumn = {
@@ -77,7 +77,7 @@ const chromeFr = {
   langShortEn: "EN",
   langSwitcherNavAria: "Choisir la langue du site",
   footerBlurbSuffix: "",
-  footerRegionsLine: "France | Afrique | Moyen orient",
+  footerRegionsLine: site.contact.regionsCoverage.fr,
   footerLegalCities: "Paris · Djibouti · missions internationales",
   logoAriaHome: "K'BIO — Accueil",
 } satisfies ChromeStrings;
@@ -98,7 +98,7 @@ const chromeEn = {
   langShortEn: "EN",
   langSwitcherNavAria: "Site language",
   footerBlurbSuffix: "",
-  footerRegionsLine: "France | Africa | Middle East",
+  footerRegionsLine: site.contact.regionsCoverage.en,
   footerLegalCities: "Paris · Djibouti · international engagements",
   logoAriaHome: "K'BIO — Home",
 } satisfies ChromeStrings;

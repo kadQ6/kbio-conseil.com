@@ -145,7 +145,7 @@ export function professionalServiceJsonLd() {
     address: {
       "@type": "PostalAddress",
       addressLocality: site.contact.city,
-      streetAddress: site.contact.address,
+      streetAddress: site.contact.regionsCoverage.fr,
       addressCountry: "FR",
     },
     areaServed: [

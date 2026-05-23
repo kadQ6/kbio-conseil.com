@@ -23,7 +23,7 @@ import {
 
 export const site = {
   name: "K'BIO",
-  longName: "Ingénierie biomédicale & architecture hospitalière",
+  longName: "Ingénierie biomédicale & Architecture hospitalière",
   parent: "K'BIO",
   baseline: "Génie biomédical et ingénierie hospitalière terrain.",
   url: "https://kbio-conseil.com",
@@ -32,7 +32,11 @@ export const site = {
     email: "contact@kbio-conseil.com",
     phone: "+253 XX XX XX XX",
     whatsapp: "",
-    address: "Accompagnement terrain — Île-de-France & Djibouti · missions Afrique subsaharienne",
+    /** Carte contact / JSON-LD (pas d’ancienne ligne « accompagnement terrain »). Aligné footer. */
+    regionsCoverage: {
+      fr: "France | Afrique | Moyen orient",
+      en: "France | Africa | Middle East",
+    },
     city: "Paris · Djibouti",
     country: "FR · DJ",
   },
