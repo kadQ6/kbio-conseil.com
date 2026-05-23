@@ -7,8 +7,8 @@ export type HeroCopyStrings = {
   intro: [string, string];
   ctaPrimary: string;
   ctaSecondary: string;
-  /** Textes alternatifs des 3 illustrations sous le hero (audit, terrain, données). */
-  trustImageAlts: readonly [string, string, string];
+  footIEC: string;
+  footWHO: string;
   visualEyebrow: string;
   visualLive: string;
   kpiActiveProjects: string;
@@ -37,11 +37,8 @@ const heroFr = {
   ],
   ctaPrimary: "Demander un RDV",
   ctaSecondary: "Découvrir nos expertises",
-  trustImageAlts: [
-    "Illustration — audit documentaire, vérification et conformité",
-    "Illustration — ingénierie biomédicale et intervention sur le terrain",
-    "Illustration — pilotage de projet et analyse des données de santé",
-  ],
+  footIEC: "Conformité IEC 60601 / 62353",
+  footWHO: "Méthodologie alignée OMS",
   visualEyebrow: "Tableau de bord projets",
   visualLive: "K'BIO · Live",
   kpiActiveProjects: "Projets actifs",
@@ -56,7 +53,7 @@ const heroFr = {
   rowBio: "Ingénierie biomédicale",
   rowArchi: "Architecture hospitalière",
   countriesEyebrow: "Pays avec projets en cours",
-  sideCardEyebrow: "Livrables en cours",
+  sideCardEyebrow: "Livrables en rédaction",
   sideCardMetric: "14",
   sideCardUnit: " dossiers",
 } satisfies HeroCopyStrings;
@@ -71,11 +68,8 @@ const heroEn = {
   ],
   ctaPrimary: "Request a meeting",
   ctaSecondary: "Explore our expertise",
-  trustImageAlts: [
-    "Illustration — documentation audit, verification and compliance",
-    "Illustration — biomedical engineering and field operations",
-    "Illustration — programme steering and health data analytics",
-  ],
+  footIEC: "IEC 60601 / IEC 62353 alignment",
+  footWHO: "WHO-aligned methodological guardrails",
   visualEyebrow: "Portfolio dashboard",
   visualLive: "K'BIO · Live",
   kpiActiveProjects: "Active engagements",
@@ -90,7 +84,7 @@ const heroEn = {
   rowBio: "Biomedical engineering",
   rowArchi: "Healthcare architecture",
   countriesEyebrow: "Countries with ongoing projects",
-  sideCardEyebrow: "Deliverables in progress",
+  sideCardEyebrow: "Draft deliverables",
   sideCardMetric: "14",
   sideCardUnit: " work packages",
 } satisfies HeroCopyStrings;
