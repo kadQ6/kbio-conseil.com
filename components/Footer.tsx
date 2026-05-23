@@ -25,12 +25,14 @@ export function Footer({ chrome, locale }: { chrome: ChromeStrings; locale: AppL
           <div className="lg:col-span-5">
             <Logo variant="light" href={localizeHref(locale, "/")} ariaLabel={chrome.logoAriaHome} />
             <p className="mt-5 max-w-md text-[15px] leading-relaxed text-white/75">
-              {chrome.firmDescriptor}. {chrome.footerBlurbSuffix}
+              {chrome.footerBlurbSuffix
+                ? `${chrome.firmDescriptor}. ${chrome.footerBlurbSuffix}`
+                : chrome.firmDescriptor}
             </p>
-            <div className="mt-8 space-y-3 text-[14px] text-white/80">
+            <div className="mt-10 space-y-3 text-[14px] text-white/80">
               <p className="flex items-center gap-3">
-                <MapPin className="h-4 w-4 text-[color:var(--color-teal)]" aria-hidden />
-                {site.contact.address}
+                <MapPin className="h-4 w-4 shrink-0 text-[color:var(--color-teal)]" aria-hidden />
+                {chrome.footerRegionsLine}
               </p>
               {!site.contact.phone.includes("X") ? (
               <p className="flex items-center gap-3">

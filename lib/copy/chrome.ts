@@ -55,12 +55,14 @@ export type ChromeStrings = {
   langShortEn: string;
   langSwitcherNavAria: string;
   footerBlurbSuffix: string;
+  /** Ligne géographique sous le descripteur (footer uniquement ; l’adresse postale reste sur Contact / Schema). */
+  footerRegionsLine: string;
   footerLegalCities: string;
   logoAriaHome: string;
 };
 
 const chromeFr = {
-  firmDescriptor: "Ingénierie biomédicale & architecture hospitalière",
+  firmDescriptor: "Ingénierie biomédicale & Architecture hospitalière",
   navigation,
   footerColumns,
   skipToContent: "Aller au contenu",
@@ -74,14 +76,14 @@ const chromeFr = {
   langShortFr: "FR",
   langShortEn: "EN",
   langSwitcherNavAria: "Choisir la langue du site",
-  footerBlurbSuffix:
-    "Missions PSA, dossiers AO, bloc opératoire & fluides médicaux, avec des livrables compatibles bailleurs et audits internationaux.",
+  footerBlurbSuffix: "",
+  footerRegionsLine: "France | Afrique | Moyen orient",
   footerLegalCities: "Paris · Djibouti · missions internationales",
   logoAriaHome: "K'BIO — Accueil",
 } satisfies ChromeStrings;
 
 const chromeEn = {
-  firmDescriptor: "Biomedical engineering & healthcare architecture",
+  firmDescriptor: "Biomedical engineering & Hospital architecture",
   navigation: navigationEn,
   footerColumns: footerColumnsEn,
   skipToContent: "Skip to content",
@@ -95,8 +97,8 @@ const chromeEn = {
   langShortFr: "FR",
   langShortEn: "EN",
   langSwitcherNavAria: "Site language",
-  footerBlurbSuffix:
-    "PSA missions, tenders, surgical suite & medical fluids, with deliverables tailored to donors and international audits.",
+  footerBlurbSuffix: "",
+  footerRegionsLine: "France | Africa | Middle East",
   footerLegalCities: "Paris · Djibouti · international engagements",
   logoAriaHome: "K'BIO — Home",
 } satisfies ChromeStrings;
