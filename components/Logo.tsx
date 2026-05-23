@@ -1,11 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
+import { site } from "@/lib/site-data";
 
 type Variant = "default" | "light";
 
-/** Logo Kbio livré sous `public/images/logo/kbio-logo.png` (`unoptimized` : pas de blocage optimiseur PNG). */
+/** Symbole K — `public/images/logo/kbio-logo.png` (`unoptimized` : évite blocage optimiseur PNG). */
 const LOGO_SRC = "/images/logo/kbio-logo.png";
 
+/**
+ * Marque en colonne : disque léger encadrant le symbole, nom du cabinet en dessous
+ * (aligné références « dashboard » sombre — adapté aussi au header clair).
+ */
 export function Logo({
   variant = "default",
   href = "/",
@@ -17,17 +22,36 @@ export function Logo({
 }) {
   const onDarkFooter = variant === "light";
 
-  const mark = (
-    <span className="relative block h-9 w-[100px] sm:h-10 sm:w-[112px]">
-      <Image
-        src={LOGO_SRC}
-        alt="K'BIO"
-        fill
-        unoptimized
-        priority={!onDarkFooter}
-        sizes="112px"
-        className="object-contain object-left"
-      />
+  const disc = (
+    <span
+      className={`flex h-[2.875rem] w-[2.875rem] shrink-0 items-center justify-center rounded-full ring-1 ${
+        onDarkFooter
+          ? "bg-[#545b66] shadow-[inset_0_-1px_0_rgba(0,0,0,0.22)] ring-white/[0.14]"
+          : "bg-[#e4e9ef] shadow-[inset_0_1px_2px_rgba(255,255,255,0.65)] ring-black/[0.07]"
+      }`}
+    >
+      <span className="relative block h-[22px] w-[26px]" aria-hidden>
+        <Image
+          src={LOGO_SRC}
+          alt=""
+          fill
+          unoptimized
+          priority={!onDarkFooter}
+          sizes="52px"
+          className="object-contain object-center"
+        />
+      </span>
+    </span>
+  );
+
+  const label = (
+    <span
+      className={`font-display text-[11px] font-semibold uppercase tracking-[0.2em] ${
+        onDarkFooter ? "text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.25)]" : "text-[color:var(--color-ink)]"
+      }`}
+      aria-hidden
+    >
+      {site.name}
     </span>
   );
 
@@ -35,15 +59,10 @@ export function Logo({
     <Link
       href={href}
       aria-label={ariaLabel}
-      className="group inline-flex items-center transition-transform duration-300 hover:-translate-y-0.5"
+      className={`group outline-offset-4 transition-[transform,opacity] duration-300 hover:-translate-y-0.5 hover:opacity-95 inline-flex flex-col items-center gap-1 self-start`}
     >
-      {onDarkFooter ? (
-        <span className="inline-flex rounded-2xl bg-white px-2.5 py-1 shadow-[var(--shadow-soft)] ring-1 ring-black/5">
-          {mark}
-        </span>
-      ) : (
-        mark
-      )}
+      {disc}
+      {label}
     </Link>
   );
 }
