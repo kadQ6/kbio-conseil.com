@@ -13,21 +13,21 @@ import {
 
 const heroStatsEn = [
   {
-    value: "120",
+    value: "25",
     suffix: "+",
     label: "Completed assignments",
-    hint: "PSA audits, biomedical studies, donor support",
+    hint: "Biomedical Engineering & Hospital Architecture",
   },
   {
-    value: " 2000",
-    label: "Devices mapped or under follow‑up",
-    hint: "across CMMS multisite programmes",
+    value: "15 000",
+    label: "Installed or monitored medical devices",
+    hint: "Multisite programme",
   },
-  { value: "15", suffix: "+", label: "Countries & territories", hint: "Eastern Africa & SSA" },
+  { value: "12", suffix: "+", label: "Countries & territories", hint: "France, Africa & the Middle East" },
   {
     value: "48",
     suffix: " h",
-    hint: "Target first response on qualified requests",
+    hint: "First reply on request",
     label: "Indicative reply time",
   },
 ] satisfies typeof heroStatsFr;

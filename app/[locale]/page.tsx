@@ -66,7 +66,7 @@ export default async function HomePage({
 
   return (
     <>
-      <HeroSection hero={hero} contactHref={contactHref} expertisesHref={expertisesHref} />
+      <HeroSection hero={hero} locale={locale} contactHref={contactHref} expertisesHref={expertisesHref} />
 
       <section className="relative">
         <Container className="py-20 md:py-28">
@@ -80,6 +80,7 @@ export default async function HomePage({
                 {h.introP1}
               </p>
               <p className="mt-5 text-[15.5px] leading-relaxed text-[color:var(--color-muted)]">{h.introP2}</p>
+              <p className="mt-5 text-[15.5px] leading-relaxed text-[color:var(--color-muted)]">{h.introP3}</p>
             </div>
           </div>
 

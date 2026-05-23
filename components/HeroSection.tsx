@@ -1,12 +1,19 @@
 "use client";
 
+import Image from "next/image";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 import type { HeroCopyStrings } from "@/lib/copy/home";
+import type { AppLocale } from "@/lib/i18n/config";
 import { ButtonLink } from "./Button";
 import { Container } from "./Container";
 
-/** Illustration — répartition des projets actifs par filière */
+const HERO_TRUST_IMAGE_SRC = [
+  "/images/hero/trust-audit.png",
+  "/images/hero/trust-field.png",
+  "/images/hero/trust-analytics.png",
+] as const;
+
 const ACTIVE_PROJECT_SPLIT = {
   biomedical: 8,
   architecture: 5,
@@ -15,13 +22,10 @@ const ACTIVE_PROJECT_SPLIT = {
 const ACTIVE_PROJECTS_TOTAL =
   ACTIVE_PROJECT_SPLIT.biomedical + ACTIVE_PROJECT_SPLIT.architecture;
 
-const HERO_PROJECT_COUNTRIES = [
-  "Djibouti",
-  "France",
-  "Gabon",
-  "Rwanda",
-  "Somalie",
-] as const;
+const HERO_PROJECT_COUNTRIES: Record<AppLocale, readonly string[]> = {
+  fr: ["Djibouti", "Ethiopie", "France", "Gabon", "RDC", "Rwanda", "Somalie"],
+  en: ["Djibouti", "Ethiopia", "France", "Gabon", "DRC", "Rwanda", "Somalia"],
+};
 
 function chartAria(copy: HeroCopyStrings) {
   return copy.chartAria
@@ -32,10 +36,12 @@ function chartAria(copy: HeroCopyStrings) {
 
 export function HeroSection({
   hero,
+  locale,
   contactHref,
   expertisesHref,
 }: {
   hero: HeroCopyStrings;
+  locale: AppLocale;
   contactHref: string;
   expertisesHref: string;
 }) {
@@ -104,19 +110,26 @@ export function HeroSection({
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.35 }}
-              className="mt-12 flex items-center gap-6 text-xs text-[color:var(--color-muted)]"
+              className="mt-12 flex flex-wrap items-center gap-3 sm:gap-5"
+              role="list"
             >
-              <span className="inline-flex items-center gap-2">
-                <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--color-success)]" />
-                {hero.footIEC}
-              </span>
-              <span className="hidden h-3 w-px bg-[color:var(--color-line-strong)] sm:block" />
-              <span className="hidden sm:inline">{hero.footWHO}</span>
+              {HERO_TRUST_IMAGE_SRC.map((src, i) => (
+                <div key={src} role="listitem" className="shrink-0">
+                  <Image
+                    src={src}
+                    alt={hero.trustImageAlts[i] ?? ""}
+                    width={100}
+                    height={100}
+                    sizes="(max-width: 640px) 14vw, 70px"
+                    className="h-7 w-auto object-contain opacity-90 sm:h-[2.25rem]"
+                  />
+                </div>
+              ))}
             </motion.div>
           </div>
 
           <div className="lg:col-span-5">
-            <HeroVisual hero={hero} />
+            <HeroVisual hero={hero} locale={locale} />
           </div>
         </div>
       </Container>
@@ -124,7 +137,7 @@ export function HeroSection({
   );
 }
 
-function HeroVisual({ hero }: { hero: HeroCopyStrings }) {
+function HeroVisual({ hero, locale }: { hero: HeroCopyStrings; locale: AppLocale }) {
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.96 }}
@@ -152,31 +165,40 @@ function HeroVisual({ hero }: { hero: HeroCopyStrings }) {
 
         <HeroProjectsChart hero={hero} />
 
-        <div className="mt-5 border-t border-[color:var(--color-line)] pt-4">
-          <p className="text-[10px] uppercase tracking-[0.18em] text-[color:var(--color-muted)]">
-            {hero.countriesEyebrow}
-          </p>
-          <ul className="mt-3 flex flex-wrap gap-2">
-            {HERO_PROJECT_COUNTRIES.map((country) => (
-              <li key={country}>
-                <span className="inline-flex rounded-full border border-[color:var(--color-line)] bg-[color:var(--color-soft)] px-2.5 py-1 text-[12px] font-medium text-[color:var(--color-muted-strong)]">
-                  {country}
-                </span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
+        <div className="mt-5 border-t border-[color:var(--color-line)] pt-5">
+          <div className="space-y-4">
+            <div>
+              <p className="text-[10px] uppercase tracking-[0.18em] text-[color:var(--color-muted)]">
+                {hero.countriesEyebrow}
+              </p>
+              <ul className="mt-3 flex flex-wrap gap-2">
+                {HERO_PROJECT_COUNTRIES[locale].map((country) => (
+                  <li key={country}>
+                    <span className="inline-flex rounded-full border border-[color:var(--color-line)] bg-white px-2.5 py-1 text-[12px] font-medium text-[color:var(--color-muted-strong)] shadow-[0_1px_2px_rgba(0,63,114,0.04)]">
+                      {country}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-      <div
-        aria-hidden
-        className="absolute -bottom-6 -left-6 hidden rounded-2xl border border-[color:var(--color-line)] bg-white p-4 shadow-[var(--shadow-elev)] sm:block"
-      >
-        <p className="text-[10px] uppercase tracking-[0.2em] text-[color:var(--color-muted)]">{hero.sideCardEyebrow}</p>
-        <p className="mt-1 num-tabular text-2xl font-semibold text-[color:var(--color-ink)]">
-          {hero.sideCardMetric}
-          <span className="text-base text-[color:var(--color-muted)]">{hero.sideCardUnit}</span>
-        </p>
+            <div
+              role="status"
+              aria-label={`${hero.sideCardEyebrow} — ${hero.sideCardMetric} ${hero.sideCardUnit.trim()}`}
+              className="flex flex-col gap-2 rounded-xl border border-[color:var(--color-line)] bg-[color:var(--color-soft)] px-3 py-3 sm:flex-row sm:items-center sm:justify-between sm:gap-6 sm:py-2.5 sm:pl-4 sm:pr-4"
+            >
+              <span className="text-[11px] font-medium leading-snug text-[color:var(--color-muted-strong)]">
+                {hero.sideCardEyebrow}
+              </span>
+              <div className="flex shrink-0 items-baseline gap-2 border-t border-[color:var(--color-line)] pt-2 sm:border-t-0 sm:pt-0">
+                <span className="num-tabular text-xl font-semibold tabular-nums leading-none text-[color:var(--color-ink)]">
+                  {hero.sideCardMetric}
+                </span>
+                <span className="text-[12px] leading-none text-[color:var(--color-muted)]">{hero.sideCardUnit.trim()}</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </motion.div>
   );

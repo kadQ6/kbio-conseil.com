@@ -3,8 +3,10 @@ import Link from "next/link";
 
 type Variant = "default" | "light";
 
-/** Logo Kbio livré sous `public/images/logo/kbio-logo.png` (`unoptimized` : pas de blocage optimiseur PNG). */
-const LOGO_SRC = "/images/logo/kbio-logo.png";
+/**
+ * Composition verticale (disque K + typo) — fichier fourni équivalent « image 2 ».
+ */
+const LOCKUP_SRC = "/images/logo/kbio-lockup-vertical.png";
 
 export function Logo({
   variant = "default",
@@ -17,33 +19,24 @@ export function Logo({
 }) {
   const onDarkFooter = variant === "light";
 
-  const mark = (
-    <span className="relative block h-9 w-[100px] sm:h-10 sm:w-[112px]">
-      <Image
-        src={LOGO_SRC}
-        alt="K'BIO"
-        fill
-        unoptimized
-        priority={!onDarkFooter}
-        sizes="112px"
-        className="object-contain object-left"
-      />
-    </span>
-  );
-
   return (
     <Link
       href={href}
       aria-label={ariaLabel}
-      className="group inline-flex items-center transition-transform duration-300 hover:-translate-y-0.5"
+      className="group outline-offset-4 transition-[transform,opacity] duration-300 hover:-translate-y-0.5 hover:opacity-95 inline-flex self-start"
     >
-      {onDarkFooter ? (
-        <span className="inline-flex rounded-2xl bg-white px-2.5 py-1 shadow-[var(--shadow-soft)] ring-1 ring-black/5">
-          {mark}
-        </span>
-      ) : (
-        mark
-      )}
+      <Image
+        src={LOCKUP_SRC}
+        alt=""
+        width={218}
+        height={202}
+        unoptimized
+        priority={!onDarkFooter}
+        sizes="120px"
+        className={`block w-auto object-contain object-left ${
+          onDarkFooter ? "h-[72px] sm:h-[76px]" : "h-[62px] sm:h-[68px]"
+        } ${onDarkFooter ? "brightness-[1.06] contrast-[1.02]" : ""}`}
+      />
     </Link>
   );
 }

@@ -56,18 +56,18 @@ export const heroStats: ReadonlyArray<{
   hint: string;
 }> = [
   {
-    value: "120",
+    value: "25",
     suffix: "+",
     label: "Missions livrées",
-    hint: "audits PSA, études biomédicales, assistance bailleurs",
+    hint: "Ingénierie biomédicale & Architecture hospitalière",
   },
-  { value: " 2000", label: "Équipements cartographiés ou suivis", hint: "dans des programmes GMAO multisites" },
-  { value: "15", suffix: "+", label: "Pays & territoires couverts", hint: "Est & Afrique subsaharienne" },
+  { value: "15 000", label: "Équipements médicaux installés ou suivis", hint: "Programme multisite" },
+  { value: "12", suffix: "+", label: "Pays & territoires couverts", hint: "France, Afrique et Moyen-Orient" },
   {
     value: "48",
     suffix: " h",
     label: "Délai de réponse indicatif",
-    hint: "premier retour projet sur demande précise",
+    hint: "premier retour à la demande",
   },
 ];
 
