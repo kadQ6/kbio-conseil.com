@@ -1,0 +1,42 @@
+{
+  "type_id": "EQ-SCIA-01",
+  "name": "Scialytique double coupole",
+  "family": "BLOC",
+  "dimensions_m": {
+    "L": 0.9,
+    "l": 0.9,
+    "H": 0.4
+  },
+  "color_rgb": [
+    0.95,
+    0.95,
+    1.0
+  ],
+  "weight_kg": 200,
+  "power_VA": 400,
+  "fluids": {
+    "O2": false,
+    "air_medical": false,
+    "vide": false,
+    "eau": false,
+    "evacuation": false
+  },
+  "clearance_m": {
+    "front": 0.0,
+    "back": 0.0,
+    "left": 0.0,
+    "right": 0.0
+  },
+  "maintenance_zone_m": {
+    "front": 0.0,
+    "back": 0.0,
+    "left": 0.0,
+    "right": 0.0
+  },
+  "files": {
+    "obj": "EQ-SCIA-01.obj",
+    "mtl": "EQ-SCIA-01.mtl",
+    "stl_m": "EQ-SCIA-01_m.stl",
+    "stl_mm": "EQ-SCIA-01_mm.stl"
+  }
+}

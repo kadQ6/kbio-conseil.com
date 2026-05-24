@@ -1,0 +1,42 @@
+{
+  "type_id": "EQ-PAIL-LAB-01",
+  "name": "Paillasse laboratoire",
+  "family": "LABORATOIRE",
+  "dimensions_m": {
+    "L": 2.4,
+    "l": 0.75,
+    "H": 0.9
+  },
+  "color_rgb": [
+    0.85,
+    0.85,
+    0.8
+  ],
+  "weight_kg": 150,
+  "power_VA": 0,
+  "fluids": {
+    "O2": false,
+    "air_medical": false,
+    "vide": false,
+    "eau": true,
+    "evacuation": true
+  },
+  "clearance_m": {
+    "front": 1.0,
+    "back": 0.0,
+    "left": 0.0,
+    "right": 0.0
+  },
+  "maintenance_zone_m": {
+    "front": 0.0,
+    "back": 0.5,
+    "left": 0.0,
+    "right": 0.0
+  },
+  "files": {
+    "obj": "EQ-PAIL-LAB-01.obj",
+    "mtl": "EQ-PAIL-LAB-01.mtl",
+    "stl_m": "EQ-PAIL-LAB-01_m.stl",
+    "stl_mm": "EQ-PAIL-LAB-01_mm.stl"
+  }
+}

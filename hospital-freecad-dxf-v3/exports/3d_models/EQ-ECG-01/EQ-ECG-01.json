@@ -1,0 +1,42 @@
+{
+  "type_id": "EQ-ECG-01",
+  "name": "Electrocardiographe 12 derivations",
+  "family": "EXAMEN",
+  "dimensions_m": {
+    "L": 0.45,
+    "l": 0.4,
+    "H": 1.2
+  },
+  "color_rgb": [
+    0.92,
+    0.92,
+    0.92
+  ],
+  "weight_kg": 18,
+  "power_VA": 200,
+  "fluids": {
+    "O2": false,
+    "air_medical": false,
+    "vide": false,
+    "eau": false,
+    "evacuation": false
+  },
+  "clearance_m": {
+    "front": 0.6,
+    "back": 0.2,
+    "left": 0.4,
+    "right": 0.4
+  },
+  "maintenance_zone_m": {
+    "front": 0.6,
+    "back": 0.3,
+    "left": 0.0,
+    "right": 0.0
+  },
+  "files": {
+    "obj": "EQ-ECG-01.obj",
+    "mtl": "EQ-ECG-01.mtl",
+    "stl_m": "EQ-ECG-01_m.stl",
+    "stl_mm": "EQ-ECG-01_mm.stl"
+  }
+}

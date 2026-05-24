@@ -1,0 +1,24 @@
+# Equipement biomedical : Pousse-seringue
+# Type ID : EQ-PSE-01
+# Famille : SOINS
+# Dimensions L x l x H (m) : 0.3 x 0.2 x 0.15
+# Poids approx (kg) : 2.5
+# Genere par hospital-freecad-dxf-v3 / generate_equipment_3d.py
+mtllib EQ-PSE-01.mtl
+o EQ-PSE-01
+v 0.000000 0.000000 0.000000
+v 0.300000 0.000000 0.000000
+v 0.300000 0.200000 0.000000
+v 0.000000 0.200000 0.000000
+v 0.000000 0.000000 0.150000
+v 0.300000 0.000000 0.150000
+v 0.300000 0.200000 0.150000
+v 0.000000 0.200000 0.150000
+usemtl EQ-PSE-01
+s off
+f 1 4 3 2
+f 5 6 7 8
+f 1 2 6 5
+f 4 8 7 3
+f 1 5 8 4
+f 2 3 7 6

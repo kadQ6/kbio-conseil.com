@@ -1,0 +1,42 @@
+{
+  "type_id": "EQ-CH-MED-01",
+  "name": "Fauteuil medecin",
+  "family": "MOBILIER",
+  "dimensions_m": {
+    "L": 0.6,
+    "l": 0.6,
+    "H": 0.95
+  },
+  "color_rgb": [
+    0.2,
+    0.2,
+    0.25
+  ],
+  "weight_kg": 15,
+  "power_VA": 0,
+  "fluids": {
+    "O2": false,
+    "air_medical": false,
+    "vide": false,
+    "eau": false,
+    "evacuation": false
+  },
+  "clearance_m": {
+    "front": 0.6,
+    "back": 0.6,
+    "left": 0.4,
+    "right": 0.4
+  },
+  "maintenance_zone_m": {
+    "front": 0.0,
+    "back": 0.0,
+    "left": 0.0,
+    "right": 0.0
+  },
+  "files": {
+    "obj": "EQ-CH-MED-01.obj",
+    "mtl": "EQ-CH-MED-01.mtl",
+    "stl_m": "EQ-CH-MED-01_m.stl",
+    "stl_mm": "EQ-CH-MED-01_mm.stl"
+  }
+}

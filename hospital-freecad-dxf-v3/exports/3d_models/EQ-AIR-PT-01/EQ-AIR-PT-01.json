@@ -1,0 +1,42 @@
+{
+  "type_id": "EQ-AIR-PT-01",
+  "name": "Prise air medical murale",
+  "family": "TECHNIQUE",
+  "dimensions_m": {
+    "L": 0.1,
+    "l": 0.06,
+    "H": 0.1
+  },
+  "color_rgb": [
+    0.1,
+    0.1,
+    0.7
+  ],
+  "weight_kg": 0.5,
+  "power_VA": 0,
+  "fluids": {
+    "O2": false,
+    "air_medical": true,
+    "vide": false,
+    "eau": false,
+    "evacuation": false
+  },
+  "clearance_m": {
+    "front": 0.5,
+    "back": 0.0,
+    "left": 0.0,
+    "right": 0.0
+  },
+  "maintenance_zone_m": {
+    "front": 0.5,
+    "back": 0.0,
+    "left": 0.0,
+    "right": 0.0
+  },
+  "files": {
+    "obj": "EQ-AIR-PT-01.obj",
+    "mtl": "EQ-AIR-PT-01.mtl",
+    "stl_m": "EQ-AIR-PT-01_m.stl",
+    "stl_mm": "EQ-AIR-PT-01_mm.stl"
+  }
+}

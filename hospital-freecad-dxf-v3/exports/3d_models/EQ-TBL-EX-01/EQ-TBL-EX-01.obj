@@ -1,0 +1,24 @@
+# Equipement biomedical : Table d'examen clinique
+# Type ID : EQ-TBL-EX-01
+# Famille : EXAMEN
+# Dimensions L x l x H (m) : 1.95 x 0.65 x 0.85
+# Poids approx (kg) : 90
+# Genere par hospital-freecad-dxf-v3 / generate_equipment_3d.py
+mtllib EQ-TBL-EX-01.mtl
+o EQ-TBL-EX-01
+v 0.000000 0.000000 0.000000
+v 1.950000 0.000000 0.000000
+v 1.950000 0.650000 0.000000
+v 0.000000 0.650000 0.000000
+v 0.000000 0.000000 0.850000
+v 1.950000 0.000000 0.850000
+v 1.950000 0.650000 0.850000
+v 0.000000 0.650000 0.850000
+usemtl EQ-TBL-EX-01
+s off
+f 1 4 3 2
+f 5 6 7 8
+f 1 2 6 5
+f 4 8 7 3
+f 1 5 8 4
+f 2 3 7 6

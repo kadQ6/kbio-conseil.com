@@ -1,0 +1,24 @@
+# Equipement biomedical : Paillasse laboratoire
+# Type ID : EQ-PAIL-LAB-01
+# Famille : LABORATOIRE
+# Dimensions L x l x H (m) : 2.4 x 0.75 x 0.9
+# Poids approx (kg) : 150
+# Genere par hospital-freecad-dxf-v3 / generate_equipment_3d.py
+mtllib EQ-PAIL-LAB-01.mtl
+o EQ-PAIL-LAB-01
+v 0.000000 0.000000 0.000000
+v 2.400000 0.000000 0.000000
+v 2.400000 0.750000 0.000000
+v 0.000000 0.750000 0.000000
+v 0.000000 0.000000 0.900000
+v 2.400000 0.000000 0.900000
+v 2.400000 0.750000 0.900000
+v 0.000000 0.750000 0.900000
+usemtl EQ-PAIL-LAB-01
+s off
+f 1 4 3 2
+f 5 6 7 8
+f 1 2 6 5
+f 4 8 7 3
+f 1 5 8 4
+f 2 3 7 6

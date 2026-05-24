@@ -1,0 +1,42 @@
+{
+  "type_id": "EQ-BUR-MED-01",
+  "name": "Bureau medecin",
+  "family": "MOBILIER",
+  "dimensions_m": {
+    "L": 1.6,
+    "l": 0.8,
+    "H": 0.74
+  },
+  "color_rgb": [
+    0.6,
+    0.45,
+    0.3
+  ],
+  "weight_kg": 40,
+  "power_VA": 0,
+  "fluids": {
+    "O2": false,
+    "air_medical": false,
+    "vide": false,
+    "eau": false,
+    "evacuation": false
+  },
+  "clearance_m": {
+    "front": 0.9,
+    "back": 0.6,
+    "left": 0.4,
+    "right": 0.4
+  },
+  "maintenance_zone_m": {
+    "front": 0.0,
+    "back": 0.0,
+    "left": 0.0,
+    "right": 0.0
+  },
+  "files": {
+    "obj": "EQ-BUR-MED-01.obj",
+    "mtl": "EQ-BUR-MED-01.mtl",
+    "stl_m": "EQ-BUR-MED-01_m.stl",
+    "stl_mm": "EQ-BUR-MED-01_mm.stl"
+  }
+}

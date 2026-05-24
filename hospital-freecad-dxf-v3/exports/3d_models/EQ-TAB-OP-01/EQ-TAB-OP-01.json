@@ -1,0 +1,42 @@
+{
+  "type_id": "EQ-TAB-OP-01",
+  "name": "Table d'operation",
+  "family": "BLOC",
+  "dimensions_m": {
+    "L": 2.1,
+    "l": 0.55,
+    "H": 0.9
+  },
+  "color_rgb": [
+    0.8,
+    0.85,
+    0.9
+  ],
+  "weight_kg": 350,
+  "power_VA": 800,
+  "fluids": {
+    "O2": false,
+    "air_medical": false,
+    "vide": false,
+    "eau": false,
+    "evacuation": false
+  },
+  "clearance_m": {
+    "front": 1.2,
+    "back": 1.2,
+    "left": 1.2,
+    "right": 1.2
+  },
+  "maintenance_zone_m": {
+    "front": 0.0,
+    "back": 1.0,
+    "left": 0.0,
+    "right": 0.0
+  },
+  "files": {
+    "obj": "EQ-TAB-OP-01.obj",
+    "mtl": "EQ-TAB-OP-01.mtl",
+    "stl_m": "EQ-TAB-OP-01_m.stl",
+    "stl_mm": "EQ-TAB-OP-01_mm.stl"
+  }
+}

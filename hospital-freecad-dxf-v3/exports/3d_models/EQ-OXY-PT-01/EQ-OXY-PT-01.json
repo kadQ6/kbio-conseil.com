@@ -1,0 +1,42 @@
+{
+  "type_id": "EQ-OXY-PT-01",
+  "name": "Prise O2 murale",
+  "family": "TECHNIQUE",
+  "dimensions_m": {
+    "L": 0.1,
+    "l": 0.06,
+    "H": 0.1
+  },
+  "color_rgb": [
+    0.1,
+    0.7,
+    0.1
+  ],
+  "weight_kg": 0.5,
+  "power_VA": 0,
+  "fluids": {
+    "O2": true,
+    "air_medical": false,
+    "vide": false,
+    "eau": false,
+    "evacuation": false
+  },
+  "clearance_m": {
+    "front": 0.5,
+    "back": 0.0,
+    "left": 0.0,
+    "right": 0.0
+  },
+  "maintenance_zone_m": {
+    "front": 0.5,
+    "back": 0.0,
+    "left": 0.0,
+    "right": 0.0
+  },
+  "files": {
+    "obj": "EQ-OXY-PT-01.obj",
+    "mtl": "EQ-OXY-PT-01.mtl",
+    "stl_m": "EQ-OXY-PT-01_m.stl",
+    "stl_mm": "EQ-OXY-PT-01_mm.stl"
+  }
+}

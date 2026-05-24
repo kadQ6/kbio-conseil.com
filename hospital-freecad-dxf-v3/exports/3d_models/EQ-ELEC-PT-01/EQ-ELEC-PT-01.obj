@@ -1,0 +1,24 @@
+# Equipement biomedical : Prise electrique 16A medicale
+# Type ID : EQ-ELEC-PT-01
+# Famille : TECHNIQUE
+# Dimensions L x l x H (m) : 0.08 x 0.04 x 0.08
+# Poids approx (kg) : 0.2
+# Genere par hospital-freecad-dxf-v3 / generate_equipment_3d.py
+mtllib EQ-ELEC-PT-01.mtl
+o EQ-ELEC-PT-01
+v 0.000000 0.000000 0.000000
+v 0.080000 0.000000 0.000000
+v 0.080000 0.040000 0.000000
+v 0.000000 0.040000 0.000000
+v 0.000000 0.000000 0.080000
+v 0.080000 0.000000 0.080000
+v 0.080000 0.040000 0.080000
+v 0.000000 0.040000 0.080000
+usemtl EQ-ELEC-PT-01
+s off
+f 1 4 3 2
+f 5 6 7 8
+f 1 2 6 5
+f 4 8 7 3
+f 1 5 8 4
+f 2 3 7 6

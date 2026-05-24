@@ -1,0 +1,42 @@
+{
+  "type_id": "EQ-COMPR-AIR-01",
+  "name": "Compresseur air medical",
+  "family": "TECHNIQUE",
+  "dimensions_m": {
+    "L": 1.2,
+    "l": 0.8,
+    "H": 1.6
+  },
+  "color_rgb": [
+    0.4,
+    0.4,
+    0.45
+  ],
+  "weight_kg": 350,
+  "power_VA": 5500,
+  "fluids": {
+    "O2": false,
+    "air_medical": false,
+    "vide": false,
+    "eau": false,
+    "evacuation": true
+  },
+  "clearance_m": {
+    "front": 0.8,
+    "back": 0.8,
+    "left": 0.6,
+    "right": 0.6
+  },
+  "maintenance_zone_m": {
+    "front": 0.0,
+    "back": 1.0,
+    "left": 0.6,
+    "right": 0.6
+  },
+  "files": {
+    "obj": "EQ-COMPR-AIR-01.obj",
+    "mtl": "EQ-COMPR-AIR-01.mtl",
+    "stl_m": "EQ-COMPR-AIR-01_m.stl",
+    "stl_mm": "EQ-COMPR-AIR-01_mm.stl"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "type_id": "EQ-TBL-EX-ELEC-01",
+  "name": "Table d'examen electrique 3 plans",
+  "family": "EXAMEN",
+  "dimensions_m": {
+    "L": 2.0,
+    "l": 0.7,
+    "H": 0.95
+  },
+  "color_rgb": [
+    0.8,
+    0.85,
+    0.95
+  ],
+  "weight_kg": 150,
+  "power_VA": 600,
+  "fluids": {
+    "O2": false,
+    "air_medical": false,
+    "vide": false,
+    "eau": false,
+    "evacuation": false
+  },
+  "clearance_m": {
+    "front": 0.9,
+    "back": 0.3,
+    "left": 0.6,
+    "right": 0.6
+  },
+  "maintenance_zone_m": {
+    "front": 0.0,
+    "back": 0.5,
+    "left": 0.0,
+    "right": 0.0
+  },
+  "files": {
+    "obj": "EQ-TBL-EX-ELEC-01.obj",
+    "mtl": "EQ-TBL-EX-ELEC-01.mtl",
+    "stl_m": "EQ-TBL-EX-ELEC-01_m.stl",
+    "stl_mm": "EQ-TBL-EX-ELEC-01_mm.stl"
+  }
+}

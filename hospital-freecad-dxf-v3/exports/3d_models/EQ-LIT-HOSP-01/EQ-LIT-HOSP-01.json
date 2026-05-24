@@ -1,0 +1,42 @@
+{
+  "type_id": "EQ-LIT-HOSP-01",
+  "name": "Lit d'hospitalisation electrique",
+  "family": "MOBILIER",
+  "dimensions_m": {
+    "L": 2.2,
+    "l": 1.0,
+    "H": 0.9
+  },
+  "color_rgb": [
+    0.9,
+    0.9,
+    0.95
+  ],
+  "weight_kg": 160,
+  "power_VA": 250,
+  "fluids": {
+    "O2": false,
+    "air_medical": false,
+    "vide": false,
+    "eau": false,
+    "evacuation": false
+  },
+  "clearance_m": {
+    "front": 1.2,
+    "back": 0.5,
+    "left": 0.8,
+    "right": 0.8
+  },
+  "maintenance_zone_m": {
+    "front": 0.0,
+    "back": 0.5,
+    "left": 0.0,
+    "right": 0.0
+  },
+  "files": {
+    "obj": "EQ-LIT-HOSP-01.obj",
+    "mtl": "EQ-LIT-HOSP-01.mtl",
+    "stl_m": "EQ-LIT-HOSP-01_m.stl",
+    "stl_mm": "EQ-LIT-HOSP-01_mm.stl"
+  }
+}

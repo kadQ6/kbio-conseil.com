@@ -1,0 +1,24 @@
+# Equipement biomedical : Lit d'hospitalisation electrique
+# Type ID : EQ-LIT-HOSP-01
+# Famille : MOBILIER
+# Dimensions L x l x H (m) : 2.2 x 1.0 x 0.9
+# Poids approx (kg) : 160
+# Genere par hospital-freecad-dxf-v3 / generate_equipment_3d.py
+mtllib EQ-LIT-HOSP-01.mtl
+o EQ-LIT-HOSP-01
+v 0.000000 0.000000 0.000000
+v 2.200000 0.000000 0.000000
+v 2.200000 1.000000 0.000000
+v 0.000000 1.000000 0.000000
+v 0.000000 0.000000 0.900000
+v 2.200000 0.000000 0.900000
+v 2.200000 1.000000 0.900000
+v 0.000000 1.000000 0.900000
+usemtl EQ-LIT-HOSP-01
+s off
+f 1 4 3 2
+f 5 6 7 8
+f 1 2 6 5
+f 4 8 7 3
+f 1 5 8 4
+f 2 3 7 6

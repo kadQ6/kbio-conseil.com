@@ -1,0 +1,42 @@
+{
+  "type_id": "EQ-RESP-01",
+  "name": "Respirateur de soins critiques",
+  "family": "VENTILATION",
+  "dimensions_m": {
+    "L": 0.55,
+    "l": 0.5,
+    "H": 1.4
+  },
+  "color_rgb": [
+    0.9,
+    0.9,
+    0.95
+  ],
+  "weight_kg": 95,
+  "power_VA": 350,
+  "fluids": {
+    "O2": true,
+    "air_medical": true,
+    "vide": false,
+    "eau": false,
+    "evacuation": false
+  },
+  "clearance_m": {
+    "front": 1.0,
+    "back": 0.3,
+    "left": 0.5,
+    "right": 0.5
+  },
+  "maintenance_zone_m": {
+    "front": 0.0,
+    "back": 0.6,
+    "left": 0.0,
+    "right": 0.0
+  },
+  "files": {
+    "obj": "EQ-RESP-01.obj",
+    "mtl": "EQ-RESP-01.mtl",
+    "stl_m": "EQ-RESP-01_m.stl",
+    "stl_mm": "EQ-RESP-01_mm.stl"
+  }
+}

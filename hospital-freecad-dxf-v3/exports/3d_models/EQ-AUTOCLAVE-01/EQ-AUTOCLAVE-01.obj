@@ -1,0 +1,24 @@
+# Equipement biomedical : Autoclave 130 L
+# Type ID : EQ-AUTOCLAVE-01
+# Famille : STERILISATION
+# Dimensions L x l x H (m) : 0.8 x 0.9 x 1.85
+# Poids approx (kg) : 250
+# Genere par hospital-freecad-dxf-v3 / generate_equipment_3d.py
+mtllib EQ-AUTOCLAVE-01.mtl
+o EQ-AUTOCLAVE-01
+v 0.000000 0.000000 0.000000
+v 0.800000 0.000000 0.000000
+v 0.800000 0.900000 0.000000
+v 0.000000 0.900000 0.000000
+v 0.000000 0.000000 1.850000
+v 0.800000 0.000000 1.850000
+v 0.800000 0.900000 1.850000
+v 0.000000 0.900000 1.850000
+usemtl EQ-AUTOCLAVE-01
+s off
+f 1 4 3 2
+f 5 6 7 8
+f 1 2 6 5
+f 4 8 7 3
+f 1 5 8 4
+f 2 3 7 6

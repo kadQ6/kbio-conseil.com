@@ -1,0 +1,263 @@
+{
+  "$schema_version": "1.0",
+  "description": "Templates de pieces hospitalieres avec exigences techniques minimales par fonction. Dimensions indicatives en metres. Sources: guide MainH (Mission nationale d'expertise et d'audit hospitaliers) et bonnes pratiques HFH France.",
+  "room_types": {
+    "accueil": {
+      "label": "Accueil / Reception",
+      "criticite": "faible",
+      "surface_min_m2": 12,
+      "surface_recommande_m2": 20,
+      "hauteur_min_m": 2.50,
+      "exigences": {
+        "ventilation_vol_par_h": 2,
+        "eclairement_lux": 300,
+        "prises_elec_min": 4,
+        "prises_data_min": 2,
+        "fluides": []
+      },
+      "zone": "publique"
+    },
+    "attente": {
+      "label": "Salle d'attente",
+      "criticite": "faible",
+      "surface_min_m2": 12,
+      "surface_recommande_m2": 25,
+      "hauteur_min_m": 2.50,
+      "exigences": {
+        "ventilation_vol_par_h": 4,
+        "eclairement_lux": 300,
+        "prises_elec_min": 2,
+        "prises_data_min": 0,
+        "fluides": []
+      },
+      "zone": "publique"
+    },
+    "couloir": {
+      "label": "Circulation / Couloir",
+      "criticite": "faible",
+      "surface_min_m2": 0,
+      "largeur_min_m": 1.50,
+      "largeur_recommande_m": 2.20,
+      "hauteur_min_m": 2.30,
+      "exigences": {
+        "ventilation_vol_par_h": 2,
+        "eclairement_lux": 200,
+        "prises_elec_min": 0,
+        "prises_data_min": 0,
+        "fluides": []
+      },
+      "zone": "circulation",
+      "notes": "1.5 m mini reglementaire. 2.2 m pour passage de lit avec rotation."
+    },
+    "consultation": {
+      "label": "Salle de consultation",
+      "criticite": "moyenne",
+      "surface_min_m2": 12,
+      "surface_recommande_m2": 16,
+      "hauteur_min_m": 2.50,
+      "exigences": {
+        "ventilation_vol_par_h": 4,
+        "eclairement_lux": 500,
+        "prises_elec_min": 6,
+        "prises_data_min": 2,
+        "fluides": [],
+        "point_d_eau": true
+      },
+      "zone": "soins"
+    },
+    "salle_soins": {
+      "label": "Salle de soins",
+      "criticite": "moyenne",
+      "surface_min_m2": 14,
+      "surface_recommande_m2": 18,
+      "hauteur_min_m": 2.50,
+      "exigences": {
+        "ventilation_vol_par_h": 6,
+        "eclairement_lux": 1000,
+        "prises_elec_min": 8,
+        "prises_data_min": 2,
+        "fluides": ["O2", "vide"],
+        "point_d_eau": true
+      },
+      "zone": "soins"
+    },
+    "urgences_box": {
+      "label": "Box d'urgence",
+      "criticite": "haute",
+      "surface_min_m2": 12,
+      "surface_recommande_m2": 16,
+      "hauteur_min_m": 2.70,
+      "exigences": {
+        "ventilation_vol_par_h": 6,
+        "eclairement_lux": 1000,
+        "prises_elec_min": 8,
+        "prises_elec_ondulees_min": 4,
+        "prises_data_min": 2,
+        "fluides": ["O2", "air_medical", "vide"],
+        "point_d_eau": true
+      },
+      "zone": "soins_critiques"
+    },
+    "reanimation_box": {
+      "label": "Box de reanimation",
+      "criticite": "critique",
+      "surface_min_m2": 18,
+      "surface_recommande_m2": 25,
+      "hauteur_min_m": 2.80,
+      "exigences": {
+        "ventilation_vol_par_h": 12,
+        "eclairement_lux": 1000,
+        "prises_elec_min": 16,
+        "prises_elec_ondulees_min": 8,
+        "prises_data_min": 4,
+        "fluides": ["O2", "air_medical", "vide", "N2O"],
+        "point_d_eau": true
+      },
+      "zone": "soins_critiques"
+    },
+    "bloc_operatoire": {
+      "label": "Salle d'operation",
+      "criticite": "critique",
+      "surface_min_m2": 36,
+      "surface_recommande_m2": 45,
+      "hauteur_min_m": 3.00,
+      "exigences": {
+        "ventilation_vol_par_h": 20,
+        "classe_iso_air": "ISO 5 a ISO 7 selon chirurgie",
+        "eclairement_lux": 1000,
+        "prises_elec_min": 16,
+        "prises_elec_ondulees_min": 8,
+        "prises_data_min": 4,
+        "fluides": ["O2", "air_medical", "vide", "N2O", "evacuation_gaz_anesthesie"],
+        "point_d_eau": false
+      },
+      "zone": "bloc"
+    },
+    "sterilisation": {
+      "label": "Sterilisation",
+      "criticite": "haute",
+      "surface_min_m2": 25,
+      "hauteur_min_m": 2.70,
+      "exigences": {
+        "ventilation_vol_par_h": 10,
+        "eclairement_lux": 750,
+        "prises_elec_min": 12,
+        "prises_elec_ondulees_min": 4,
+        "prises_data_min": 4,
+        "fluides": ["eau_osmosee", "vapeur", "evacuation"],
+        "point_d_eau": true
+      },
+      "zone": "technique_propre",
+      "notes": "Marche en avant obligatoire : zone sale -> zone propre."
+    },
+    "imagerie": {
+      "label": "Salle d'imagerie",
+      "criticite": "haute",
+      "surface_min_m2": 25,
+      "hauteur_min_m": 2.80,
+      "exigences": {
+        "ventilation_vol_par_h": 6,
+        "eclairement_lux": 500,
+        "prises_elec_min": 8,
+        "prises_elec_ondulees_min": 4,
+        "prises_data_min": 2,
+        "fluides": [],
+        "blindage_plomb": true
+      },
+      "zone": "soins_technique"
+    },
+    "laboratoire": {
+      "label": "Laboratoire",
+      "criticite": "haute",
+      "surface_min_m2": 20,
+      "hauteur_min_m": 2.70,
+      "exigences": {
+        "ventilation_vol_par_h": 10,
+        "eclairement_lux": 750,
+        "prises_elec_min": 12,
+        "prises_data_min": 4,
+        "fluides": ["eau", "gaz_specifique", "evacuation"],
+        "point_d_eau": true
+      },
+      "zone": "technique_propre"
+    },
+    "local_technique": {
+      "label": "Local technique",
+      "criticite": "moyenne",
+      "surface_min_m2": 6,
+      "hauteur_min_m": 2.30,
+      "exigences": {
+        "ventilation_vol_par_h": 6,
+        "eclairement_lux": 300,
+        "prises_elec_min": 4,
+        "fluides": []
+      },
+      "zone": "technique"
+    },
+    "pharmacie": {
+      "label": "Pharmacie / PUI",
+      "criticite": "haute",
+      "surface_min_m2": 20,
+      "hauteur_min_m": 2.50,
+      "exigences": {
+        "ventilation_vol_par_h": 4,
+        "eclairement_lux": 500,
+        "prises_elec_min": 12,
+        "prises_elec_ondulees_min": 4,
+        "prises_data_min": 4,
+        "fluides": [],
+        "controle_temperature": true
+      },
+      "zone": "technique_propre"
+    },
+    "sanitaire": {
+      "label": "Sanitaire",
+      "criticite": "faible",
+      "surface_min_m2": 3,
+      "hauteur_min_m": 2.30,
+      "exigences": {
+        "ventilation_vol_par_h": 15,
+        "eclairement_lux": 200,
+        "prises_elec_min": 1,
+        "fluides": ["eau", "evacuation"],
+        "point_d_eau": true
+      },
+      "zone": "publique"
+    },
+    "rangement": {
+      "label": "Rangement / Stockage",
+      "criticite": "faible",
+      "surface_min_m2": 4,
+      "hauteur_min_m": 2.30,
+      "exigences": {
+        "ventilation_vol_par_h": 2,
+        "eclairement_lux": 300,
+        "prises_elec_min": 2,
+        "fluides": []
+      },
+      "zone": "technique"
+    },
+    "atelier_biomedical": {
+      "label": "Atelier biomedical",
+      "criticite": "moyenne",
+      "surface_min_m2": 20,
+      "hauteur_min_m": 2.50,
+      "exigences": {
+        "ventilation_vol_par_h": 6,
+        "eclairement_lux": 750,
+        "prises_elec_min": 16,
+        "prises_data_min": 4,
+        "fluides": ["O2_test", "air_medical_test", "vide_test"],
+        "point_d_eau": true
+      },
+      "zone": "technique"
+    }
+  },
+  "circulation_widths": {
+    "couloir_public_min": 1.50,
+    "couloir_brancards_min": 2.20,
+    "porte_chambre_min": 1.10,
+    "porte_bloc_min": 1.40,
+    "porte_acces_pmr_min": 0.90
+  }
+}

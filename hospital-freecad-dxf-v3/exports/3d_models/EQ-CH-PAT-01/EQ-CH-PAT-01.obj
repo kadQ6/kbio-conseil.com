@@ -1,0 +1,24 @@
+# Equipement biomedical : Chaise patient
+# Type ID : EQ-CH-PAT-01
+# Famille : MOBILIER
+# Dimensions L x l x H (m) : 0.55 x 0.55 x 0.85
+# Poids approx (kg) : 8
+# Genere par hospital-freecad-dxf-v3 / generate_equipment_3d.py
+mtllib EQ-CH-PAT-01.mtl
+o EQ-CH-PAT-01
+v 0.000000 0.000000 0.000000
+v 0.550000 0.000000 0.000000
+v 0.550000 0.550000 0.000000
+v 0.000000 0.550000 0.000000
+v 0.000000 0.000000 0.850000
+v 0.550000 0.000000 0.850000
+v 0.550000 0.550000 0.850000
+v 0.000000 0.550000 0.850000
+usemtl EQ-CH-PAT-01
+s off
+f 1 4 3 2
+f 5 6 7 8
+f 1 2 6 5
+f 4 8 7 3
+f 1 5 8 4
+f 2 3 7 6

@@ -1,0 +1,42 @@
+{
+  "type_id": "EQ-MON-MULTI-01",
+  "name": "Moniteur multiparametrique",
+  "family": "MONITORAGE",
+  "dimensions_m": {
+    "L": 0.35,
+    "l": 0.25,
+    "H": 0.3
+  },
+  "color_rgb": [
+    0.15,
+    0.15,
+    0.2
+  ],
+  "weight_kg": 7,
+  "power_VA": 150,
+  "fluids": {
+    "O2": false,
+    "air_medical": false,
+    "vide": false,
+    "eau": false,
+    "evacuation": false
+  },
+  "clearance_m": {
+    "front": 0.5,
+    "back": 0.1,
+    "left": 0.2,
+    "right": 0.2
+  },
+  "maintenance_zone_m": {
+    "front": 0.5,
+    "back": 0.2,
+    "left": 0.0,
+    "right": 0.0
+  },
+  "files": {
+    "obj": "EQ-MON-MULTI-01.obj",
+    "mtl": "EQ-MON-MULTI-01.mtl",
+    "stl_m": "EQ-MON-MULTI-01_m.stl",
+    "stl_mm": "EQ-MON-MULTI-01_mm.stl"
+  }
+}

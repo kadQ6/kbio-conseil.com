@@ -1,0 +1,191 @@
+newmtl EQ-AIR-PT-01
+Ka 0.030 0.030 0.210
+Kd 0.100 0.100 0.700
+Ks 0.100 0.100 0.100
+Ns 10
+d 1.0
+illum 2
+
+newmtl EQ-ARM-MED-01
+Ka 0.270 0.270 0.270
+Kd 0.900 0.900 0.900
+Ks 0.100 0.100 0.100
+Ns 10
+d 1.0
+illum 2
+
+newmtl EQ-AUTOCLAVE-01
+Ka 0.255 0.255 0.270
+Kd 0.850 0.850 0.900
+Ks 0.100 0.100 0.100
+Ns 10
+d 1.0
+illum 2
+
+newmtl EQ-BUR-MED-01
+Ka 0.180 0.135 0.090
+Kd 0.600 0.450 0.300
+Ks 0.100 0.100 0.100
+Ns 10
+d 1.0
+illum 2
+
+newmtl EQ-CH-MED-01
+Ka 0.060 0.060 0.075
+Kd 0.200 0.200 0.250
+Ks 0.100 0.100 0.100
+Ns 10
+d 1.0
+illum 2
+
+newmtl EQ-CH-PAT-01
+Ka 0.105 0.165 0.195
+Kd 0.350 0.550 0.650
+Ks 0.100 0.100 0.100
+Ns 10
+d 1.0
+illum 2
+
+newmtl EQ-CHAR-SOIN-01
+Ka 0.255 0.255 0.270
+Kd 0.850 0.850 0.900
+Ks 0.100 0.100 0.100
+Ns 10
+d 1.0
+illum 2
+
+newmtl EQ-COMPR-AIR-01
+Ka 0.120 0.120 0.135
+Kd 0.400 0.400 0.450
+Ks 0.100 0.100 0.100
+Ns 10
+d 1.0
+illum 2
+
+newmtl EQ-ECG-01
+Ka 0.276 0.276 0.276
+Kd 0.920 0.920 0.920
+Ks 0.100 0.100 0.100
+Ns 10
+d 1.0
+illum 2
+
+newmtl EQ-ECHO-01
+Ka 0.255 0.270 0.285
+Kd 0.850 0.900 0.950
+Ks 0.100 0.100 0.100
+Ns 10
+d 1.0
+illum 2
+
+newmtl EQ-ELEC-PT-01
+Ka 0.285 0.285 0.030
+Kd 0.950 0.950 0.100
+Ks 0.100 0.100 0.100
+Ns 10
+d 1.0
+illum 2
+
+newmtl EQ-LIT-HOSP-01
+Ka 0.270 0.270 0.285
+Kd 0.900 0.900 0.950
+Ks 0.100 0.100 0.100
+Ns 10
+d 1.0
+illum 2
+
+newmtl EQ-MON-MULTI-01
+Ka 0.045 0.045 0.060
+Kd 0.150 0.150 0.200
+Ks 0.100 0.100 0.100
+Ns 10
+d 1.0
+illum 2
+
+newmtl EQ-OXY-PT-01
+Ka 0.030 0.210 0.030
+Kd 0.100 0.700 0.100
+Ks 0.100 0.100 0.100
+Ns 10
+d 1.0
+illum 2
+
+newmtl EQ-PAIL-LAB-01
+Ka 0.255 0.255 0.240
+Kd 0.850 0.850 0.800
+Ks 0.100 0.100 0.100
+Ns 10
+d 1.0
+illum 2
+
+newmtl EQ-PC-MED-01
+Ka 0.060 0.060 0.060
+Kd 0.200 0.200 0.200
+Ks 0.100 0.100 0.100
+Ns 10
+d 1.0
+illum 2
+
+newmtl EQ-PSE-01
+Ka 0.255 0.255 0.270
+Kd 0.850 0.850 0.900
+Ks 0.100 0.100 0.100
+Ns 10
+d 1.0
+illum 2
+
+newmtl EQ-REF-MED-01
+Ka 0.285 0.285 0.285
+Kd 0.950 0.950 0.950
+Ks 0.100 0.100 0.100
+Ns 10
+d 1.0
+illum 2
+
+newmtl EQ-RESP-01
+Ka 0.270 0.270 0.285
+Kd 0.900 0.900 0.950
+Ks 0.100 0.100 0.100
+Ns 10
+d 1.0
+illum 2
+
+newmtl EQ-SCIA-01
+Ka 0.285 0.285 0.300
+Kd 0.950 0.950 1.000
+Ks 0.100 0.100 0.100
+Ns 10
+d 1.0
+illum 2
+
+newmtl EQ-TAB-OP-01
+Ka 0.240 0.255 0.270
+Kd 0.800 0.850 0.900
+Ks 0.100 0.100 0.100
+Ns 10
+d 1.0
+illum 2
+
+newmtl EQ-TBL-EX-01
+Ka 0.255 0.255 0.285
+Kd 0.850 0.850 0.950
+Ks 0.100 0.100 0.100
+Ns 10
+d 1.0
+illum 2
+
+newmtl EQ-TBL-EX-ELEC-01
+Ka 0.240 0.255 0.285
+Kd 0.800 0.850 0.950
+Ks 0.100 0.100 0.100
+Ns 10
+d 1.0
+illum 2
+
+newmtl EQ-VAC-PT-01
+Ka 0.150 0.150 0.150
+Kd 0.500 0.500 0.500
+Ks 0.100 0.100 0.100
+Ns 10
+d 1.0
+illum 2

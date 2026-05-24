@@ -1,0 +1,42 @@
+{
+  "type_id": "EQ-ELEC-PT-01",
+  "name": "Prise electrique 16A medicale",
+  "family": "TECHNIQUE",
+  "dimensions_m": {
+    "L": 0.08,
+    "l": 0.04,
+    "H": 0.08
+  },
+  "color_rgb": [
+    0.95,
+    0.95,
+    0.1
+  ],
+  "weight_kg": 0.2,
+  "power_VA": 0,
+  "fluids": {
+    "O2": false,
+    "air_medical": false,
+    "vide": false,
+    "eau": false,
+    "evacuation": false
+  },
+  "clearance_m": {
+    "front": 0.3,
+    "back": 0.0,
+    "left": 0.0,
+    "right": 0.0
+  },
+  "maintenance_zone_m": {
+    "front": 0.0,
+    "back": 0.0,
+    "left": 0.0,
+    "right": 0.0
+  },
+  "files": {
+    "obj": "EQ-ELEC-PT-01.obj",
+    "mtl": "EQ-ELEC-PT-01.mtl",
+    "stl_m": "EQ-ELEC-PT-01_m.stl",
+    "stl_mm": "EQ-ELEC-PT-01_mm.stl"
+  }
+}

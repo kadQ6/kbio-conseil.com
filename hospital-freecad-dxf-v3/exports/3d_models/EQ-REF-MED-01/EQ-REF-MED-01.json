@@ -1,0 +1,42 @@
+{
+  "type_id": "EQ-REF-MED-01",
+  "name": "Refrigerateur medical 200L",
+  "family": "STOCKAGE_MEDICAL",
+  "dimensions_m": {
+    "L": 0.6,
+    "l": 0.6,
+    "H": 1.3
+  },
+  "color_rgb": [
+    0.95,
+    0.95,
+    0.95
+  ],
+  "weight_kg": 55,
+  "power_VA": 250,
+  "fluids": {
+    "O2": false,
+    "air_medical": false,
+    "vide": false,
+    "eau": false,
+    "evacuation": false
+  },
+  "clearance_m": {
+    "front": 0.9,
+    "back": 0.1,
+    "left": 0.05,
+    "right": 0.05
+  },
+  "maintenance_zone_m": {
+    "front": 0.0,
+    "back": 0.5,
+    "left": 0.0,
+    "right": 0.0
+  },
+  "files": {
+    "obj": "EQ-REF-MED-01.obj",
+    "mtl": "EQ-REF-MED-01.mtl",
+    "stl_m": "EQ-REF-MED-01_m.stl",
+    "stl_mm": "EQ-REF-MED-01_mm.stl"
+  }
+}

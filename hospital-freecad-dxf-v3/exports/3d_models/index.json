@@ -1,0 +1,174 @@
+{
+  "generated_count": 24,
+  "catalog_obj": "equipment_catalog.obj",
+  "equipments": [
+    {
+      "type_id": "EQ-AIR-PT-01",
+      "dir": "exports/3d_models/EQ-AIR-PT-01",
+      "obj": "exports/3d_models/EQ-AIR-PT-01/EQ-AIR-PT-01.obj",
+      "stl_m": "exports/3d_models/EQ-AIR-PT-01/EQ-AIR-PT-01_m.stl",
+      "stl_mm": "exports/3d_models/EQ-AIR-PT-01/EQ-AIR-PT-01_mm.stl"
+    },
+    {
+      "type_id": "EQ-ARM-MED-01",
+      "dir": "exports/3d_models/EQ-ARM-MED-01",
+      "obj": "exports/3d_models/EQ-ARM-MED-01/EQ-ARM-MED-01.obj",
+      "stl_m": "exports/3d_models/EQ-ARM-MED-01/EQ-ARM-MED-01_m.stl",
+      "stl_mm": "exports/3d_models/EQ-ARM-MED-01/EQ-ARM-MED-01_mm.stl"
+    },
+    {
+      "type_id": "EQ-AUTOCLAVE-01",
+      "dir": "exports/3d_models/EQ-AUTOCLAVE-01",
+      "obj": "exports/3d_models/EQ-AUTOCLAVE-01/EQ-AUTOCLAVE-01.obj",
+      "stl_m": "exports/3d_models/EQ-AUTOCLAVE-01/EQ-AUTOCLAVE-01_m.stl",
+      "stl_mm": "exports/3d_models/EQ-AUTOCLAVE-01/EQ-AUTOCLAVE-01_mm.stl"
+    },
+    {
+      "type_id": "EQ-BUR-MED-01",
+      "dir": "exports/3d_models/EQ-BUR-MED-01",
+      "obj": "exports/3d_models/EQ-BUR-MED-01/EQ-BUR-MED-01.obj",
+      "stl_m": "exports/3d_models/EQ-BUR-MED-01/EQ-BUR-MED-01_m.stl",
+      "stl_mm": "exports/3d_models/EQ-BUR-MED-01/EQ-BUR-MED-01_mm.stl"
+    },
+    {
+      "type_id": "EQ-CH-MED-01",
+      "dir": "exports/3d_models/EQ-CH-MED-01",
+      "obj": "exports/3d_models/EQ-CH-MED-01/EQ-CH-MED-01.obj",
+      "stl_m": "exports/3d_models/EQ-CH-MED-01/EQ-CH-MED-01_m.stl",
+      "stl_mm": "exports/3d_models/EQ-CH-MED-01/EQ-CH-MED-01_mm.stl"
+    },
+    {
+      "type_id": "EQ-CH-PAT-01",
+      "dir": "exports/3d_models/EQ-CH-PAT-01",
+      "obj": "exports/3d_models/EQ-CH-PAT-01/EQ-CH-PAT-01.obj",
+      "stl_m": "exports/3d_models/EQ-CH-PAT-01/EQ-CH-PAT-01_m.stl",
+      "stl_mm": "exports/3d_models/EQ-CH-PAT-01/EQ-CH-PAT-01_mm.stl"
+    },
+    {
+      "type_id": "EQ-CHAR-SOIN-01",
+      "dir": "exports/3d_models/EQ-CHAR-SOIN-01",
+      "obj": "exports/3d_models/EQ-CHAR-SOIN-01/EQ-CHAR-SOIN-01.obj",
+      "stl_m": "exports/3d_models/EQ-CHAR-SOIN-01/EQ-CHAR-SOIN-01_m.stl",
+      "stl_mm": "exports/3d_models/EQ-CHAR-SOIN-01/EQ-CHAR-SOIN-01_mm.stl"
+    },
+    {
+      "type_id": "EQ-COMPR-AIR-01",
+      "dir": "exports/3d_models/EQ-COMPR-AIR-01",
+      "obj": "exports/3d_models/EQ-COMPR-AIR-01/EQ-COMPR-AIR-01.obj",
+      "stl_m": "exports/3d_models/EQ-COMPR-AIR-01/EQ-COMPR-AIR-01_m.stl",
+      "stl_mm": "exports/3d_models/EQ-COMPR-AIR-01/EQ-COMPR-AIR-01_mm.stl"
+    },
+    {
+      "type_id": "EQ-ECG-01",
+      "dir": "exports/3d_models/EQ-ECG-01",
+      "obj": "exports/3d_models/EQ-ECG-01/EQ-ECG-01.obj",
+      "stl_m": "exports/3d_models/EQ-ECG-01/EQ-ECG-01_m.stl",
+      "stl_mm": "exports/3d_models/EQ-ECG-01/EQ-ECG-01_mm.stl"
+    },
+    {
+      "type_id": "EQ-ECHO-01",
+      "dir": "exports/3d_models/EQ-ECHO-01",
+      "obj": "exports/3d_models/EQ-ECHO-01/EQ-ECHO-01.obj",
+      "stl_m": "exports/3d_models/EQ-ECHO-01/EQ-ECHO-01_m.stl",
+      "stl_mm": "exports/3d_models/EQ-ECHO-01/EQ-ECHO-01_mm.stl"
+    },
+    {
+      "type_id": "EQ-ELEC-PT-01",
+      "dir": "exports/3d_models/EQ-ELEC-PT-01",
+      "obj": "exports/3d_models/EQ-ELEC-PT-01/EQ-ELEC-PT-01.obj",
+      "stl_m": "exports/3d_models/EQ-ELEC-PT-01/EQ-ELEC-PT-01_m.stl",
+      "stl_mm": "exports/3d_models/EQ-ELEC-PT-01/EQ-ELEC-PT-01_mm.stl"
+    },
+    {
+      "type_id": "EQ-LIT-HOSP-01",
+      "dir": "exports/3d_models/EQ-LIT-HOSP-01",
+      "obj": "exports/3d_models/EQ-LIT-HOSP-01/EQ-LIT-HOSP-01.obj",
+      "stl_m": "exports/3d_models/EQ-LIT-HOSP-01/EQ-LIT-HOSP-01_m.stl",
+      "stl_mm": "exports/3d_models/EQ-LIT-HOSP-01/EQ-LIT-HOSP-01_mm.stl"
+    },
+    {
+      "type_id": "EQ-MON-MULTI-01",
+      "dir": "exports/3d_models/EQ-MON-MULTI-01",
+      "obj": "exports/3d_models/EQ-MON-MULTI-01/EQ-MON-MULTI-01.obj",
+      "stl_m": "exports/3d_models/EQ-MON-MULTI-01/EQ-MON-MULTI-01_m.stl",
+      "stl_mm": "exports/3d_models/EQ-MON-MULTI-01/EQ-MON-MULTI-01_mm.stl"
+    },
+    {
+      "type_id": "EQ-OXY-PT-01",
+      "dir": "exports/3d_models/EQ-OXY-PT-01",
+      "obj": "exports/3d_models/EQ-OXY-PT-01/EQ-OXY-PT-01.obj",
+      "stl_m": "exports/3d_models/EQ-OXY-PT-01/EQ-OXY-PT-01_m.stl",
+      "stl_mm": "exports/3d_models/EQ-OXY-PT-01/EQ-OXY-PT-01_mm.stl"
+    },
+    {
+      "type_id": "EQ-PAIL-LAB-01",
+      "dir": "exports/3d_models/EQ-PAIL-LAB-01",
+      "obj": "exports/3d_models/EQ-PAIL-LAB-01/EQ-PAIL-LAB-01.obj",
+      "stl_m": "exports/3d_models/EQ-PAIL-LAB-01/EQ-PAIL-LAB-01_m.stl",
+      "stl_mm": "exports/3d_models/EQ-PAIL-LAB-01/EQ-PAIL-LAB-01_mm.stl"
+    },
+    {
+      "type_id": "EQ-PC-MED-01",
+      "dir": "exports/3d_models/EQ-PC-MED-01",
+      "obj": "exports/3d_models/EQ-PC-MED-01/EQ-PC-MED-01.obj",
+      "stl_m": "exports/3d_models/EQ-PC-MED-01/EQ-PC-MED-01_m.stl",
+      "stl_mm": "exports/3d_models/EQ-PC-MED-01/EQ-PC-MED-01_mm.stl"
+    },
+    {
+      "type_id": "EQ-PSE-01",
+      "dir": "exports/3d_models/EQ-PSE-01",
+      "obj": "exports/3d_models/EQ-PSE-01/EQ-PSE-01.obj",
+      "stl_m": "exports/3d_models/EQ-PSE-01/EQ-PSE-01_m.stl",
+      "stl_mm": "exports/3d_models/EQ-PSE-01/EQ-PSE-01_mm.stl"
+    },
+    {
+      "type_id": "EQ-REF-MED-01",
+      "dir": "exports/3d_models/EQ-REF-MED-01",
+      "obj": "exports/3d_models/EQ-REF-MED-01/EQ-REF-MED-01.obj",
+      "stl_m": "exports/3d_models/EQ-REF-MED-01/EQ-REF-MED-01_m.stl",
+      "stl_mm": "exports/3d_models/EQ-REF-MED-01/EQ-REF-MED-01_mm.stl"
+    },
+    {
+      "type_id": "EQ-RESP-01",
+      "dir": "exports/3d_models/EQ-RESP-01",
+      "obj": "exports/3d_models/EQ-RESP-01/EQ-RESP-01.obj",
+      "stl_m": "exports/3d_models/EQ-RESP-01/EQ-RESP-01_m.stl",
+      "stl_mm": "exports/3d_models/EQ-RESP-01/EQ-RESP-01_mm.stl"
+    },
+    {
+      "type_id": "EQ-SCIA-01",
+      "dir": "exports/3d_models/EQ-SCIA-01",
+      "obj": "exports/3d_models/EQ-SCIA-01/EQ-SCIA-01.obj",
+      "stl_m": "exports/3d_models/EQ-SCIA-01/EQ-SCIA-01_m.stl",
+      "stl_mm": "exports/3d_models/EQ-SCIA-01/EQ-SCIA-01_mm.stl"
+    },
+    {
+      "type_id": "EQ-TAB-OP-01",
+      "dir": "exports/3d_models/EQ-TAB-OP-01",
+      "obj": "exports/3d_models/EQ-TAB-OP-01/EQ-TAB-OP-01.obj",
+      "stl_m": "exports/3d_models/EQ-TAB-OP-01/EQ-TAB-OP-01_m.stl",
+      "stl_mm": "exports/3d_models/EQ-TAB-OP-01/EQ-TAB-OP-01_mm.stl"
+    },
+    {
+      "type_id": "EQ-TBL-EX-01",
+      "dir": "exports/3d_models/EQ-TBL-EX-01",
+      "obj": "exports/3d_models/EQ-TBL-EX-01/EQ-TBL-EX-01.obj",
+      "stl_m": "exports/3d_models/EQ-TBL-EX-01/EQ-TBL-EX-01_m.stl",
+      "stl_mm": "exports/3d_models/EQ-TBL-EX-01/EQ-TBL-EX-01_mm.stl"
+    },
+    {
+      "type_id": "EQ-TBL-EX-ELEC-01",
+      "dir": "exports/3d_models/EQ-TBL-EX-ELEC-01",
+      "obj": "exports/3d_models/EQ-TBL-EX-ELEC-01/EQ-TBL-EX-ELEC-01.obj",
+      "stl_m": "exports/3d_models/EQ-TBL-EX-ELEC-01/EQ-TBL-EX-ELEC-01_m.stl",
+      "stl_mm": "exports/3d_models/EQ-TBL-EX-ELEC-01/EQ-TBL-EX-ELEC-01_mm.stl"
+    },
+    {
+      "type_id": "EQ-VAC-PT-01",
+      "dir": "exports/3d_models/EQ-VAC-PT-01",
+      "obj": "exports/3d_models/EQ-VAC-PT-01/EQ-VAC-PT-01.obj",
+      "stl_m": "exports/3d_models/EQ-VAC-PT-01/EQ-VAC-PT-01_m.stl",
+      "stl_mm": "exports/3d_models/EQ-VAC-PT-01/EQ-VAC-PT-01_mm.stl"
+    }
+  ]
+}

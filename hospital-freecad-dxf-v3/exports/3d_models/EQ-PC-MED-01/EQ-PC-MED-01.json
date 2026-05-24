@@ -1,0 +1,42 @@
+{
+  "type_id": "EQ-PC-MED-01",
+  "name": "Poste informatique medical",
+  "family": "INFORMATIQUE",
+  "dimensions_m": {
+    "L": 0.55,
+    "l": 0.5,
+    "H": 0.5
+  },
+  "color_rgb": [
+    0.2,
+    0.2,
+    0.2
+  ],
+  "weight_kg": 8,
+  "power_VA": 200,
+  "fluids": {
+    "O2": false,
+    "air_medical": false,
+    "vide": false,
+    "eau": false,
+    "evacuation": false
+  },
+  "clearance_m": {
+    "front": 0.7,
+    "back": 0.1,
+    "left": 0.0,
+    "right": 0.0
+  },
+  "maintenance_zone_m": {
+    "front": 0.0,
+    "back": 0.3,
+    "left": 0.0,
+    "right": 0.0
+  },
+  "files": {
+    "obj": "EQ-PC-MED-01.obj",
+    "mtl": "EQ-PC-MED-01.mtl",
+    "stl_m": "EQ-PC-MED-01_m.stl",
+    "stl_mm": "EQ-PC-MED-01_mm.stl"
+  }
+}

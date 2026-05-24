@@ -1,0 +1,24 @@
+# Equipement biomedical : Table d'operation
+# Type ID : EQ-TAB-OP-01
+# Famille : BLOC
+# Dimensions L x l x H (m) : 2.1 x 0.55 x 0.9
+# Poids approx (kg) : 350
+# Genere par hospital-freecad-dxf-v3 / generate_equipment_3d.py
+mtllib EQ-TAB-OP-01.mtl
+o EQ-TAB-OP-01
+v 0.000000 0.000000 0.000000
+v 2.100000 0.000000 0.000000
+v 2.100000 0.550000 0.000000
+v 0.000000 0.550000 0.000000
+v 0.000000 0.000000 0.900000
+v 2.100000 0.000000 0.900000
+v 2.100000 0.550000 0.900000
+v 0.000000 0.550000 0.900000
+usemtl EQ-TAB-OP-01
+s off
+f 1 4 3 2
+f 5 6 7 8
+f 1 2 6 5
+f 4 8 7 3
+f 1 5 8 4
+f 2 3 7 6
