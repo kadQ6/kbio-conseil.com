@@ -58,12 +58,15 @@ export function buildMetadata({
   const urlEn = new URL(canonicalPathForLocale("en", pathNorm), site.url).toString();
 
   const siteLine = locale === "en" ? SITE_LINE_EN : SITE_LINE_FR;
-  const fullTitle = title === site.name ? siteLine : `${title} | ${site.name}`;
+  const isHome = title === site.name;
+  /** Évite « … | K'BIO | K'BIO » : le layout applique déjà `template: %s | K'BIO`. */
+  const documentTitle = isHome ? { absolute: siteLine } : title;
+  const socialTitle = isHome ? siteLine : `${title} | ${site.name}`;
   const baseKeywords = locale === "en" ? DEFAULT_KEYWORDS_EN : DEFAULT_KEYWORDS_FR;
   const ogLocale = locale === "en" ? "en_US" : "fr_FR";
 
   return {
-    title: fullTitle,
+    title: documentTitle,
     description: resolvedDescription,
     keywords: Array.from(new Set([...baseKeywords, ...keywords])),
     metadataBase: new URL(site.url),
@@ -72,7 +75,7 @@ export function buildMetadata({
       languages: { "fr-FR": urlFr, "en-US": urlEn, "x-default": urlFr },
     },
     openGraph: {
-      title: fullTitle,
+      title: socialTitle,
       description: resolvedDescription,
       url: canonicalUrl,
       siteName: siteLine,
@@ -81,7 +84,7 @@ export function buildMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: fullTitle,
+      title: socialTitle,
       description: resolvedDescription,
     },
     robots: {

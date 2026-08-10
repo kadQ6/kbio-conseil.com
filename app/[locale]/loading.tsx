@@ -14,7 +14,7 @@ export default function Loading() {
           aria-hidden
           className="h-2.5 w-2.5 animate-pulse rounded-full bg-[color:var(--color-teal)] [animation-delay:240ms]"
         />
-        <span className="ml-2 text-sm">Chargement…</span>
+        <span className="sr-only">Chargement…</span>
       </div>
     </div>
   );

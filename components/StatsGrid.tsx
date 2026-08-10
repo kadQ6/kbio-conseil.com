@@ -35,17 +35,24 @@ function Counter({ value, locale }: { value: string; locale: AppLocale }) {
   const inView = useInView(ref, { once: true, amount: 0.6 });
   const numeric = parseFloat(value.replace(/\s/g, "").replace(",", "."));
   const isNumeric = !Number.isNaN(numeric);
-  const [display, setDisplay] = useState(isNumeric ? "0" : value);
+  const [mounted, setMounted] = useState(false);
+  const [display, setDisplay] = useState(value);
   const mv = useMotionValue(0);
   const formatted = useTransform(mv, (v) => formatLikeOriginal(v, value, locale));
 
   useEffect(() => {
-    if (!isNumeric) return;
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!mounted || !isNumeric) return;
     if (!inView) return;
     if (reduce) {
       setDisplay(value);
       return;
     }
+    mv.set(0);
+    setDisplay(formatLikeOriginal(0, value, locale));
     const controls = animate(mv, numeric, {
       duration: 1.2,
       ease: [0.22, 1, 0.36, 1],
@@ -55,10 +62,10 @@ function Counter({ value, locale }: { value: string; locale: AppLocale }) {
       controls.stop();
       unsub();
     };
-  }, [inView, numeric, isNumeric, value, reduce, mv, formatted]);
+  }, [mounted, inView, numeric, isNumeric, value, reduce, mv, formatted, locale]);
 
   return (
-    <motion.span ref={ref} className="inline-block">
+    <motion.span ref={ref} className="inline-block" suppressHydrationWarning>
       {display}
     </motion.span>
   );
